@@ -1,4 +1,5 @@
-﻿using HotelManagementSystem.Models.RecommendedHotels;
+﻿using HotelManagementSystem.Models.IndexHotels;
+using HotelManagementSystem.Models.RecommendedHotels;
 using HotelManagementSystem.Models.SearchHotels;
 
 namespace HotelManagementSystem.Services
@@ -10,5 +11,7 @@ namespace HotelManagementSystem.Services
         Task<IEnumerable<AllHotelsBySearchViewModel>> GetAll();
 
         Task<IEnumerable<RecommendedHotelsViewModel>> RecommendedHotels();
+
+        Task<IEnumerable<TravelersChoiceHotelsViewModel>> TravelersChoiceHotels();
     }
 }

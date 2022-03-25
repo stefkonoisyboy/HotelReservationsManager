@@ -1,4 +1,5 @@
 ﻿using HotelManagementSystem.Data;
+using HotelManagementSystem.Models.IndexHotels;
 using HotelManagementSystem.Models.RecommendedHotels;
 using HotelManagementSystem.Models.SearchHotels;
 using Microsoft.EntityFrameworkCore;
@@ -47,7 +48,7 @@ namespace HotelManagementSystem.Services
         public async Task<IEnumerable<RecommendedHotelsViewModel>> RecommendedHotels()
         {
             var query = await this.dbContext.Hotels
-                .OrderBy(h => h.Stars)
+                .OrderByDescending(h => h.Stars)
                 .Select(h => new RecommendedHotelsViewModel
                 {
                     Name = h.Name,
@@ -112,6 +113,26 @@ namespace HotelManagementSystem.Services
                .Where(h => h.Name.ToLower().Contains(input.Destination.ToLower()))
                .ToList();
             }
+
+            return query.ToList();
+        }
+
+        public async Task<IEnumerable<TravelersChoiceHotelsViewModel>> TravelersChoiceHotels()
+        {
+            var query = await this.dbContext.Hotels
+                .OrderByDescending(h => h.Reviews.Count)
+                .Select(h => new TravelersChoiceHotelsViewModel
+                {
+                    Name = h.Name,
+                    Descripton = h.Descripton,
+                    Discount = h.Discount,
+                    MainImage = h.MainImage,
+                    Stars = h.Stars,
+                    Town = h.Town.Name,
+                    Country = h.Country.Name,
+                    Reviews = h.Reviews.Count,
+                    ReviewsStars = h.Reviews.Count == 0 ? 0 : h.Reviews.Select(r => r.Rating).Average(),
+                }).ToListAsync();
 
             return query.ToList();
         }

@@ -19,6 +19,7 @@ namespace HotelManagementSystem.Controllers
         public async Task<IActionResult> Index()
         {
             this.ViewData["RecommendedHotels"] = await this.hotelsService.RecommendedHotels();
+            this.ViewData["TravelersChoiceHotels"] = await this.hotelsService.TravelersChoiceHotels();
 
             return this.View();
         }

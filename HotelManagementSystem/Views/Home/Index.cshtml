@@ -1,9 +1,13 @@
-﻿@using HotelManagementSystem.Models.RecommendedHotels
+﻿@using HotelManagementSystem.Models.IndexHotels
+@using HotelManagementSystem.Models.RecommendedHotels
 @{
     ViewData["Title"] = "Home Page";
 
     IEnumerable<RecommendedHotelsViewModel> recommendedHotels = this.ViewData["RecommendedHotels"]
-    as IEnumerable<RecommendedHotelsViewModel>;
+        as IEnumerable<RecommendedHotelsViewModel>;
+
+    IEnumerable<TravelersChoiceHotelsViewModel> travelersChoiceHotels = this.ViewData["TravelersChoiceHotels"]
+        as IEnumerable<TravelersChoiceHotelsViewModel>;
 }
 
 <!DOCTYPE html>
@@ -674,9 +678,9 @@
                                                 </figure>
                                                 <div class="details">
                                                     <a title="View all" href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-molino-stucky-venice/" class="pull-right button uppercase">select</a>
-                                                    <h4 class="box-title"><a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-molino-stucky-venice/">@hotel.Name</a> <div title="4-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: 80%;"></span></div></h4>
+                                                    <h4 class="box-title"><a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-molino-stucky-venice/">@hotel.Name</a> <div title="@hotel.Stars-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: 80%;"></span></div></h4>
                                                     <label class="price-wrapper">
-                                                        <span class="price-per-unit">$@hotel.Discount</span>avg/night
+                                                        <span class="price-per-unit">$@hotel.Discount.ToString("F2")</span>avg/night
                                                     </label>
                                                 </div>
                                             </article>
@@ -686,126 +690,33 @@
                                 </ul>
                             </div><div class="vc_row wpb_row vc_inner row block"><div class="wpb_column col-sm-12 col-md-6"><div class="vc_column-inner "><div class="wpb_wrapper"><h2>Hot Hotel Details</h2><div class="tab-container clearfix style1"><ul class="tabs clearfix"><li class="active"><a href="#1459860373749-4" data-toggle="tab">POPULAR</a></li><li><a href="#1459860373828-8" data-toggle="tab">LAS VEGAS</a></li><li><a href="#1459860373890-8" data-toggle="tab">Paris</a></li><li><a href="#1459860373950-2" data-toggle="tab">SAN FRANSISCO</a></li><li><a href="#1459860374008-10" data-toggle="tab">FRANCE</a></li></ul><div class="tab-content"><div id="1459860373749-4" class="tab-pane fade active in"><div class="listing-style4"></div></div><div id="1459860373828-8" class="tab-pane fade"><div class="listing-style4"></div></div><div id="1459860373890-8" class="tab-pane fade"><div class="listing-style4"></div></div><div id="1459860373950-2" class="tab-pane fade"><div class="listing-style4"></div></div><div id="1459860374008-10" class="tab-pane fade"><div class="listing-style4"></div></div></div></div></div></div></div><div class="wpb_column col-sm-12 col-md-6"><div class="vc_column-inner "><div class="wpb_wrapper"><h2>What Travelers Say?</h2><div class="testimonial style1 box"><ul class="slides "><li><p class="description">This is the 3rd time I’ve used Travelo website and telling you the truth their services are always realiable and it only takes few minutes to plan and finalize your entire trip using their extremely fast website and up to date listings.</p><div class="author-section clearfix"><a href="/"><img src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/author1.png" alt="author-image" width="74" height="74" /></a><h5 class="name">Jessica Brown</h5></div></li><li><p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</p><div class="author-section clearfix"><a href="/"><img src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/author2.png" alt="author-image" width="74" height="74" /></a><h5 class="name">Lisa Kimberly</h5></div></li><li><p class="description">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p><div class="author-section clearfix"><a href="/"><img src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/author3.jpg" alt="author-image" width="74" height="74" /></a><h5 class="name">Simon</h5></div></li></ul></div></div></div></div></div><h2>Travelers Choice of Hotels</h2><div class="block image-carousel style2 flexslider" data-animation="slide" data-item-width="270" data-item-margin="30">
                                 <ul class="slides hotel image-box listing-style1">
-                                    <li>
-                                        <article class="box">
-                                            <figure>
-                                                <a href="#" data-post_id="45" class="hover-effect popup-gallery"><img width="500" height="300" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/4-500x300.jpg" class="attachment-biggallery-thumb size-biggallery-thumb wp-post-image" alt="" /></a>
-                                            </figure>
-                                            <div class="details">
-                                                <span class="price"><small>avg/night</small>$120.00</span>
-                                                <h4 class="box-title">
-                                                    <a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-hotel-and-resorts/">Hilton Hotel</a>
-                                                    <div title="4-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: 80%;"></span></div>							<small>Paris France</small>
-                                                </h4>
-                                                <div class="feedback">
-                                                    <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="4.9 stars"><span style="width: 98%;" class="five-stars"></span></div>
-                                                    <span class="review">2 reviews</span>
+                                    @foreach (var hotel in travelersChoiceHotels)
+                                    {
+                                        <li>
+                                            <article class="box">
+                                                <figure>
+                                                    <a href="#" data-post_id="45" class="hover-effect popup-gallery"><img width="500" height="300" src=@hotel.MainImage class="attachment-biggallery-thumb size-biggallery-thumb wp-post-image" alt="" /></a>
+                                                </figure>
+                                                <div class="details">
+                                                    <span class="price"><small>avg/night</small>$@hotel.Discount.ToString("F2")</span>
+                                                    <h4 class="box-title">
+                                                        <a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-hotel-and-resorts/">@hotel.Name</a>
+                                                        <div title="@hotel.Stars-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: 80%;"></span></div>							<small>@hotel.Town @hotel.Country</small>
+                                                    </h4>
+                                                    <div class="feedback">
+                                                        <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="@hotel.ReviewsStars stars"><span style="width: 98%;" class="five-stars"></span></div>
+                                                        <span class="review">@hotel.Reviews reviews</span>
+                                                    </div>
+                                                    <p class="description">@hotel.Descripton</p>
+                                                    <div class="action clearfix">
+                                                        <a class="button btn-small" href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-hotel-and-resorts/">SELECT</a>
+                                                        <a class="button btn-small yellow popup-map" href="#" data-box="48.852923161237605,2.3688732539673083">VIEW ON MAP</a>
+                                                    </div>
                                                 </div>
-                                                <p class="description">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.</p>
-                                                <div class="action clearfix">
-                                                    <a class="button btn-small" href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-hotel-and-resorts/">SELECT</a>
-                                                    <a class="button btn-small yellow popup-map" href="#" data-box="48.852923161237605,2.3688732539673083">VIEW ON MAP</a>
-                                                </div>
-                                            </div>
-                                        </article>
+                                            </article>
 
-                                    </li>
-                                    <li>
-                                        <article class="box">
-                                            <figure>
-                                                <a href="#" data-post_id="192" class="hover-effect popup-gallery"><img width="500" height="300" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/6-500x300.jpg" class="attachment-biggallery-thumb size-biggallery-thumb wp-post-image" alt="" /></a>
-                                            </figure>
-                                            <div class="details">
-                                                <span class="price"><small>avg/night</small>$300.00</span>
-                                                <h4 class="box-title">
-                                                    <a href="https://www.soaptheme.net/wordpress/travelo/accommodation/aqua-palace/">Aqua Palace</a>
-                                                    <div title="4-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: 80%;"></span></div>							<small>San Francisco United States</small>
-                                                </h4>
-                                                <div class="feedback">
-                                                    <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="0 stars"><span style="width: 0%;" class="five-stars"></span></div>
-                                                    <span class="review">0 reviews</span>
-                                                </div>
-                                                <p class="description">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.</p>
-                                                <div class="action clearfix">
-                                                    <a class="button btn-small" href="https://www.soaptheme.net/wordpress/travelo/accommodation/aqua-palace/">SELECT</a>
-                                                    <a class="button btn-small yellow popup-map" href="#" data-box="45.4367709,12.338808800000038">VIEW ON MAP</a>
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                    </li>
-                                    <li>
-                                        <article class="box">
-                                            <figure>
-                                                <a href="#" data-post_id="189" class="hover-effect popup-gallery"><img width="500" height="300" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/7-500x300.jpg" class="attachment-biggallery-thumb size-biggallery-thumb wp-post-image" alt="" /></a>
-                                            </figure>
-                                            <div class="details">
-                                                <span class="price"><small>avg/night</small>$260.00</span>
-                                                <h4 class="box-title">
-                                                    <a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hotel-colombina/">Hotel Colombina</a>
-                                                    <div title="3-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: 60%;"></span></div>							<small>San Francisco United States</small>
-                                                </h4>
-                                                <div class="feedback">
-                                                    <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="5 stars"><span style="width: 100%;" class="five-stars"></span></div>
-                                                    <span class="review">1 reviews</span>
-                                                </div>
-                                                <p class="description">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.</p>
-                                                <div class="action clearfix">
-                                                    <a class="button btn-small" href="https://www.soaptheme.net/wordpress/travelo/accommodation/hotel-colombina/">SELECT</a>
-                                                    <a class="button btn-small yellow popup-map" href="#" data-box="45.4373082,12.34101540000006">VIEW ON MAP</a>
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                    </li>
-                                    <li>
-                                        <article class="box">
-                                            <figure>
-                                                <a href="#" data-post_id="193" class="hover-effect popup-gallery"><img width="500" height="300" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/9-500x300.jpg" class="attachment-biggallery-thumb size-biggallery-thumb wp-post-image" alt="" /></a>
-                                            </figure>
-                                            <div class="details">
-                                                <span class="price"><small>avg/night</small>$410.00</span>
-                                                <h4 class="box-title">
-                                                    <a href="https://www.soaptheme.net/wordpress/travelo/accommodation/carnival-palace-hotel/">Carnival Palace Hotel</a>
-                                                    <div title="4-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: 80%;"></span></div>							<small>Las Vegas United States</small>
-                                                </h4>
-                                                <div class="feedback">
-                                                    <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="0 stars"><span style="width: 0%;" class="five-stars"></span></div>
-                                                    <span class="review">0 reviews</span>
-                                                </div>
-                                                <p class="description">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.</p>
-                                                <div class="action clearfix">
-                                                    <a class="button btn-small" href="https://www.soaptheme.net/wordpress/travelo/accommodation/carnival-palace-hotel/">SELECT</a>
-                                                    <a class="button btn-small yellow popup-map" href="#" data-box="45.4460904,12.3203843">VIEW ON MAP</a>
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                    </li>
-                                    <li>
-                                        <article class="box">
-                                            <figure>
-                                                <a href="#" data-post_id="209" class="hover-effect popup-gallery"><img width="500" height="300" src="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2014/11/6-500x300.jpg" class="attachment-biggallery-thumb size-biggallery-thumb wp-post-image" alt="" /></a>
-                                            </figure>
-                                            <div class="details">
-                                                <span class="price"><small>avg/night</small>$617.00</span>
-                                                <h4 class="box-title">
-                                                    <a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-molino-stucky-venice/">Hilton Molino Stucky</a>
-                                                    <div title="4-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: 80%;"></span></div>							<small>Las Vegas United States</small>
-                                                </h4>
-                                                <div class="feedback">
-                                                    <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="0 stars"><span style="width: 0%;" class="five-stars"></span></div>
-                                                    <span class="review">0 reviews</span>
-                                                </div>
-                                                <p class="description">Nunc cursus libero purus ac congue arcu cursus ut sed vitae pulvinar massa idporta nequetiam.</p>
-                                                <div class="action clearfix">
-                                                    <a class="button btn-small" href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-molino-stucky-venice/">SELECT</a>
-                                                    <a class="button btn-small yellow popup-map" href="#" data-box="45.4236966,12.328462599999966">VIEW ON MAP</a>
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                    </li>
+                                        </li>
+                                    }
                                 </ul>
                             </div>
                         </div><div class="parallax global-map-area" data-stellar-background-ratio="0.1">
