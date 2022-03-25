@@ -1,4 +1,5 @@
 ﻿using HotelManagementSystem.Models;
+using HotelManagementSystem.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -7,14 +8,18 @@ namespace HotelManagementSystem.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IHotelsService hotelsService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IHotelsService hotelsService)
         {
             _logger = logger;
+            this.hotelsService = hotelsService;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            this.ViewData["RecommendedHotels"] = await this.hotelsService.RecommendedHotels();
+
             return this.View();
         }
 

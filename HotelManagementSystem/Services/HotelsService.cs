@@ -1,4 +1,5 @@
 ﻿using HotelManagementSystem.Data;
+using HotelManagementSystem.Models.RecommendedHotels;
 using HotelManagementSystem.Models.SearchHotels;
 using Microsoft.EntityFrameworkCore;
 
@@ -39,6 +40,21 @@ namespace HotelManagementSystem.Services
                    .Sum(r => r.ChildPrice * 1 + r.AdultPrice * 2),
                })
                .ToListAsync();
+
+            return query.ToList();
+        }
+
+        public async Task<IEnumerable<RecommendedHotelsViewModel>> RecommendedHotels()
+        {
+            var query = await this.dbContext.Hotels
+                .OrderBy(h => h.Stars)
+                .Select(h => new RecommendedHotelsViewModel
+                {
+                    Name = h.Name,
+                    MainImage = h.MainImage,
+                    Stars = h.Stars,
+                    Discount = h.Discount,
+                }).ToListAsync();
 
             return query.ToList();
         }
