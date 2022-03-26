@@ -24,6 +24,10 @@ namespace HotelManagementSystem.Controllers
             return this.View();
         }
 
+        public IActionResult AboutUs()
+        {
+            return this.View();
+        }
         public IActionResult Privacy()
         {
             return this.View();

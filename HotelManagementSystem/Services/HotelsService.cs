@@ -1,4 +1,5 @@
 ﻿using HotelManagementSystem.Data;
+using HotelManagementSystem.Models.HotelsList;
 using HotelManagementSystem.Models.IndexHotels;
 using HotelManagementSystem.Models.RecommendedHotels;
 using HotelManagementSystem.Models.SearchHotels;
@@ -135,6 +136,29 @@ namespace HotelManagementSystem.Services
                 }).ToListAsync();
 
             return query.ToList();
+        }
+
+        public async Task<IEnumerable<HotelInHotelsListViewModel>> GetHotelsList()
+        {
+            var hotelsQuery = await this.dbContext.Hotels
+               .OrderByDescending(h => h.Rooms.Count)
+               .Select(h => new HotelInHotelsListViewModel
+               {
+                   Name = h.Name,
+                   Descripton = h.Descripton,
+                   //Price = int.Parse(h.AccommodationType.ToString()) *
+                   //(h.Rooms.Sum(r => r.AdultPrice * r.Capacity) - h.Rooms.Sum(r => r.AdultPrice * r.Capacity) * (h.Discount / 100)),
+                   MainImage = h.MainImage,
+                   Discount = h.Discount,
+                   Stars = h.Stars,
+                   Town = h.Town.Name,
+                   Country = h.Country.Name,
+                   Reviews = h.Reviews.Count,
+                   ReviewsStars = h.Reviews.Count == 0 ? 0 : h.Reviews.Average(r => r.Rating),
+               })
+               .ToListAsync();
+
+            return hotelsQuery.ToList();
         }
     }
 }

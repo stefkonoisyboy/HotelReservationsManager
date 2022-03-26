@@ -106,6 +106,7 @@ img.emoji {
     background-attachment: initial !important;
 }
 </style>
+
 <link rel='stylesheet' id='trav_style_responsive-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/responsive.min.css?ver=5.2.15' type='text/css' media='all' />
 <!--[if lt IE 9]>
 <link rel='stylesheet' id='vc_lte_ie9-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css?ver=6.0.1' type='text/css' media='screen' />
@@ -163,15 +164,13 @@ img.emoji {
 								<nav id="main-menu" class="menu-main-menu-container"><ul id="menu-main-menu" class="menu"><li id="menu-item-1108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-1108"><a href="/">Home</a>
 
 </li>
-<li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a>About</a>
+<li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Home" asp-action="AboutUs">About</a>
 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a>Contact us</a>
 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="SearchHotels" asp-action="List">Search Hotels</a>
-<li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="SearchHotels" asp-action="List">Hotels List</a>
+<li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="HotelsList" asp-action="HotelsList">Hotels List</a>
 
-
-
-
-</ul></nav>		</div><!-- .container -->
+</ul>
+</nav>		</div><!-- .container -->
 
 		</div><!-- .main-header -->
 	</div><!-- #main-header -->
@@ -530,50 +529,46 @@ img.emoji {
                              @if (this.Model.Hotels.Count() == 0) 
 							 {
 										<h1>No hotels found!</h1>
-									}
-									else
-									{
-										       @foreach (var hotel in this.Model.Hotels)
-                                    {
-                                         <article class="box">
-            <figure class="col-sm-5 col-md-4">
-                <a ><img width="270" height="160" src="@hotel.MainImage" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" /></a>
-                                                @if (hotel.Discount != 0)
-                                                {
+							 }
+						     else
+						     {
+								 @foreach (var hotel in this.Model.Hotels)
+                                 {
+                                          <article class="box">
+                                                 <figure class="col-sm-5 col-md-4">
+                                                      <a ><img width="270" height="160" src="@hotel.MainImage" class="attachment-gallery-thumb size-gallery-thumb wp-post-image" alt="" /></a>
+                                           @if (hotel.Discount != 0)
+                                           {
                                                     <span class="discount"><span class="discount-text">@hotel.Discount% Discount</span></span>
-                                                }
+                                           }
                                             </figure>
-            <div class="details col-sm-7 col-md-8">
-                <div>
-                    <div>
-                        <h4 class="box-title"><a asp-controller="Hotels" asp-action="Details" asp-route-id="@hotel.Id">@hotel.Name</a> <div title="@hotel.Stars-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: @hotel.StarsPercent%;"></span></div><small><i class="soap-icon-departure yellow-color"></i> @hotel.Town, @hotel.Country</small></h4>
-                    </div>
-                    <div>
-                        <div class="five-stars-container">
-                            <span class="five-stars" style="width: @hotel.RatingPercent%;"></span>
-                        </div>
-                        <span class="review">@hotel.ReviewsCount reviews</span>
-                    </div>
-                </div>
-                <div>
-                    <p>@hotel.Description</p>
-                    <div>
-                        <span class="price"><small>avg/night</small>$@hotel.AveragePrice.ToString("f2")</span>
-                        <a title="View Detail" class="button btn-small full-width text-center" href="https://www.soaptheme.net/wordpress/travelo/accommodation/aqua-palace/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to">SELECT</a>
-                    </div>
-                </div>
-            </div>
-        </article>
-                                    }
+                                               <div class="details col-sm-7 col-md-8">
+                                                   <div>
+                                                       <div>
+                                                           <h4 class="box-title"><a asp-controller="Hotels" asp-action="Details" asp-route-id="@hotel.Id">@hotel.Name</a> <div title="@hotel.Stars-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: @hotel.StarsPercent%;"></span></div><small><i class="soap-icon-departure yellow-color"></i> @hotel.Town, @hotel.Country</small></h4>
+                                                       </div>
+                                                       <div>
+                                                           <div class="five-stars-container">
+                                                               <span class="five-stars" style="width: @hotel.RatingPercent%;"></span>
+                                                           </div>
+                                                           <span class="review">@hotel.ReviewsCount reviews</span>
+                                                       </div>
+                                                   </div>
+                                                   <div>
+                                                       <p>@hotel.Description</p>
+                                                       <div>
+                                                           <span class="price"><small>avg/night</small>$@hotel.AveragePrice.ToString("f2")</span>
+                                                           <a title="View Detail" class="button btn-small full-width text-center" href="https://www.soaptheme.net/wordpress/travelo/accommodation/aqua-palace/?adults=1&#038;kids=0&#038;rooms=1&#038;date_from&#038;date_to">SELECT</a>
+                                                       </div>
+                                                   </div>
+                                                   </div>
+                                               </article>
+                                             }
 									}
-
-        
 
                             </div>
-
-                        
                         </div>
-                                    </div>
+                     </div>
             </div>
         </div>
     </div>

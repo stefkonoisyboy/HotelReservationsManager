@@ -215,14 +215,11 @@
                             <ul id="menu-main-menu" class="menu">
                                 <li id="menu-item-1108" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-1108">
                                     <a href="/">Home</a>
-
                                 </li>
-                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a>About</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Home" asp-action="AboutUs">About</a>
                                 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a>Contact us</a>
                                 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="SearchHotels" asp-action="List">Search Hotels</a>
-                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="SearchHotels" asp-action="List">Hotels List</a>
-
-
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="HotelsList" asp-action="HotelsList">Hotels List</a>
 
                             </ul>
                         </nav>
@@ -701,7 +698,7 @@
                                                     <span class="price"><small>avg/night</small>$@hotel.Discount.ToString("F2")</span>
                                                     <h4 class="box-title">
                                                         <a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-hotel-and-resorts/">@hotel.Name</a>
-                                                        <div title="@hotel.Stars-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: 80%;"></span></div>							<small>@hotel.Town @hotel.Country</small>
+                                                        <div title="@hotel.Stars-star Hotel" class="five-stars-container no-back-star" data-toggle="tooltip" data-placement="bottom"><span class="five-stars" style="width: 80%;"></span></div>	<small>@hotel.Town @hotel.Country</small>
                                                     </h4>
                                                     <div class="feedback">
                                                         <div data-placement="bottom" data-toggle="tooltip" class="five-stars-container" title="@hotel.ReviewsStars stars"><span style="width: 98%;" class="five-stars"></span></div>
@@ -714,7 +711,6 @@
                                                     </div>
                                                 </div>
                                             </article>
-
                                         </li>
                                     }
                                 </ul>
@@ -822,16 +818,6 @@
                                     <li class="pinterest"><a title="pinterest" href="httpss://www.pinterest.com/soaptheme" target="_blank" data-toggle="tooltip"><i class="soap-icon-pinterest"></i></a></li>
 
                                     <li class="vimeo"><a title="vimeo" href="httpss://www.vimeo.com/soaptheme" target="_blank" data-toggle="tooltip"><i class="soap-icon-vimeo"></i></a></li>
-
-
-
-
-
-
-
-
-
-
 
                                 </ul>
                             </div>
