@@ -4,6 +4,11 @@ namespace HotelManagementSystem.Data
 {
     public class Room
     {
+        public Room()
+        {
+            this.Reservations = new HashSet<Reservation>();
+        }
+
         public int Id { get; set; }
 
         public string? Name { get; set; }
@@ -21,5 +26,7 @@ namespace HotelManagementSystem.Data
         public int HotelId { get; set; }
 
         public virtual Hotel? Hotel { get; set; }
+
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

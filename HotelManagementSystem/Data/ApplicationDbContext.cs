@@ -23,5 +23,12 @@ namespace HotelManagementSystem.Data
         public virtual DbSet<Photo>? Photos { get; set; }
 
         public virtual DbSet<Amenity>? Amenities { get; set; }
+
+        public virtual DbSet<Client>? Clients{ get; set; }
+
+        public virtual DbSet<ClientReservation>? ClientReservations { get; set; }
+
+        public virtual DbSet<Reservation>? Reservations { get; set; }
+
     }
 }
