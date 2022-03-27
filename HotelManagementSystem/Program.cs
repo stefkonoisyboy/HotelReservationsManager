@@ -16,6 +16,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IHotelsService, HotelsService>();
+builder.Services.AddTransient<IClientsService, ClientsService>();
 
 var app = builder.Build();
 

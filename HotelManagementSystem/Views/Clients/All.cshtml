@@ -1,0 +1,78 @@
+﻿@using HotelManagementSystem.Models.Clients
+@model AllClientsListViewModel
+
+@{
+	this.ViewData["Title"] = "All Clients";
+}
+
+<style>
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/fonts.icomoon.style.css">
+    <link rel="stylesheet" href="~/css/table.style.css">
+</style>
+@if(this.TempData.ContainsKey("Message")){
+	<div class="alert alert-success alert-dismissible">
+        <a id="message" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @this.TempData["Message"]
+    </div>
+}
+
+@if(this.TempData.ContainsKey("ErrorMessage")){
+	<div class="alert alert-danger alert-dismissible">
+        <a id="message" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @this.TempData["ErrorMessage"]
+    </div>
+}
+
+<h1 class="text-center my-5">
+	ALL CLIENTS
+</h1>
+@{
+    int number = 1;
+}
+<table class="table table-striped custom-table">
+          <thead>
+            <tr>
+              <th scope="col">Client #</th>
+              <th scope="col">Name</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Reservations Count</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+              @foreach(var client in this.Model.Clients.ToList())
+               {
+               	<tr scope="row" class="active">
+                    <td>
+                    @(number++)
+                    </td>
+                    <td class="pl-0">
+                      <div class="d-flex align-items-center">
+                        <a href="#" class="name">@client.FirstName @client.LastName</a>
+                      </div>
+                    </td>
+                    <td>@client.PhoneNumber</td>
+                    <td>
+                        <span class="badge bg-primary">
+                             @client.ReservationsCount
+                        </span>
+                    </td>
+                    <td>
+                        <a asp-action="ById" asp-controller="Clients" asp-route-id="@client.Id">
+                            <h6>
+                               Details
+                            </h6>    
+                        </a>
+                        <a class="btn btn-primary" asp-action="Delete" asp-controller="Clients" asp-route-id="@client.Id">
+                            <svg height="16" width="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                        </a>
+                        <a class="btn btn-success" asp-action="UpdateClient" asp-controller="Clients" asp-route-id="@client.Id">
+                            <svg height="16" width="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+                        </a> 
+                    </td>
+                </tr>
+              }
+        </tbody>
+</table>
+

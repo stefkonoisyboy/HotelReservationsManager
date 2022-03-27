@@ -1,0 +1,124 @@
+﻿@using HotelManagementSystem.Models.Clients
+@model ClientViewModel
+@{
+    this.ViewData["Title"] = "Client Details";
+}
+@if(this.TempData.ContainsKey("Message")){
+	<div class="alert alert-success alert-dismissible">
+        <a id="message" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @this.TempData["Message"]
+    </div>
+}
+<style>
+    #form-details{
+        display:block;
+
+    }
+
+    #client-reservations{
+        display:none;
+    }
+
+    .option{
+        border:2px solid black;
+        padding: 10px;
+        font-weight:bold;
+    }
+
+</style>
+
+<div class="container">
+    <h1 class="text-center my-5">CLIENT DETAILS</h1>
+<div class="container-info my-5">
+   <div class="row">
+        <div class="col-md-3 option">
+            <button onclick="openFormDetails()" class="border-0 bg-transparent flex-fill">Client Details</button>
+        </div>
+        <div class="col-md-3 option">
+        <button onclick="openReservations()" class="border-0 bg-transparent flex-fill">Made Reservations</button>
+    </div>
+    </div>
+    <div id="form-details">
+        <div class="row" >
+            <div class="col-md-4">
+                <div class="my-4">
+                    <h4>Name:</h4>
+                    <h5>@this.Model.FirstName @this.Model.LastName</h5>
+                </div>
+                <div>
+                    <h4>Contact:</h4>
+                    <h5>@this.Model.PhoneNumber</h5>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="my-4">
+                    <h4>Email:</h4>
+                    <h5>@this.Model.Email</h5>
+                </div>
+                <div>
+                    <h4>Is Adult:</h4>
+                    <h5>@(this.Model.IsAdult ? "more than 18" : "less than 18")</h5>
+                </div>
+            </div>
+    </div>
+    </div> 
+    <div id="client-reservations">
+            @if (this.Model.Reservations.Any())
+            {
+                <div>
+                    No Reservations!
+                </div>
+            }
+        <div>
+            Reservations: <span class="badge">10</span> | Active Reservation: <span class="badge py-2" style="background:green;"></span>  
+        </div>
+        @foreach (var reservation in this.Model.Reservations)
+        {
+            <div class="d-flex">
+                <div class="flex-grow-1" style="height:200px">
+                    <img style="height:100px" src="@reservation.PhotoRemoteUrl" alt="Hotel Image Text" />
+                    <div class="row">
+                        <div class="col-md-4">
+                            <p>
+                                <h3>@reservation.HotelName</h3>
+                                <h6 class="text-black-50">@reservation.RoomName</h6>
+                            </p>
+                        </div>
+                        <div class="col-md-4">
+                            <h6>
+                                <span class="badge">
+                                    @reservation.ClientsCount
+                                </span>
+                            </h6>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="mr-4">
+                    @reservation.GeneralAmount
+                </div>
+            </div>
+        }
+    </div>
+</div>
+</div> 
+
+<script>
+    function openReservations() {
+        unchoose("form-details");
+        choose("client-reservations");
+    }
+
+    function openFormDetails() {
+        unchoose("client-reservations");
+        choose("form-details");
+    }
+
+    function unchoose(selector) {
+        document.getElementById(selector).style.display = "none";
+    }
+
+    function choose(selector) {
+        document.getElementById(selector).style.display = "block";
+    }
+</script>
