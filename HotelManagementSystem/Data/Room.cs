@@ -13,6 +13,10 @@ namespace HotelManagementSystem.Data
 
         public string? Name { get; set; }
 
+        public string? Description { get; set; }
+
+        public string? MainImage { get; set; }
+
         public int Capacity { get; set; }
 
         public RoomType RoomType { get; set; }

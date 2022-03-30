@@ -2,6 +2,8 @@
 using HotelManagementSystem.Models.Clients;
 using HotelManagementSystem.Models.Reservations;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelManagementSystem.Services
 {
@@ -97,6 +99,18 @@ namespace HotelManagementSystem.Services
                 PhoneNumber = c.PhoneNumber,
                 ReservationsCount = c.Reservations.Count(),
             }).ToList();
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetAllAsSelectListItemsAsync()
+        {
+            return await this.dbContext.Clients
+                .OrderBy(c => c.FirstName + ' ' + c.LastName)
+                .Select(c => new SelectListItem
+                {
+                    Text = c.FirstName + ' ' + c.LastName,
+                    Value = c.Id.ToString(),
+                })
+                .ToListAsync();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using HotelManagementSystem.Models.Clients;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HotelManagementSystem.Services
 {
@@ -12,6 +13,8 @@ namespace HotelManagementSystem.Services
 
 
         IEnumerable<AllClientsViewModel>? GetAll();
+
+        Task<IEnumerable<SelectListItem>> GetAllAsSelectListItemsAsync();
 
         ClientViewModel? GetById(int id);
     }
