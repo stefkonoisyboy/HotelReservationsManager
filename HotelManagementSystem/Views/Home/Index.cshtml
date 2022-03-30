@@ -10,6 +10,22 @@
         as IEnumerable<TravelersChoiceHotelsViewModel>;
 }
 
+@if (this.TempData.ContainsKey("Error"))
+{
+    <div class="alert alert-danger alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @this.TempData["Error"]
+    </div>
+}
+
+@if (this.TempData.ContainsKey("Message"))
+{
+    <div class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @this.TempData["Message"]
+    </div>
+}
+
 <!DOCTYPE html>
 <!--[if IE 7 ]> <html class="ie7 oldie" lang="en-US"> <![endif]-->
 <!--[if IE 8 ]> <html class="ie8 oldie" lang="en-US"> <![endif]-->

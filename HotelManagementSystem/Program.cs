@@ -11,12 +11,15 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddTransient<IHotelsService, HotelsService>();
 builder.Services.AddTransient<IClientsService, ClientsService>();
+builder.Services.AddTransient<IReviewsService, ReviewsService>();
+builder.Services.AddTransient<IReservationsService, ReservationsService>();
+builder.Services.AddTransient<IRoomsService, RoomsService>();
 
 var app = builder.Build();
 

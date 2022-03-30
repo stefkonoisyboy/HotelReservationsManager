@@ -1,7 +1,11 @@
 ﻿using HotelManagementSystem.Data;
+using HotelManagementSystem.Models.Hotels;
 using HotelManagementSystem.Models.HotelsList;
 using HotelManagementSystem.Models.IndexHotels;
+using HotelManagementSystem.Models.Photos;
 using HotelManagementSystem.Models.RecommendedHotels;
+using HotelManagementSystem.Models.Reviews;
+using HotelManagementSystem.Models.Rooms;
 using HotelManagementSystem.Models.SearchHotels;
 using Microsoft.EntityFrameworkCore;
 
@@ -159,6 +163,76 @@ namespace HotelManagementSystem.Services
                .ToListAsync();
 
             return hotelsQuery.ToList();
+        }
+
+        public async Task<HotelsDetailsViewModel> GetById(int id)
+        {
+            return await this.dbContext.Hotels
+               .Where(h => h.Id == id)
+               .Select(h => new HotelsDetailsViewModel
+               {
+                   Id = h.Id,
+                   Name = h.Name,
+                   Description = h.Descripton,
+                   MainImage = h.MainImage,
+                   Stars = h.Stars,
+                   Discount = h.Discount,
+                   AccommodationType = h.AccommodationType.ToString(),
+                   Town = h.Town.Name,
+                   Country = h.Country.Name,
+                   ReviewsCount = h.Reviews.Count(),
+                   Rating = h.Reviews.Count() == 0 ? 0 : h.Reviews.Average(r => r.Rating),
+                   Amenities = h.Amenities
+                   .Select(a => a)
+                   .ToList(),
+                   AveragePrice = h.Rooms
+                   .OrderBy(r => r.AdultPrice + r.ChildPrice)
+                   .Take(1)
+                   .Sum(r => r.ChildPrice * 1 + r.AdultPrice * 2),
+                   Reviews = h.Reviews
+                   .Where(r => r.HotelId == id)
+                   .OrderByDescending(r => r.Rating)
+                   .Take(3)
+                   .Select(r => new AllReviewsByHotelIdViewModel
+                   {
+                       Content = r.Content,
+                       Id = r.Id,
+                       Rating = r.Rating,
+                       UserFullName = r.User.FirstName + ' ' + r.User.LastName,
+                       UserProfileImage = r.User.ProfileImage,
+                   })
+                   .ToList(),
+                   Photos = h.Photos
+                   .Where(p => p.HotelId == id)
+                   .OrderBy(p => p.Id)
+                   .Select(p => new AllPhotosByHotelIdViewModel
+                   {
+                       RemoteUrl = p.RemoteUrl,
+                   })
+                   .ToList(),
+                   Rooms = h.Rooms
+                   .Where(r => r.HotelId == id)
+                   .OrderBy(r => r.Id)
+                   .Select(r => new AllRoomsByHotelIdViewModel
+                   {
+                       AdultPrice = r.AdultPrice,
+                       Capacity = r.Capacity,
+                       ChildPrice = r.ChildPrice,
+                       Description = r.Description,
+                       Id = r.Id,
+                       Name = r.Name,
+                       MainImage = r.MainImage,
+                   })
+                   .ToList(),
+               })
+               .FirstOrDefaultAsync();
+        }
+
+        public string GetHotelNameByRoomId(int roomId)
+        {
+            return this.dbContext.Hotels
+                .FirstOrDefault(h => h.Rooms.Any(r => r.Id == roomId))
+                .Name;
         }
     }
 }

@@ -15,5 +15,7 @@
         public int HotelId { get; set; }
 
         public virtual Hotel? Hotel { get; set; }
+
+        public DateTime CreatedOn { get; set; }
     }
 }
