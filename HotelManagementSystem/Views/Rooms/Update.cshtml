@@ -1,0 +1,62 @@
+﻿@using HotelManagementSystem.Models.Rooms
+@model UpdateRoomInputModel 
+@{
+    this.ViewData["Title"] = "Update Room";
+}
+
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6" style="background:#f5f5f5;">
+        <form asp-controller="Rooms" asp-action="Update" method="post">
+            <div class="form-group">
+                <label asp-for="InputModel.Name"></label>
+                <input class="form-control" type="text" asp-for="InputModel.Name" />
+            </div>
+            <div class="form-group">
+                <label asp-for="InputModel.Description"></label>
+                <textarea asp-for="InputModel.Description" rows="12" class="form-control">
+                                                       </textarea>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="InputModel.MainImage"></label>
+                <input asp-for="InputModel.MainImage" />
+            </div>
+            <div class="form-group">
+                <select class="form-control" asp-for="InputModel.RoomType">
+                    @foreach (var roomType in this.Model.InputModel.RoomTypes)
+                    {
+                        <option value="@roomType">@roomType</option>
+                    }
+                </select>
+            </div>
+            <div class="form-check">
+                <input asp-for="InputModel.IsFree" class="form-check-input" type="checkbox" id="flexCheckDefault">
+                <label asp-for="InputModel.IsFree" class="form-check-label" for="flexCheckDefault">
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="InputModel.Capacity"></label>
+                <input type="number" asp-for="InputModel.Capacity" class="form-control" />
+            </div>
+            <div>
+
+            </div>
+            <input asp-for="InputModel.HotelId" />
+            <div>
+                <label asp-for="InputModel.AdultPrice"></label>
+                <input class="form-control" asp-for="InputModel.AdultPrice" />
+            </div>
+            <div>
+                <label asp-for="InputModel.ChildPrice"></label>
+                <input class="form-control" asp-for="InputModel.ChildPrice" />
+            </div>
+            <button class="btn btn-success">UPDATE</button>
+        </form>
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>

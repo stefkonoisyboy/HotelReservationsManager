@@ -89,16 +89,22 @@ namespace HotelManagementSystem.Services
             await this.dbContext.SaveChangesAsync();
         }
 
-        public IEnumerable<AllClientsViewModel>? GetAll()
+        public async Task<IEnumerable<AllClientsViewModel>> GetAllAsync(int page, int itemsPerPage)
         {
-            return this.dbContext.Clients?.Select(c => new AllClientsViewModel()
+            return await this.dbContext.Clients
+                .Skip((page-1)*itemsPerPage)
+                .Take(itemsPerPage)
+                .OrderBy(c=>c.FirstName)
+                .ThenBy(c=>c.LastName)
+                .Select(c => new AllClientsViewModel()
             {
                 Id = c.Id,
                 FirstName = c.FirstName,
                 LastName = c.LastName,
                 PhoneNumber = c.PhoneNumber,
                 ReservationsCount = c.Reservations.Count(),
-            }).ToList();
+            })
+            .ToListAsync();
         }
 
         public async Task<IEnumerable<SelectListItem>> GetAllAsSelectListItemsAsync()
@@ -111,6 +117,34 @@ namespace HotelManagementSystem.Services
                     Value = c.Id.ToString(),
                 })
                 .ToListAsync();
+        }
+
+        public async Task<IEnumerable<AllClientsViewModel>> FilterByFirstNameAndLastName(FirstNameAndLastNameInputModel inputModel, int page, int itemsPerPage = 5)
+        {
+            return await this.dbContext.Clients
+                .Where(c => c.FirstName.Contains(inputModel.FirstName) || c.LastName.Contains(inputModel.LastName))
+                .OrderBy(c => c.FirstName)
+                .Skip((page - 1) * itemsPerPage)
+                .Take(itemsPerPage)
+                .Select(c => new AllClientsViewModel()
+                {
+                    Id = c.Id,
+                    FirstName = c.FirstName,
+                    LastName = c.LastName,
+                    PhoneNumber = c.PhoneNumber,
+                    ReservationsCount = c.Reservations.Count(),
+                }).ToListAsync();
+        }
+
+        public int GetClientsCount()
+        {
+            return this.dbContext.Clients.Count();
+        }
+
+        public int GetFilteredClientsCount(FirstNameAndLastNameInputModel inputModel)
+        {
+            return this.dbContext.Clients
+                .Where(c => c.FirstName.Contains(inputModel.FirstName) && c.LastName.Contains(inputModel.LastName)).Count();
         }
     }
 }
