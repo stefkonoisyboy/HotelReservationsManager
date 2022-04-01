@@ -10,5 +10,7 @@ namespace HotelManagementSystem.Models.Hotels
         public IEnumerable<AllRoomsByHotelIdViewModel>? Rooms { get; set; }
 
         public IEnumerable<AllReviewsByHotelIdViewModel>? Reviews { get; set; }
+
+        public CreateRoomInputModel InputModel { get; set; }
     }
 }

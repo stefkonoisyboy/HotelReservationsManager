@@ -99,14 +99,49 @@ namespace HotelManagementSystem.Controllers
             return this.RedirectToAction("All", "Clients");
         }
 
-        public IActionResult All()
+        public async Task<IActionResult> All(int page = 1)
         {
+            const int itemsPerPage = 5;
             AllClientsListViewModel viewModel = new AllClientsListViewModel()
             {
-                Clients = this.clientsService.GetAll(),
+                PageNumber = page,
+                ItemsPerPage = itemsPerPage,
+                ItemsCount = this.clientsService.GetClientsCount(),
+                Clients = await this.clientsService.GetAllAsync(page,itemsPerPage),
             };
 
             return this.View(viewModel);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AllFilteredByFirstNameAndLastName(FirstNameAndLastNameInputModel inputModel, int page=1)
+        {
+            const int itemsPerpage = 5;
+            if (!this.ModelState.IsValid)
+            {
+                return this.RedirectToAction("All", "Clients");
+            }
+
+            try
+            {
+                AllClientsListViewModel viewModel = new AllClientsListViewModel()
+                {
+                    Clients = await this.clientsService.FilterByFirstNameAndLastName(inputModel, page, itemsPerpage),
+                    ItemsCount = this.clientsService.GetFilteredClientsCount(inputModel),
+                    ItemsPerPage = itemsPerpage,
+                    PageNumber = page,
+                    InputModel = inputModel,
+                };
+
+                return this.View(viewModel);
+            }
+            catch (Exception)
+            {
+                this.TempData["Error"] = "There was an error!";
+                return this.RedirectToAction("All", "Clients");
+            }
+        }
+
+       
     }
 }

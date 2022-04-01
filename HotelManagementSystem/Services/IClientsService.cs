@@ -12,10 +12,16 @@ namespace HotelManagementSystem.Services
         Task UpdateAsync(UpdateClientInputModel inputModel);
 
 
-        IEnumerable<AllClientsViewModel>? GetAll();
+        Task<IEnumerable<AllClientsViewModel>> GetAllAsync(int page, int itemsPerPage = 5);
+
+        int GetClientsCount();
+
+        int GetFilteredClientsCount(FirstNameAndLastNameInputModel inputModel);
 
         Task<IEnumerable<SelectListItem>> GetAllAsSelectListItemsAsync();
 
         ClientViewModel? GetById(int id);
+
+        Task<IEnumerable<AllClientsViewModel>> FilterByFirstNameAndLastName(FirstNameAndLastNameInputModel inputModel, int page, int itemsPerPage = 5);
     }
 }

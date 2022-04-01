@@ -55,7 +55,7 @@
 <link rel="alternate" type="application/rss+xml" title="Travelo - Travel/Tour Booking WordPress Theme &raquo; Feed" href="https://www.soaptheme.net/wordpress/travelo/feed/" />
 <link rel="alternate" type="application/rss+xml" title="Travelo - Travel/Tour Booking WordPress Theme &raquo; Comments Feed" href="https://www.soaptheme.net/wordpress/travelo/comments/feed/" />
 		<script type="text/javascript">
-			window._wpemojiSettings = {"baseUrl":"httpss:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"httpss:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.15"}};
+			window._wpemojiSettings = {"baseUrl":"httpss:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\","ext":".png","svgUrl":"httpss:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.soaptheme.net\/wordpress\/travelo\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.15"}};
 			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])?!1:!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
 		</script>
 		<style type="text/css">
@@ -359,7 +359,76 @@ img.emoji {
                             <div class="tab-content">
                                 <div class="tab-pane fade" id="hotel-availability">
                                    
-                                    <h2>Available Rooms</h2>
+                                    <div class="d-flex">
+                                        <h2 class="flex-grow-1">Available Rooms</h2>
+                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createRoomModal">
+                                             CREATE ROOM
+                                        </button>
+                                        
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="createRoomModal" tabindex="-1" aria-labelledby="createRoomModalLabel" aria-hidden="true">
+                                          <div class="modal-dialog">
+                                            <div class="modal-content">
+                                              <div class="modal-header">
+                                                <h5 class="modal-title" id="createRoomModalLabel">CREATE ROOM</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                              </div>
+                                              <div class="modal-body">
+                                                <form asp-controller="Rooms" asp-action="Create" asp-route-hotelid="@this.Model.Id" method="post">
+                                                   <div class="form-group">
+                                                       <label asp-for="InputModel.Name"></label>
+                                                       <input class="form-control" type="text" asp-for="InputModel.Name" />
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <label asp-for="InputModel.Description"></label>
+                                                       <textarea asp-for="InputModel.Description" rows="12" class="form-control">
+                                                       </textarea>
+                                                      
+                                                   </div>
+                                                   <div class="form-group">
+                                                        <label asp-for="InputModel.MainImage"></label>
+                                                        <input asp-for="InputModel.MainImage"/>
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <select class="form-control" asp-for="InputModel.RoomType">
+                                                           @foreach(var roomType in this.Model.InputModel.RoomTypes){
+                                                               <option value="@roomType">@roomType</option>
+                                                           }
+                                                       </select>
+                                                   </div>
+                                                   <div class="form-check">
+                                                     <input asp-for="InputModel.IsFree" class="form-check-input" type="checkbox" id="flexCheckDefault">
+                                                     <label asp-for="InputModel.IsFree" class="form-check-label" for="flexCheckDefault">
+                                                     </label>
+                                                   </div>
+                                                   <div class="form-group">
+                                                       <label asp-for="InputModel.Capacity"></label>        
+                                                       <input type="number" asp-for="InputModel.Capacity" class="form-control" />
+                                                   </div>
+                                                   <div>
+
+                                                   </div>
+                                                    <input asp-for="InputModel.HotelId"/> 
+                                                    <div>
+                                                        <label asp-for="InputModel.AdultPrice"></label>
+                                                        <input class="form-control" asp-for="InputModel.AdultPrice"/>
+                                                    </div>
+                                                    <div>
+                                                        <label asp-for="InputModel.ChildPrice"></label>
+                                                        <input class="form-control" asp-for="InputModel.ChildPrice"/>
+                                                    </div>
+                                                    <button class="btn btn-success">CREATE</button>
+                                                </form>
+                                              </div>
+                                              <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>    
+                                    </div>
+                                        
                                     <div class="room-list listing-style3 hotel">
 
                                         
