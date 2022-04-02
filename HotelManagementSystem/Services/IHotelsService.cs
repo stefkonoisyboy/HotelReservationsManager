@@ -20,6 +20,12 @@ namespace HotelManagementSystem.Services
 
         Task<IEnumerable<TravelersChoiceHotelsViewModel>> TravelersChoiceHotels();
 
-        Task<IEnumerable<HotelInHotelsListViewModel>> GetHotelsList();
+        Task<IEnumerable<HotelInHotelsListViewModel>> GetBestStarredHotelsList();
+
+        Task<IEnumerable<HotelInHotelsListViewModel>> GetMostReviewedHotelsList();
+
+        Task<IEnumerable<HotelInHotelsListViewModel>> GetMostReviewsStarsHotelsList();
+
+        Task<IEnumerable<HotelInHotelsListViewModel>> CheapestHotelsList();
     }
 }

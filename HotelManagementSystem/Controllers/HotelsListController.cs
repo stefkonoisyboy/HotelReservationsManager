@@ -14,7 +14,11 @@ namespace HotelManagementSystem.Controllers
 
         public async Task<IActionResult> HotelsList()
         {
-            this.ViewData["HotelsList"] = await this.hotelsService.GetHotelsList();
+            this.ViewData["BestStarredHotels"] = await this.hotelsService.GetBestStarredHotelsList();
+            this.ViewData["MostReviewedHotels"] = await this.hotelsService.GetMostReviewedHotelsList();
+            this.ViewData["MostReviewsStarsHotels"] = await this.hotelsService.GetMostReviewsStarsHotelsList();
+            this.ViewData["CheapestHotels"] = await this.hotelsService.CheapestHotelsList();
+
             return this.View();
         }
     }

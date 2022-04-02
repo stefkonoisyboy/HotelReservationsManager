@@ -11,47 +11,47 @@
     <div class="col-md-6" style="background:#f5f5f5;">
         <form asp-controller="Rooms" asp-action="Update" method="post">
             <div class="form-group">
-                <label asp-for="InputModel.Name"></label>
-                <input class="form-control" type="text" asp-for="InputModel.Name" />
+                <label asp-for="@Model.Name"></label>
+                <input class="form-control" type="text" asp-for="@Model.Name" />
             </div>
             <div class="form-group">
-                <label asp-for="InputModel.Description"></label>
-                <textarea asp-for="InputModel.Description" rows="12" class="form-control">
+                <label asp-for="@Model.Description"></label>
+                <textarea asp-for="@Model.Description" rows="12" class="form-control">
                                                        </textarea>
 
             </div>
             <div class="form-group">
-                <label asp-for="InputModel.MainImage"></label>
-                <input asp-for="InputModel.MainImage" />
+                <label asp-for="@Model.MainImage"></label>
+                <input asp-for="@Model.MainImage" />
             </div>
             <div class="form-group">
-                <select class="form-control" asp-for="InputModel.RoomType">
-                    @foreach (var roomType in this.Model.InputModel.RoomTypes)
+                <select class="form-control" asp-for="@Model.RoomType">
+                    @foreach (var roomType in this.Model.RoomTypes)
                     {
                         <option value="@roomType">@roomType</option>
                     }
                 </select>
             </div>
             <div class="form-check">
-                <input asp-for="InputModel.IsFree" class="form-check-input" type="checkbox" id="flexCheckDefault">
-                <label asp-for="InputModel.IsFree" class="form-check-label" for="flexCheckDefault">
+                <input asp-for="@Model.IsFree" class="form-check-input" type="checkbox" id="flexCheckDefault">
+                <label asp-for="@Model.IsFree" class="form-check-label" for="flexCheckDefault">
                 </label>
             </div>
             <div class="form-group">
-                <label asp-for="InputModel.Capacity"></label>
-                <input type="number" asp-for="InputModel.Capacity" class="form-control" />
+                <label asp-for="@Model.Capacity"></label>
+                <input type="number" asp-for="@Model.Capacity" class="form-control" />
             </div>
             <div>
 
             </div>
-            <input asp-for="InputModel.HotelId" />
+            <input asp-for="@Model.HotelId" />
             <div>
-                <label asp-for="InputModel.AdultPrice"></label>
-                <input class="form-control" asp-for="InputModel.AdultPrice" />
+                <label asp-for="@Model.AdultPrice"></label>
+                <input class="form-control" asp-for="@Model.AdultPrice" />
             </div>
             <div>
-                <label asp-for="InputModel.ChildPrice"></label>
-                <input class="form-control" asp-for="InputModel.ChildPrice" />
+                <label asp-for="@Model.ChildPrice"></label>
+                <input class="form-control" asp-for="@Model.ChildPrice" />
             </div>
             <button class="btn btn-success">UPDATE</button>
         </form>

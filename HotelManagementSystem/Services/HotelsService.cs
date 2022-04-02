@@ -142,16 +142,15 @@ namespace HotelManagementSystem.Services
             return query.ToList();
         }
 
-        public async Task<IEnumerable<HotelInHotelsListViewModel>> GetHotelsList()
+        public async Task<IEnumerable<HotelInHotelsListViewModel>> GetBestStarredHotelsList()
         {
             var hotelsQuery = await this.dbContext.Hotels
-               .OrderByDescending(h => h.Rooms.Count)
+               .OrderByDescending(h => h.Stars)
                .Select(h => new HotelInHotelsListViewModel
                {
                    Name = h.Name,
                    Descripton = h.Descripton,
-                   //Price = int.Parse(h.AccommodationType.ToString()) *
-                   //(h.Rooms.Sum(r => r.AdultPrice * r.Capacity) - h.Rooms.Sum(r => r.AdultPrice * r.Capacity) * (h.Discount / 100)),
+                   Price = (decimal)(h.Stars * 50 + h.Country.Name.Length + h.Town.Name.Length),
                    MainImage = h.MainImage,
                    Discount = h.Discount,
                    Stars = h.Stars,
@@ -161,6 +160,80 @@ namespace HotelManagementSystem.Services
                    ReviewsStars = h.Reviews.Count == 0 ? 0 : h.Reviews.Average(r => r.Rating),
                })
                .ToListAsync();
+
+            return hotelsQuery.ToList();
+        }
+
+
+        public async Task<IEnumerable<HotelInHotelsListViewModel>> GetMostReviewedHotelsList()
+        {
+            var hotelsQuery = await this.dbContext.Hotels
+               .OrderByDescending(h => h.Reviews.Count)
+               .ThenByDescending(h => h.Stars)
+               .Select(h => new HotelInHotelsListViewModel
+               {
+                   Name = h.Name,
+                   Descripton = h.Descripton,
+                   Price = (decimal)(h.Stars * 50 + h.Country.Name.Length + h.TownId),
+                   MainImage = h.MainImage,
+                   Discount = h.Discount,
+                   Stars = h.Stars,
+                   Town = h.Town.Name,
+                   Country = h.Country.Name,
+                   Reviews = h.Reviews.Count,
+                   ReviewsStars = h.Reviews.Count == 0 ? 0 : h.Reviews.Average(r => r.Rating),
+               })
+               .ToListAsync();
+
+            return hotelsQuery.ToList();
+        }
+
+
+        public async Task<IEnumerable<HotelInHotelsListViewModel>> GetMostReviewsStarsHotelsList()
+        {
+            var hotelsQuery = await this.dbContext.Hotels
+               .Select(h => new HotelInHotelsListViewModel
+               {
+                   Name = h.Name,
+                   Descripton = h.Descripton,
+                   Price = (decimal)(h.Stars * 50 + h.Country.Name.Length + h.TownId),
+                   MainImage = h.MainImage,
+                   Discount = h.Discount,
+                   Stars = h.Stars,
+                   Town = h.Town.Name,
+                   Country = h.Country.Name,
+                   Reviews = h.Reviews.Count,
+                   ReviewsStars = h.Reviews.Count == 0 ? 0 : h.Reviews.Average(r => r.Rating),
+               })
+               .OrderByDescending(h => h.ReviewsStars)
+               .ThenByDescending(h => h.Reviews)
+               .ThenByDescending(h => h.Stars)
+               .ToListAsync();
+
+            return hotelsQuery.ToList();
+        }
+
+
+        public async Task<IEnumerable<HotelInHotelsListViewModel>> CheapestHotelsList()
+        {
+            var hotelsQuery = await this.dbContext.Hotels
+                .Select(h => new HotelInHotelsListViewModel
+                {
+                    Name = h.Name,
+                    Descripton = h.Descripton,
+                    Price = (decimal)(h.Stars * 50 + h.Country.Name.Length + h.TownId),
+                    MainImage = h.MainImage,
+                    Discount = h.Discount,
+                    Stars = h.Stars,
+                    Town = h.Town.Name,
+                    Country = h.Country.Name,
+                    Reviews = h.Reviews.Count,
+                    ReviewsStars = h.Reviews.Count == 0 ? 0 : h.Reviews.Average(r => r.Rating),
+                })
+                .OrderBy(h => h.Price)
+                .ThenByDescending(h => h.Reviews)
+                .ThenByDescending(h => h.Stars)
+                .ToListAsync();
 
             return hotelsQuery.ToList();
         }

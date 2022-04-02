@@ -47,6 +47,8 @@ namespace HotelManagementSystem.Services
 
         public UpdateRoomInputModel GetByIdForUpdate(int id)
         {
+            Room room = this.dbContext.Rooms.FirstOrDefault(r => r.Id == id);
+
             return this.dbContext.Rooms.Select(c => new UpdateRoomInputModel()
             {
                 Id = c.Id,
@@ -58,9 +60,8 @@ namespace HotelManagementSystem.Services
                 IsFree = c.IsFree,
                 MainImage = c.MainImage,
                 Name = c.Name,
-                RoomType = c.RoomType
-                
-            });
+                RoomType = Enum.GetName<RoomType>(c.RoomType),
+            }).FirstOrDefault(r => r.Id == id);
         }
 
         public string GetRoomName(int id)

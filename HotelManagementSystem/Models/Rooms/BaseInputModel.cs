@@ -2,7 +2,7 @@
 
 namespace HotelManagementSystem.Models.Rooms
 {
-    public class BaseInputModel
+    public abstract class BaseInputModel
     {
         public string Name { get; set; }
 
