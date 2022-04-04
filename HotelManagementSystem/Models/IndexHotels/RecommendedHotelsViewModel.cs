@@ -8,6 +8,6 @@
 
         public int Stars { get; set; }
 
-        public int Discount { get; set; }
+        public decimal AveragePrice { get; set; }
     }
 }

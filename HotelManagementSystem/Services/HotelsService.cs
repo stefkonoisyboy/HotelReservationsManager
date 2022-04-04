@@ -59,7 +59,7 @@ namespace HotelManagementSystem.Services
                     Name = h.Name,
                     MainImage = h.MainImage,
                     Stars = h.Stars,
-                    Discount = h.Discount,
+                    AveragePrice = h.Rooms.Count() == 0 ? 0 : h.Rooms.Select(x => x.AdultPrice).Average(),
                 }).ToListAsync();
 
             return query.ToList();
@@ -130,7 +130,7 @@ namespace HotelManagementSystem.Services
                 {
                     Name = h.Name,
                     Descripton = h.Descripton,
-                    Discount = h.Discount,
+                    AveragePrice = h.Rooms.Count() == 0 ? 0 : h.Rooms.Select(x => x.AdultPrice).Average(),
                     MainImage = h.MainImage,
                     Stars = h.Stars,
                     Town = h.Town.Name,
