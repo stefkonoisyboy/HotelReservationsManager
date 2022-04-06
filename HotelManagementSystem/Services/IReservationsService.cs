@@ -4,11 +4,13 @@ namespace HotelManagementSystem.Services
 {
     public interface IReservationsService
     {
-        Task CreateAsync(CreateReservationInputModel input);
+        Task CreateAsync(int roomId, string creatorId, CreateReservationInputModel input);
 
         Task UpdateAsync(EditReservationInputModel input);
 
         Task DeleteAsync(int id);
+
+        Task DeleteAllExpiredAsync();
 
         int GetAllReservationsCount();
 

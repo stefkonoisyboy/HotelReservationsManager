@@ -29,6 +29,12 @@ namespace HotelManagementSystem.Controllers
             this.userManager = userManager;
         }
 
+        public async Task<IActionResult> Details(int id)
+        {
+            ReservationViewModel viewModel = await this.reservationsService.GetByIdAsync(id);
+            return this.View(viewModel);
+        }
+
         public async Task<IActionResult> All(int id = 1)
         {
             const int ItemsPerPage = 10;
@@ -64,6 +70,7 @@ namespace HotelManagementSystem.Controllers
             if (!this.ModelState.IsValid)
             {
                 input.ClientItems = await this.clientsService.GetAllAsSelectListItemsAsync();
+                input.RoomId = roomId;
 
                 return this.View(input);
             }
@@ -75,12 +82,13 @@ namespace HotelManagementSystem.Controllers
 
             try
             {
-                await this.reservationsService.CreateAsync(input);
+                await this.reservationsService.CreateAsync(roomId, userId, input);
                 this.TempData["Message"] = "Reservation created successfully!";
             }
             catch (Exception ex)
             {
                 this.TempData["Error"] = ex.Message;
+                Console.WriteLine(ex.Message);
             }
 
             return this.RedirectToAction(nameof(this.All));
@@ -119,6 +127,14 @@ namespace HotelManagementSystem.Controllers
             this.TempData["Message"] = "Reservation successfully deleted!";
 
             return this.RedirectToAction(nameof(this.All));
+        }
+
+        public async Task<IActionResult> DeleteAllExpired()
+        {
+            await this.reservationsService.DeleteAllExpiredAsync();
+            this.TempData["Message"] = "Rooms successfully emptied!";
+
+            return this.RedirectToAction("Index", "Home");
         }
     }
 }

@@ -284,7 +284,7 @@ namespace HotelManagementSystem.Services
                    })
                    .ToList(),
                    Rooms = h.Rooms
-                   .Where(r => r.HotelId == id)
+                   .Where(r => r.HotelId == id && r.IsFree)
                    .OrderBy(r => r.Id)
                    .Select(r => new AllRoomsByHotelIdViewModel
                    {
