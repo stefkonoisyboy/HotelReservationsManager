@@ -14,7 +14,7 @@ namespace HotelManagementSystem.Services
             this.dbContext = dbContext;
         }
 
-        public async Task CreateAsync(CreateReservationInputModel input)
+        public async Task CreateAsync(int roomId, string creatorId, CreateReservationInputModel input)
         {
             if (input.AccommodationDate < DateTime.UtcNow || input.ExemptionDate < DateTime.UtcNow)
             {
@@ -37,14 +37,15 @@ namespace HotelManagementSystem.Services
                 throw new ArgumentException("Number of people should match the selected people!");
             }
 
-            Room room = await this.dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == input.RoomId);
+            Room room = await this.dbContext.Rooms.FirstOrDefaultAsync(r => r.Id == roomId);
+            room.IsFree = false;
 
             if (room.Capacity < totalPeopleToBeAccommodated)
             {
                 throw new ArgumentException("No enough space for people to be accommodated!");
             }
 
-            int discount = room.Hotel.Discount;
+            int discount = dbContext.Hotels.FirstOrDefault(h => h.Id == room.HotelId).Discount;
             decimal generalAmount = input.Adults * room.AdultPrice + input.Kids * room.ChildPrice;
 
             if (discount > 0)
@@ -65,8 +66,8 @@ namespace HotelManagementSystem.Services
 
             Reservation reservation = new Reservation
             {
-                ReservedRoomId = input.RoomId,
-                CreatorId = input.CreatorId,
+                ReservedRoomId = roomId,
+                CreatorId = creatorId,
                 AccomodationDate = input.AccommodationDate,
                 ExemptionDate = input.ExemptionDate,
                 IsBreakfastIncluded = input.IsBreakfastIncluded == "yes",
@@ -86,6 +87,24 @@ namespace HotelManagementSystem.Services
                 };
 
                 await this.dbContext.ClientReservations.AddAsync(clientReservation);
+            }
+
+            await this.dbContext.SaveChangesAsync();
+        }
+
+        public async Task DeleteAllExpiredAsync()
+        {
+            IEnumerable<Reservation> reservations = await this.dbContext.Reservations
+                .Where(r => r.ExemptionDate < DateTime.UtcNow)
+                .ToListAsync();
+
+            foreach (Reservation reservation in reservations)
+            {
+                Room room = await this.dbContext.Rooms
+                    .Where(r => r.Id == reservation.ReservedRoomId)
+                    .FirstOrDefaultAsync();
+
+                room.IsFree = true;
             }
 
             await this.dbContext.SaveChangesAsync();
