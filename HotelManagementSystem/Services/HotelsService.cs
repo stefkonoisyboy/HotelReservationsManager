@@ -57,6 +57,7 @@ namespace HotelManagementSystem.Services
                 .OrderByDescending(h => h.Stars)
                 .Select(h => new RecommendedHotelsViewModel
                 {
+                    Id = h.Id,
                     Name = h.Name,
                     MainImage = h.MainImage,
                     Stars = h.Stars,
@@ -129,6 +130,7 @@ namespace HotelManagementSystem.Services
                 .OrderByDescending(h => h.Reviews.Count)
                 .Select(h => new TravelersChoiceHotelsViewModel
                 {
+                    Id = h.Id,
                     Name = h.Name,
                     Descripton = h.Descripton,
                     AveragePrice = h.Rooms.Count() == 0 ? 0 : h.Rooms.Select(x => x.AdultPrice).Average(),

@@ -16,6 +16,7 @@ namespace HotelManagementSystem.Controllers
             this.hotelsService = hotelsService;
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRole)]
         public async Task<IActionResult> Create() 
         {
             CreateRoomInputModel inputModel = new CreateRoomInputModel()
@@ -42,7 +43,7 @@ namespace HotelManagementSystem.Controllers
             return this.RedirectToAction("Details", "Hotels", new { Id = inputModel.HotelId }); 
         }
 
-
+        [Authorize(Roles = GlobalConstants.AdministratorRole)]
         public async Task<IActionResult> Update(int id)
         {
             UpdateRoomInputModel inputModel= this.roomsService.GetByIdForUpdate(id);
@@ -83,6 +84,7 @@ namespace HotelManagementSystem.Controllers
             return this.RedirectToAction("Details", "Hotels");
         }
 
+        [Authorize(Roles = GlobalConstants.AdministratorRole)]
         public async Task<IActionResult> All(int page = 1)
         {
             const int itemsPerPage = 5;
@@ -110,9 +112,25 @@ namespace HotelManagementSystem.Controllers
                 ItemsPerPage = itemsPerPage,
             };
 
-            viewModel.FilterInputModel = inputModel;
+            viewModel.InputModel = inputModel;
 
             return this.View(viewModel);
-        } 
+        }
+
+        [Authorize(Roles = GlobalConstants.AdministratorRole)]
+        public IActionResult ById(int id)
+        {
+            try
+            {
+                RoomDetailsViewModel viewModel = this.roomsService.GetById(id);
+                return this.View(viewModel);
+
+            }
+            catch (Exception ex)
+            {
+                this.TempData["ErrorMessage"] = "Somethind went wrong!";
+                return this.RedirectToAction("Index","Home");
+            }
+        }
     }
 }

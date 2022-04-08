@@ -5,7 +5,7 @@
 
 <head>
     <!-- Page Title -->
-    <title>Home Hotels - Travelo - Travel/Tour Booking WordPress Theme</title>
+    <title>Home Hotels - Travelo - Travel/Tour Booking</title>
 
     <!-- Meta Tags -->
     <meta https-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -163,19 +163,9 @@
 </head>
 <body>
     
-        <header id="header" class="navbar-static-top">
+          <header id="header" class="navbar-static-top">
             <div class="topnav hidden-xs">
                 <div class="container">
-                    <ul class="quick-menu pull-left">
-                        <li><a href="#travelo-login" class="soap-popupbox">MY ACCOUNT</a></li>
-                        <li class="ribbon">
-                            <a href="#" title="">usd</a>
-                            <ul class="menu mini">
-                                <li class="active"><a href="/wordpress/travelo/home/?selected_currency=usd" title="United States Dollar">USD</a></li>
-                                <li><a href="/wordpress/travelo/home/?selected_currency=rub" title="Russian Ruble">RUB</a></li>
-                            </ul>
-                        </li>
-                    </ul>
                     <ul class="quick-menu pull-right">
                         <!--<li><a href="httpss://themeforest.net/item/travelo-traveltour-booking-wordpress-theme/9806696?license=regular&open_purchase_for_item_id=9806696&purchasable=source&ref=SoapTheme" class="button yellow btn-small" style="height: 30px; font-size: 1em;"><i class="soap-icon-shopping"></i> PURCHASE</a></li>-->
                         @if (this.User.Identity.IsAuthenticated)
@@ -222,7 +212,8 @@
                                 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="HotelsList" asp-action="HotelsList">Hotels List</a>
                                 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Clients" asp-action="Create">Create Client</a>
                                 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Clients" asp-action="All">All Clients</a>
-                                                                        <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Reservations" asp-action="All">All Reservations</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Rooms" asp-action="All">All Rooms</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Reservations" asp-action="All">All Reservations</a>
 
                             </ul>
                         </nav>
@@ -234,262 +225,44 @@
             <nav id="mobile-menu-01" class="mobile-menu collapse">
                 <ul id="mobile-primary-menu" class="menu">
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-1108">
-                        <a href="https://www.soaptheme.net/wordpress/travelo/">Home</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1105"><a href="https://www.soaptheme.net/wordpress/travelo/">HomePage1</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1104"><a href="https://www.soaptheme.net/wordpress/travelo/homepage2/">HomePage2</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1103"><a href="https://www.soaptheme.net/wordpress/travelo/homepage3/">HomePage3</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1102"><a href="https://www.soaptheme.net/wordpress/travelo/homepage4/">HomePage4</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1101"><a href="https://www.soaptheme.net/wordpress/travelo/homepage5/">HomePage5</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1100"><a href="https://www.soaptheme.net/wordpress/travelo/homepage6/">HomePage6</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1099"><a href="https://www.soaptheme.net/wordpress/travelo/homepage7/">HomePage7</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1098"><a href="https://www.soaptheme.net/wordpress/travelo/homepage8/">HomePage8</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1432"><a href="https://www.soaptheme.net/wordpress/travelo/homepage9/">Homepage9</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1431"><a href="https://www.soaptheme.net/wordpress/travelo/homepage10/">Homepage10</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1430"><a href="https://www.soaptheme.net/wordpress/travelo/homepage11/">Homepage11</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1509"><a href="https://www.soaptheme.net/wordpress/travelo/homepage12/">HomePage12</a></li>
-                        </ul>
+                        <a href="/">Home</a>
                     </li>
                     <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657">
                         <a href="#">Pages</a>
                         <ul class="sub-menu">
                             <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-658">
-                                <a href="#">Standard Pages</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-771">
-                                        <a href="#">mega-column</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-767"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/layout-with-two-sidebar/">Layout Two Sidebar</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-768"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/layout-without-sidebar/">Layout Full Width</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-769"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/layout-right-sidebar/">Layout Right Sidebar</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-770"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/layout-left-sidebar/">Layout Left Sidebar</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-669">
-                                        <a href="#">mega-column-1</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-661"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/about-us/">About Us 1</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-662"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/about-us-2/">About Us 2</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-663"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/services/">Services 1</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-664"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/services-2/">Services 2</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-670">
-                                        <a href="#">mege-column-2</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-665"><a href="https://www.soaptheme.net/wordpress/travelo/blog/">Blog Full Width</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-666"><a href="https://www.soaptheme.net/wordpress/travelo/blog-with-left-sidebar/">Blog Left Sidebar</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-667"><a href="https://www.soaptheme.net/wordpress/travelo/blog-with-right-sidebar/">Blog Right Sidebar</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-668"><a href="https://www.soaptheme.net/wordpress/travelo/standard-single-image-post/">Blog Read</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-699">
-                                        <a href="#">mega-column-3</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-703"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/contact-us/">Contact Us</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-702"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/contact-us-2/">Contact Us 2</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-701"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/contact-us-3/">Contact Us 3</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-700"><a href="https://www.soaptheme.net/wordpress/travelo/standard-pages/travelo-policies/">Travelo Policies</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Home" asp-action="AboutUs">About</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Home" asp-action="Contact">Contact us</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="SearchHotels" asp-action="List">Search Hotels</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="HotelsList" asp-action="HotelsList">Hotels List</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Clients" asp-action="Create">Create Client</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Clients" asp-action="All">All Clients</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Rooms" asp-action="All">All Rooms</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Reservations" asp-action="All">All Reservations</a>
                             </li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-659">
-                                <a href="#">Extra Pages</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-741">
-                                        <a href="#">mega-column-4</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-1267"><a href="https://www.soaptheme.net/wordpress/travelo/location/france/">Things To Do1</a></li>
-                                            <li class="menu-item menu-item-type-taxonomy menu-item-object-location menu-item-1268"><a href="https://www.soaptheme.net/wordpress/travelo/location/paris/">Things To Do2</a></li>
-                                            <li class="menu-item menu-item-type-post_type menu-item-object-travel_guide menu-item-1310"><a href="https://www.soaptheme.net/wordpress/travelo/travel-guide/travel-guide-to-paris/">Travel Guide To Paris</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1313">
-                                        <a href="#">mega-column-5</a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1311"><a href="#">Hot Deals – Coming Soon</a></li>
-                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1312"><a href="#">Travel Stories – Coming Soon</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1314">
-                                <a href="#">Special Pages</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1315"><a href="https://www.soaptheme.net/wordpress/travelo/login/">LogIn Page</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1319"><a href="https://www.soaptheme.net/wordpress/travelo/partner-signup-page/">Partner SignUp Page</a></li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1316"><a href="https://www.soaptheme.net/wordpress/travelo/404">404 Page</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-81 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1269">
-                        <a href="https://www.soaptheme.net/wordpress/travelo/home/" aria-current="page">Hotels</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-81 current_page_item current-menu-ancestor current-menu-parent current_page_parent current_page_ancestor menu-item-has-children menu-item-1436">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/home/" aria-current="page">Hotel Home Page</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-81 current_page_item menu-item-1270"><a href="https://www.soaptheme.net/wordpress/travelo/home/" aria-current="page">Hotel Home 1</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1427"><a href="https://www.soaptheme.net/wordpress/travelo/hotel-home2/">Hotel Home2</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1426"><a href="https://www.soaptheme.net/wordpress/travelo/hotel-home3/">Hotel Home3</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2768"><a href="https://www.soaptheme.net/wordpress/travelo/hotel-home4/">Hotel Home4</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1297">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&#038;s=">Search Hotels</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1444"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&#038;s&#038;view=list">List View</a></li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1442"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&#038;s&#038;view=grid">Grid View</a></li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1443"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&#038;s&#038;view=block">Block View</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-accommodation menu-item-has-children menu-item-1439">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-hotel-and-resorts/">Single Hotel Page</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-accommodation menu-item-1299"><a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hilton-hotel-and-resorts/">Hotel A (without payment)</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-accommodation menu-item-1300"><a href="https://www.soaptheme.net/wordpress/travelo/accommodation/hotel-alpina/">Hotel B (with full payment)</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-accommodation menu-item-1301"><a href="https://www.soaptheme.net/wordpress/travelo/accommodation/ruzzini-palace-hotel/">Hotel C (with part payment)</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1437">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style1/">Hotels List</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1320"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style1/">Hotel Listing Style 1</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1321"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style-2/">Hotel Listing Style 2</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1322"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style-3/">Hotel Listing Style 3</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1271">
-                        <a href="https://www.soaptheme.net/wordpress/travelo/tour-home/">Tours</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1435">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/tour-home/">Tour Home Page</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1272"><a href="https://www.soaptheme.net/wordpress/travelo/tour-home/">Tour Home 1</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1429"><a href="https://www.soaptheme.net/wordpress/travelo/tour-home2/">Tour Home 2</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1428"><a href="https://www.soaptheme.net/wordpress/travelo/tour-home3/">Tour Home 3</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1298">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/?post_type=tour&#038;s=">Search Tours</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1445"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=tour&#038;s&#038;view=grid">Grid View</a></li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1446"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=tour&#038;s&#038;view=list">List View</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-tour menu-item-has-children menu-item-1438">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/tour/florence-day/">Single Tour Page</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-tour menu-item-1302"><a href="https://www.soaptheme.net/wordpress/travelo/tour/florence-day/">Tour A (without variation)</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-tour menu-item-1303"><a href="https://www.soaptheme.net/wordpress/travelo/tour/tour-colosseum/">Tour B (with day variation)</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-tour menu-item-1304"><a href="https://www.soaptheme.net/wordpress/travelo/tour/rome-city-tour/">Tour C (with full variation)</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1433">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/fancy-package-2-columns/">Tours List</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1291"><a href="https://www.soaptheme.net/wordpress/travelo/fancy-package-2-columns/">Fancy Package – 2 Columns</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1292"><a href="https://www.soaptheme.net/wordpress/travelo/fancy-package-3-columns/">Fancy Package – 3 Columns</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1293"><a href="https://www.soaptheme.net/wordpress/travelo/fancy-package-4-columns/">Fancy Package – 4 Columns</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1296"><a href="https://www.soaptheme.net/wordpress/travelo/package-2-columns/">Simple Package – 2 Columns</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1294"><a href="https://www.soaptheme.net/wordpress/travelo/package-3-columns/">Simple Package – 3 Columns</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1295"><a href="https://www.soaptheme.net/wordpress/travelo/package-4-columns/">Simple Package – 4 Columns</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2674">
-                        <a href="#">Cars</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2675">
-                                <a href="#">Car Home Page</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2678"><a href="https://www.soaptheme.net/wordpress/travelo/car-home/">Car Home</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2677"><a href="https://www.soaptheme.net/wordpress/travelo/car-home2/">Car Home2</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2676"><a href="https://www.soaptheme.net/wordpress/travelo/car-home3/">Car Home3</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2684">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&#038;s=">Search Cars</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2685"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=car&#038;s&#038;view=list">List View</a></li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2686"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=car&#038;s&#038;view=grid">Grid View</a></li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2687"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=car&#038;s&#038;view=block">Block View</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-car menu-item-has-children menu-item-2707">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/car/fiat-500/">Single Car Page</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-car menu-item-2702"><a href="https://www.soaptheme.net/wordpress/travelo/car/fiat-500/">Car A (without payment)</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-car menu-item-2701"><a href="https://www.soaptheme.net/wordpress/travelo/car/bmw-5-series/">Car B (with part payment)</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-car menu-item-2700"><a href="https://www.soaptheme.net/wordpress/travelo/car/holden-sv6/">Car C (with full payment)</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2682">
-                        <a href="#">Cruises</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2683">
-                                <a href="#">Cruise Home Page</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2679"><a href="https://www.soaptheme.net/wordpress/travelo/cruise-home1/">Cruise Home1</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2680"><a href="https://www.soaptheme.net/wordpress/travelo/cruise-home2/">Cruise Home2</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2681"><a href="https://www.soaptheme.net/wordpress/travelo/cruise-home3/">Cruise Home3</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-2688">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/?post_type=cruise&#038;s">Search Cruises</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2689"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=cruise&#038;s&#038;view=list">List View</a></li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2690"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=cruise&#038;s&#038;view=grid">Grid View</a></li>
-                                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2691"><a href="https://www.soaptheme.net/wordpress/travelo/?post_type=cruise&#038;s&#038;view=block">Block View</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-cruise menu-item-has-children menu-item-2706">
-                                <a href="https://www.soaptheme.net/wordpress/travelo/cruise/4-night-baja-mexico/">Single Cruise Page</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-cruise menu-item-2705"><a href="https://www.soaptheme.net/wordpress/travelo/cruise/4-night-baja-mexico/">Cruise A (without payment)</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-cruise menu-item-2704"><a href="https://www.soaptheme.net/wordpress/travelo/cruise/singapore-to-asia/">Cruise B (with part payment)</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-cruise menu-item-2703"><a href="https://www.soaptheme.net/wordpress/travelo/cruise/miami-to-florida/">Cruise C (with full payment)</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2821"><a href="https://www.soaptheme.net/wordpress/travelo/flight/">Flights</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-travel_guide menu-item-1305"><a href="https://www.soaptheme.net/wordpress/travelo/travel-guide/travel-guide-to-paris/">Travel Guide</a></li>
-                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1273">
-                        <a href="#">Shortcodes</a>
-                        <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1275"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/accordion-toggles/">Accordion &#038; Toggles</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1277"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/buttons/">Buttons &#038; Links</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1278"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/travelo-icon-box-styles/">Icon Box Styles</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1279"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/image-gallery-styles/">Image &#038; Gallery Styles</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1280"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/image-box-styles/">Image Box Styles</a></li>
-                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1288">
-                                <a href="#">Listing Styles</a>
-                                <ul class="sub-menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1281"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style1/">Listing Style 1</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1282"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style-2/">Listing Style 2</a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1283"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/listing-style-3/">Listing Style 3</a></li>
-                                </ul>
-                            </li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1284"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/people/">Our Team</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1285"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/pricing-tables/">Pricing Tables</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1286"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/tabs/">Tabs</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1287"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/testimonials/">Testimonials</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1289"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/typography/">Typography</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1290"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/icon-pack/">Travelo Icon Pack</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1276"><a href="https://www.soaptheme.net/wordpress/travelo/shortcodes/animations/">Animations</a></li>
                         </ul>
                     </li>
                 </ul>
-                <ul class="mobile-topnav container"><li><a href="#travelo-login" class="soap-popupbox">MY ACCOUNT</a></li><li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li><li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li><li class="ribbon currency menu-color-skin"><a href="#" title="usd">usd</a><ul class="menu mini"><li class="active"><a href="/wordpress/travelo/home/?selected_currency=usd" title="United States Dollar">USD</a></li><li><a href="/wordpress/travelo/home/?selected_currency=rub" title="Russian Ruble">RUB</a></li></ul></li></ul>
+                <ul class="mobile-topnav container">
+                      @if (this.User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button type="submit" class="btn btn-link text-white">Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="text-white" asp-area="Identity" asp-page="/Account/Register" class="soap-popupbox">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="text-white" asp-area="Identity" asp-page="/Account/Login" class="class="soap-popupbox"">Login</a>
+                            </li>
+                        }
+                </ul>
             </nav><!-- mobile menu -->
-        </header>
 
     <section id="content">
             <div id="main" class="entry-content">
@@ -507,7 +280,7 @@
                                             </div>							<div >
                                                
                                             </div>
-                                            <div class="text-center"><a class="button btn-medium sky-blue1 uppercase" asp-controller="Reservations" asp-action="DeleteAllExpired">Refresh</a>  <a class="button btn-medium red uppercase" href="https://www.soaptheme.net/wordpress/travelo/?post_type=accommodation&amp;s&amp;view=list">Latest Hotels</a></div>
+                                            <div class="text-center"><a class="button btn-medium sky-blue1 uppercase" asp-controller="Reservations" asp-action="DeleteAllExpired">Refresh</a>  </div>
                                         </div>
                                     </div>
 

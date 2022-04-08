@@ -1,22 +1,9 @@
 ﻿@using HotelManagementSystem.Models.Rooms
-@model AllRoomsListViewModel
+@model RoomDetailsViewModel
 @{
-	this.ViewData["Title"] = "All Rooms";
+	this.ViewData["Title"] = "Room Details";
 }
 
-@if(this.TempData.ContainsKey("Message")){
-	<div class="alert alert-success alert-dismissible">
-        <a id="message" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        @this.TempData["Message"]
-    </div>
-}
-
-@if(this.TempData.ContainsKey("Error")){
-	<div class="alert alert-danger alert-dismissible">
-        <a id="message" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        @this.TempData["Error"]
-    </div>
-}
 
 <!DOCTYPE html>
 <html>
@@ -333,137 +320,30 @@
                     </div>
                 </div>
                 <div class="container section">
-                            <h1 class="text-center">
-    ALL ROOMS
-</h1>
-<div class="d-flex justify-content-end">
-                                <a class="btn btn-success" asp-controller="Rooms" asp-action="Create">CREATE ROOM</a>
- </div>
-@{
-    int number = 1;
-}
+                       <h1 class="text-center my-5">Room Details</h1>
+
 <div class="d-flex justify-content-center">
-    <form class="d-flex" asp-controller="Rooms" asp-action="AllFiltered" method="post">
-        <div class="form-group" style="margin: 10px;">
-            <label asp-for="@this.Model.InputModel.Capacity"></label>
-            <input class="form-control" text="number" asp-for="@this.Model.InputModel.Capacity" />
-        </div>
-        <div class="form-group" style="margin: 10px;">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" asp-for="@this.Model.InputModel.IsFree" id="flexCheckDefault" />
-                <label class="form-check-label" asp-for="@this.Model.InputModel.IsFree"></label>
-            </div>
-        </div>
-        <div class="form-group" style="margin: 10px;">
-            <label asp-for="@this.Model.InputModel.RoomType"></label>
-
-            <select asp-for="@this.Model.InputModel.RoomType">
-                <option selected value="@null">Choose RoomType</option>
-        @foreach(var roomType in this.Model.InputModel.RoomItems)
-        {
-            <option value="@roomType">@roomType</option>
-        }
-    </select>
-        </div>
-        <button class="btn btn-primary">
-            Filter
-        </button>
-</form>
+	<div class="row">
+		<div class="col-md-7">
+			<img src="@this.Model.MainImage" alt="room image"><img />
+		</div>	
+		<div class="col-md-5" style="background:#f5f5f5">
+			<h5>Room Name: @this.Model.Name			  </h5>
+			<h5>HotelName: @this.Model.HotelName	  </h5>
+			<h5>RoomType: @this.Model.RoomType		  </h5>
+			<h5>IsFree: @this.Model.IsFree			  </h5>
+			<h5>Capacity: @this.Model.Capacity		  </h5>
+			<h5>AdultPrice: @this.Model.AdultPrice	  </h5>
+			<h5>ChildPrice: @this.Model.ChildPrice	  </h5>
+			<h5>Description:						  </h5>
+			<p>
+				@this.Model.Description
+			</p>
+		</div>
+	</div>
 </div>
-
-<table class="table table-striped custom-table">
-          <thead>
-            <tr>
-              <th scope="col">Room #</th>
-              <th scope="col">Name</th>
-              <th scope="col">Hotel Name</th>
-              <th scope="col">RoomType</th>
-              <th scope="col">IsFree</th>
-              <th scope="col">Capacity</th>
-              <th scope="col">Adult Price</th>
-              <th scope="col">Child price</th>
-              <th scope="col">Actions</th>
-
-            </tr>
-          </thead>
-          <tbody>
-              @foreach(var room in this.Model.Rooms)
-              {
-                  <tr scope="row" class="active">
-                    <td>
-                        @(number++)
-                    </td>
-                    <td>
-                        @room.Name  
-                    </td>
-                    <td>
-                        @room.HotelName  
-                    </td>
-                    <td>
-                        @room.RoomType  
-                    </td>
-                    <td>
-                        @room.IsFree  
-                    </td>
-                    <td>
-                        @room.Capacity  
-                    </td>
-                    <td>
-                        @room.AdultPrice  
-                    </td>
-                    <td>
-                        @room.ChildPrice  
-                    </td>
-                    <td>
-                        <a asp-action="ById" asp-controller="Rooms" asp-route-id="@room.Id">
-                            <h6>
-                               Details
-                            </h6>    
-                        </a>
-                        <a class="btn btn-primary" asp-action="Delete" asp-controller="Rooms" asp-route-id="@room.Id">
-                            <svg height="16" width="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-                        </a>
-                        <a class="btn btn-success" asp-action="Update" asp-controller="Rooms" asp-route-id="@room.Id">
-                            <svg height="16" width="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-                        </a> 
-                    </td>
-                  </tr>
-
-              }
-          </tbody>
-</table>
-<div class="text-center">
-<nav aria-label="...">
-    <ul class="pagination justify-content-center">
-        <li class="page-item @if (!Model.HasPreviousPage) { <text>disabled</text> }">
-            <a class="page-link" asp-controller="Rooms" asp-action="All" asp-route-id="@Model.PreviousPageNumber">Previous</a>
-        </li>
-        @for (int i = Model.PageNumber - 4; i < Model.PageNumber; i++)
-        {
-            if (i > 0)
-            {
-                <li class="page-item"><a class="page-link" asp-controller="Rooms" asp-action="All" asp-route-page="@i">@i</a></li>
-            }
-        }
-        <li class="page-item active" aria-current="page">
-            <span class="page-link">
-                @Model.PageNumber
-                <span class="sr-only">(current)</span>
-            </span>
-        </li>
-        @for (int i = Model.PageNumber + 1; i <= Model.PageNumber + 4; i++)
-        {
-            if (i <= Model.PagesCount)
-            {
-                <li class="page-item"><a class="page-link" asp-controller="Rooms" asp-action="All" asp-route-page="@i">@i</a></li>
-            }
-        }
-        <li class="page-item @if (!Model.HasNextPage) { <text>disabled</text> }">
-            <a class="page-link" asp-action="All" asp-controller="Rooms" asp-route-page="@Model.NextPageNumber">Next</a>
-        </li>
-    </ul>
-</nav>
-</div>
+	
+     
                 </div>
             </div>
     

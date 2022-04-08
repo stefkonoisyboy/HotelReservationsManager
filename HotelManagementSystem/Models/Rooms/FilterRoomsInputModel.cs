@@ -5,12 +5,12 @@ namespace HotelManagementSystem.Models.Rooms
 {
     public class FilterRoomsInputModel
     {
-        public int Capacity { get; set; } = 1;
+        public int Capacity { get; set; }
 
-        public string RoomType { get; set; } = Enum.GetNames(typeof(RoomType)).First();
+        public string RoomType { get; set; }
 
         public List<string> RoomItems => Enum.GetNames(typeof(RoomType)).ToList();
 
-        public bool IsFree { get; set; } = true;
+        public bool IsFree { get; set; }
     }
 }

@@ -6,6 +6,6 @@ namespace HotelManagementSystem.Models.Rooms
     {
         public IEnumerable<AllRoomsViewModel> Rooms { get; set; }
 
-        public FilterRoomsInputModel FilterInputModel { get; set; } = new FilterRoomsInputModel();
+        public FilterRoomsInputModel InputModel { get; set; } = new FilterRoomsInputModel();
     }
 }

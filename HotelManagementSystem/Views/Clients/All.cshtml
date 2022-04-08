@@ -4,6 +4,20 @@
 	this.ViewData["Title"] = "All Clients";
 }
 
+  @if(this.TempData.ContainsKey("Message")){
+	<div class="alert alert-success alert-dismissible">
+        <a id="message" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @this.TempData["Message"]
+    </div>
+}
+
+@if(this.TempData.ContainsKey("Error")){
+	<div class="alert alert-danger alert-dismissible">
+        <a id="message" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        @this.TempData["Error"]
+    </div>
+}
+
 <head>
     <!-- Page Title -->
     <title>Home Hotels - Travelo - Travel/Tour Booking WordPress Theme</title>
@@ -14,7 +28,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="shortcut icon" href="https://www.soaptheme.net/wordpress/travelo/wp-content/uploads/2015/05/favicon.ico" type="image/x-icon" />
-
+     
     <!-- CSS for IE -->
     <!--[if lte IE 9]>
         <link rel="stylesheet" type="text/css" href="css/ie.css" />
@@ -61,6 +75,46 @@
             background: none !important;
             padding: 0 !important;
         }
+        /*form{
+		background-color: #f5f5f5;
+		padding:50px;
+	}
+
+	form input{
+		margin-bottom: 10px;
+	}
+
+	form input:active{
+		border: none !important;
+	}
+
+	form button{
+		border-radius: 0px !important;
+	}*/
+
+	button:hover{
+		transform:scale(1.03);
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		transition: transform box-shadow 550ms;
+	}
+
+    input{
+        border-radius:20px;
+        border: 1px solid black;
+        font-size: 15px;
+        margin-right:10px;
+        padding: 5px 12px;
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+
+    form{
+        display:flex;
+        align-items:center;
+    }
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/fonts.icomoon.style.css">
+    <link rel="stylesheet" href="~/css/table.style.css">
     </style>
     <link rel='stylesheet' id='wp-block-library-css' href='https://www.soaptheme.net/wordpress/travelo/wp-includes/css/dist/block-library/style.min.css?ver=5.2.15' type='text/css' media='all' />
     <link rel='stylesheet' id='contact-form-7-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.1' type='text/css' media='all' />
@@ -78,6 +132,7 @@
     <link rel='stylesheet' id='trav_style_timepicker-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/js/components/jquery.timepicker/jquery.timepicker.css?ver=5.2.15' type='text/css' media='all' />
     <link rel='stylesheet' id='trav_style_main_style-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/style-light-blue.min.css?ver=5.2.15' type='text/css' media='all' />
     <link rel='stylesheet' id='trav_style_custom-css' href='https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/css/custom.css?ver=5.2.15' type='text/css' media='all' />
+   
     <style id='trav_style_custom-inline-css' type='text/css'>
 
         #header .logo a, #footer .bottom .logo a, .chaser .logo a, .logo-modal {
@@ -164,19 +219,9 @@
 </head>
 <body>
     
-        <header id="header" class="navbar-static-top">
+          <header id="header" class="navbar-static-top">
             <div class="topnav hidden-xs">
                 <div class="container">
-                    <ul class="quick-menu pull-left">
-                        <li><a href="#travelo-login" class="soap-popupbox">MY ACCOUNT</a></li>
-                        <li class="ribbon">
-                            <a href="#" title="">usd</a>
-                            <ul class="menu mini">
-                                <li class="active"><a href="/wordpress/travelo/home/?selected_currency=usd" title="United States Dollar">USD</a></li>
-                                <li><a href="/wordpress/travelo/home/?selected_currency=rub" title="Russian Ruble">RUB</a></li>
-                            </ul>
-                        </li>
-                    </ul>
                     <ul class="quick-menu pull-right">
                         <!--<li><a href="httpss://themeforest.net/item/travelo-traveltour-booking-wordpress-theme/9806696?license=regular&open_purchase_for_item_id=9806696&purchasable=source&ref=SoapTheme" class="button yellow btn-small" style="height: 30px; font-size: 1em;"><i class="soap-icon-shopping"></i> PURCHASE</a></li>-->
                         @if (this.User.Identity.IsAuthenticated)
@@ -223,6 +268,7 @@
                                 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="HotelsList" asp-action="HotelsList">Hotels List</a>
                                 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Clients" asp-action="Create">Create Client</a>
                                 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Clients" asp-action="All">All Clients</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Rooms" asp-action="All">All Rooms</a>
                                 <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Reservations" asp-action="All">All Reservations</a>
 
                             </ul>
@@ -235,28 +281,47 @@
             <nav id="mobile-menu-01" class="mobile-menu collapse">
                 <ul id="mobile-primary-menu" class="menu">
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-has-children menu-item-1108">
-                        <a href="https://www.soaptheme.net/wordpress/travelo/">Home</a>
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657">
+                        <a href="#">Pages</a>
                         <ul class="sub-menu">
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-1105"><a href="https://www.soaptheme.net/wordpress/travelo/">HomePage1</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1104"><a href="https://www.soaptheme.net/wordpress/travelo/homepage2/">HomePage2</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1103"><a href="https://www.soaptheme.net/wordpress/travelo/homepage3/">HomePage3</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1102"><a href="https://www.soaptheme.net/wordpress/travelo/homepage4/">HomePage4</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1101"><a href="https://www.soaptheme.net/wordpress/travelo/homepage5/">HomePage5</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1100"><a href="https://www.soaptheme.net/wordpress/travelo/homepage6/">HomePage6</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1099"><a href="https://www.soaptheme.net/wordpress/travelo/homepage7/">HomePage7</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1098"><a href="https://www.soaptheme.net/wordpress/travelo/homepage8/">HomePage8</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1432"><a href="https://www.soaptheme.net/wordpress/travelo/homepage9/">Homepage9</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1431"><a href="https://www.soaptheme.net/wordpress/travelo/homepage10/">Homepage10</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1430"><a href="https://www.soaptheme.net/wordpress/travelo/homepage11/">Homepage11</a></li>
-                            <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1509"><a href="https://www.soaptheme.net/wordpress/travelo/homepage12/">HomePage12</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-658">
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Home" asp-action="AboutUs">About</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Home" asp-action="Contact">Contact us</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="SearchHotels" asp-action="List">Search Hotels</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="HotelsList" asp-action="HotelsList">Hotels List</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Clients" asp-action="Create">Create Client</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Clients" asp-action="All">All Clients</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Rooms" asp-action="All">All Rooms</a>
+                                <li id="menu-item-657" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-657 megamenu-menu"><a asp-controller="Reservations" asp-action="All">All Reservations</a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
-                <ul class="mobile-topnav container"><li><a href="#travelo-login" class="soap-popupbox">MY ACCOUNT</a></li><li><a href="#travelo-login" class="soap-popupbox">LOGIN</a></li><li><a href="#travelo-signup" class="soap-popupbox">SIGNUP</a></li><li class="ribbon currency menu-color-skin"><a href="#" title="usd">usd</a><ul class="menu mini"><li class="active"><a href="/wordpress/travelo/home/?selected_currency=usd" title="United States Dollar">USD</a></li><li><a href="/wordpress/travelo/home/?selected_currency=rub" title="Russian Ruble">RUB</a></li></ul></li></ul>
+                <ul class="mobile-topnav container">
+                      @if (this.User.Identity.IsAuthenticated)
+                        {
+                            <li>
+                                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button type="submit" class="btn btn-link text-white">Logout</button>
+                                </form>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="text-white" asp-area="Identity" asp-page="/Account/Register" class="soap-popupbox">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="text-white" asp-area="Identity" asp-page="/Account/Login" class="class="soap-popupbox"">Login</a>
+                            </li>
+                        }
+                </ul>
             </nav><!-- mobile menu -->
         </header>
-
     <section id="content">
+      
             <div id="main" class="entry-content">
                 <div class="vc_row wpb_row row">
                     <div class="col-sm-12 ">
@@ -280,66 +345,7 @@
                     </div>
                 </div>
             </div>
-        </section>
-
-        <style>
-	/*form{
-		background-color: #f5f5f5;
-		padding:50px;
-	}
-
-	form input{
-		margin-bottom: 10px;
-	}
-
-	form input:active{
-		border: none !important;
-	}
-
-	form button{
-		border-radius: 0px !important;
-	}*/
-
-	button:hover{
-		transform:scale(1.03);
-		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-		transition: transform box-shadow 550ms;
-	}
-
-    input{
-        border-radius:20px;
-        border: 1px solid black;
-        font-size: 15px;
-        margin-right:10px;
-        padding: 5px 12px;
-        margin-top:20px;
-        margin-bottom:20px;
-    }
-
-    form{
-        display:flex;
-        align-items:center;
-    }
-</style>
-
-<style>
-    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="~/css/fonts.icomoon.style.css">
-    <link rel="stylesheet" href="~/css/table.style.css">
-</style>
-@if(this.TempData.ContainsKey("Message")){
-	<div class="alert alert-success alert-dismissible">
-        <a id="message" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        @this.TempData["Message"]
-    </div>
-}
-
-@if(this.TempData.ContainsKey("Error")){
-	<div class="alert alert-danger alert-dismissible">
-        <a id="message" href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        @this.TempData["Error"]
-    </div>
-}
+            
 
 <h1 class="text-center my-5">
 	ALL CLIENTS
@@ -349,8 +355,12 @@
 }
 <div class="d-flex justify-content-center">
 <form asp-controller="Clients" asp-action="AllFilteredByFirstNameAndLastName" method="post">
+    <div class="mr-1">
         <input type="text" asp-for="@this.Model.InputModel.FirstName" placeholder="Search by firstname..." />
+    </div>
+    <div>
         <input type="text" asp-for="@this.Model.InputModel.LastName"  placeholder="Search by lastname..."/>
+    </div>
      <button class="btn btn-primary">SEARCH</button>
 </form>
 </div> 
@@ -434,9 +444,22 @@
         </li>
     </ul>
 </nav>
-</div> 
+</section>
 
-
+<footer id="footer" class="style-def">
+            <div class="bottom gray-area">
+                <div class="container">
+                    <div class="logo pull-left">
+                        <a asp-controller="Home" asp-action="Index">
+                            <img src="https://www.soaptheme.net/wordpress/travelo/wp-content/themes/Travelo/images/logo.png" alt="Travelo &#8211; Travel/Tour Booking" />
+                        </a>
+                    </div>
+                    <div class="copyright pull-right">
+                        <p>&copy; @DateTime.UtcNow.Year Travelo</p>
+                    </div>
+                </div>
+            </div>
+</footer>
          <script>
         (function() {function addEventListener(element,event,handler) {
             if(element.addEventListener) {
