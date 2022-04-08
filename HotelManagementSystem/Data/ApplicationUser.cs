@@ -12,6 +12,7 @@ namespace HotelManagementSystem.Data
             this.CreatedReservations = new HashSet<Reservation>();
         }
 
+        // Some change
         public string FirstName { get; set; }
 
         public string MiddleName { get; set; }
