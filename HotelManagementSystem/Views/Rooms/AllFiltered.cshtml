@@ -1,7 +1,7 @@
-﻿@using HotelManagementSystem.Models.Clients
-@model AllClientsListViewModel
+﻿@using HotelManagementSystem.Models.Rooms
+@model AllRoomsListViewModel
 @{
-	this.ViewData["Title"] = "All Clients";
+	this.ViewData["Title"] = "All Rooms";
 }
 
 <head>
@@ -274,6 +274,9 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div>
+                                        <a class="btn btn-success" asp-controller="Rooms" asp-action="Create">Create Room</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -305,23 +308,9 @@
 		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 		transition: transform box-shadow 550ms;
 	}
-
-    input{
-        border-radius:20px;
-        border: 1px solid black;
-        font-size: 15px;
-        margin-right:10px;
-        padding: 5px 12px;
-        margin-top:20px;
-        margin-bottom:20px;
-    }
-
-    form{
-        display:flex;
-        align-items:center;
-    }
 </style>
 
+<!--TODO-->
 <style>
     <link rel="stylesheet" href="~/css/owl.carousel.min.css">
     <link rel="stylesheet" href="~/css/fonts.icomoon.style.css">
@@ -341,79 +330,97 @@
     </div>
 }
 
-<h1 class="text-center my-5">
-	ALL CLIENTS
+<h1 class="text-center">
+    ALL ROOMS
 </h1>
+
+<form asp-controller="Rooms" asp-action="AllFiltered">
+    <input class="form-control" text="number" asp-for="@this.Model.FilterInputModel.Capacity" />
+    <input class="form-control" asp-for="@this.Model.FilterInputModel.RoomType"/>
+    <select asp-for="@this.Model.FilterInputModel.RoomType">
+        @foreach(var roomType in this.Model.FilterInputModel.RoomItems)
+        {
+            <option value="@roomType">@roomType</option>
+        }
+    </select>
+    
+</form>
+
 @{
     int number = 1;
 }
-<div class="d-flex justify-content-center">
-<form asp-controller="Clients" asp-action="AllFilteredByFirstNameAndLastName" method="post">
-        <input type="text" asp-for="@this.Model.InputModel.FirstName" placeholder="Search by firstname..." />
-        <input type="text" asp-for="@this.Model.InputModel.LastName"  placeholder="Search by lastname..."/>
-     <button class="btn btn-primary">SEARCH</button>
-</form>
-</div> 
-
-
-
 <table class="table table-striped custom-table">
           <thead>
             <tr>
-              <th scope="col">Client #</th>
+              <th scope="col">Room #</th>
               <th scope="col">Name</th>
-              <th scope="col">Contact</th>
-              <th scope="col">Reservations Count</th>
+              <th scope="col">Hotel Name</th>
+              <th scope="col">RoomType</th>
+              <th scope="col">IsFree</th>
+              <th scope="col">Capacity</th>
+              <th scope="col">Adult Price</th>
+              <th scope="col">Child price</th>
               <th scope="col">Actions</th>
+
             </tr>
           </thead>
           <tbody>
-              @foreach(var client in this.Model.Clients)
-               {
-               	<tr scope="row" class="active">
+              @foreach(var room in this.Model.Rooms)
+              {
+                  <tr scope="row" class="active">
                     <td>
-                    @(number++)
-                    </td>
-                    <td class="pl-0">
-                      <div class="d-flex align-items-center">
-                        @client.FirstName @client.LastName
-                      </div>
-                    </td>
-                    <td>@client.PhoneNumber</td>
-                    <td>
-                        <span class="badge bg-primary">
-                             @client.ReservationsCount
-                        </span>
+                        @(number++)
                     </td>
                     <td>
-                        <a asp-action="ById" asp-controller="Clients" asp-route-id="@client.Id">
+                        @room.Name  
+                    </td>
+                    <td>
+                        @room.HotelName  
+                    </td>
+                    <td>
+                        @room.RoomType  
+                    </td>
+                    <td>
+                        @room.IsFree  
+                    </td>
+                    <td>
+                        @room.Capacity  
+                    </td>
+                    <td>
+                        @room.AdultPrice  
+                    </td>
+                    <td>
+                        @room.ChildPrice  
+                    </td>
+                    <td>
+                        <a asp-action="ById" asp-controller="Rooms" asp-route-id="@room.Id">
                             <h6>
                                Details
                             </h6>    
                         </a>
-                        <a class="btn btn-primary" asp-action="Delete" asp-controller="Clients" asp-route-id="@client.Id">
+                        <a class="btn btn-primary" asp-action="Delete" asp-controller="Rooms" asp-route-id="@room.Id">
                             <svg height="16" width="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
                         </a>
-                        <a class="btn btn-success" asp-action="UpdateClient" asp-controller="Clients" asp-route-id="@client.Id">
+                        <a class="btn btn-success" asp-action="UpdateRoom" asp-controller="Rooms" asp-route-id="@room.Id">
                             <svg height="16" width="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
                         </a> 
                     </td>
-                </tr>
-              }
-        </tbody>
-</table>
+                  </tr>
 
+              }
+          </tbody>
+</table>
 <div class="text-center">
 <nav aria-label="...">
     <ul class="pagination justify-content-center">
         <li class="page-item @if (!Model.HasPreviousPage) { <text>disabled</text> }">
-            <a class="page-link" asp-controller="Clients" asp-action="All" asp-route-id="@Model.PreviousPageNumber">Previous</a>
+            <a class="page-link" asp-controller="Rooms" asp-action="AllFiltered" asp-route-id="@Model.PreviousPageNumber">Previous</a>
         </li>
         @for (int i = Model.PageNumber - 4; i < Model.PageNumber; i++)
         {
             if (i > 0)
             {
-                <li class="page-item"><a class="page-link" asp-controller="Clients" asp-action="All" asp-route-page="@i">@i</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="Rooms" asp-action="AllFiltered" asp-route-page="@i">@i</a></li>
             }
         }
         <li class="page-item active" aria-current="page">
@@ -426,15 +433,15 @@
         {
             if (i <= Model.PagesCount)
             {
-                <li class="page-item"><a class="page-link" asp-controller="Clients" asp-action="All" asp-route-page="@i">@i</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="Rooms" asp-action="AllFiltered" asp-route-page="@i">@i</a></li>
             }
         }
         <li class="page-item @if (!Model.HasNextPage) { <text>disabled</text> }">
-            <a class="page-link" asp-action="All" asp-controller="Clients" asp-route-page="@Model.NextPageNumber">Next</a>
+            <a class="page-link" asp-action="AllFiltered" asp-controller="Rooms" asp-route-page="@Model.NextPageNumber">Next</a>
         </li>
     </ul>
 </nav>
-</div> 
+</div>
 
 
          <script>

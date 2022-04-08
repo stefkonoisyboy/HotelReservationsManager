@@ -16,23 +16,37 @@ namespace HotelManagementSystem.Controllers
             this.hotelsService = hotelsService;
         }
 
+        public async Task<IActionResult> Create() 
+        {
+            CreateRoomInputModel inputModel = new CreateRoomInputModel()
+            {
+                HotelItems = await this.hotelsService.GetHotelsAsSelectListItem(),
+            };
+
+            return this.View(inputModel);
+        }
+
+
         [HttpPost]
         [Authorize(Roles= GlobalConstants.AdministratorRole)]
         public async Task<IActionResult> Create(CreateRoomInputModel inputModel, int hotelid)
         {
             if (!ModelState.IsValid)
             {
+                inputModel.HotelItems = await this.hotelsService.GetHotelsAsSelectListItem();
                 return this.View(inputModel);
             }
+
             inputModel.HotelId = hotelid;
             await this.roomsService.CreateAsync(inputModel);
             return this.RedirectToAction("Details", "Hotels", new { Id = inputModel.HotelId }); 
         }
 
 
-        public IActionResult Update(int id)
+        public async Task<IActionResult> Update(int id)
         {
             UpdateRoomInputModel inputModel= this.roomsService.GetByIdForUpdate(id);
+            inputModel.HotelItems = await this.hotelsService.GetHotelsAsSelectListItem();
 
             return this.View(inputModel);
         }
@@ -43,6 +57,7 @@ namespace HotelManagementSystem.Controllers
         {
             if (!this.ModelState.IsValid)
             {
+                inputModel.HotelItems = await this.hotelsService.GetHotelsAsSelectListItem();
                 return this.View(inputModel);
             }
 
@@ -67,5 +82,37 @@ namespace HotelManagementSystem.Controllers
 
             return this.RedirectToAction("Details", "Hotels");
         }
+
+        public async Task<IActionResult> All(int page = 1)
+        {
+            const int itemsPerPage = 5;
+            AllRoomsListViewModel viewModel = new AllRoomsListViewModel()
+            {
+                Rooms = await this.roomsService.GetAll(page),
+                ItemsCount = this.roomsService.GetRoomsCount(),
+                PageNumber = page,
+                ItemsPerPage = itemsPerPage,
+            };
+
+            return this.View(viewModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AllFiltered(FilterRoomsInputModel inputModel, int page = 1)
+        {
+            const int itemsPerPage = 5;
+
+            AllRoomsListViewModel viewModel = new AllRoomsListViewModel()
+            {
+                Rooms = await this.roomsService.GetAllFiltered(page, inputModel),
+                ItemsCount = this.roomsService.GetFilteredRoomsCount(inputModel),
+                PageNumber = page,
+                ItemsPerPage = itemsPerPage,
+            };
+
+            viewModel.FilterInputModel = inputModel;
+
+            return this.View(viewModel);
+        } 
     }
 }
