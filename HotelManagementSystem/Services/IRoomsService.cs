@@ -22,5 +22,6 @@ namespace HotelManagementSystem.Services
 
         Task<IEnumerable<AllRoomsViewModel>> GetAllFiltered(int page, FilterRoomsInputModel inputModel, int itemsPerPage = 5);
 
+        RoomDetailsViewModel GetById(int id);
     }
 }
