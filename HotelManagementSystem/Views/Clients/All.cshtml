@@ -350,6 +350,7 @@
 <h1 class="text-center my-5">
 	ALL CLIENTS
 </h1>
+
 @{
     int number = 1;
 }
@@ -362,6 +363,9 @@
         <input type="text" asp-for="@this.Model.InputModel.LastName"  placeholder="Search by lastname..."/>
     </div>
      <button class="btn btn-primary">SEARCH</button>
+     <button class="btn btn-primary text-center" style="margin-left: 10px;">
+    <a asp-controller="Clients" asp-action="Create">Create Client</a>
+</button>
 </form>
 </div> 
 

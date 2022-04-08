@@ -2,13 +2,14 @@
 {
     public class HotelInHotelsListViewModel
     {
+        public int Id { get; set; }
         public string? Name { get; set; }
 
         public string? Descripton { get; set; }
 
         public string? MainImage { get; set; }
 
-        public decimal? Price { get; set; } 
+        public decimal Price { get; set; } 
         public int Stars { get; set; }
 
         public int Discount { get; set; }

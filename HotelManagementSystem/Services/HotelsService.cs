@@ -151,9 +151,10 @@ namespace HotelManagementSystem.Services
                .OrderByDescending(h => h.Stars)
                .Select(h => new HotelInHotelsListViewModel
                {
+                   Id = h.Id,
                    Name = h.Name,
                    Descripton = h.Descripton,
-                   Price = (decimal)(h.Stars * 50 + h.Country.Name.Length + h.Town.Name.Length),
+                   Price = (decimal)(h.Rooms.Count() == 0 ? 35M : h.Rooms.Average(x => x.AdultPrice)),
                    MainImage = h.MainImage,
                    Discount = h.Discount,
                    Stars = h.Stars,
@@ -175,9 +176,10 @@ namespace HotelManagementSystem.Services
                .ThenByDescending(h => h.Stars)
                .Select(h => new HotelInHotelsListViewModel
                {
+                   Id = h.Id,
                    Name = h.Name,
                    Descripton = h.Descripton,
-                   Price = (decimal)(h.Stars * 50 + h.Country.Name.Length + h.TownId),
+                   Price = (decimal)(h.Rooms.Count() == 0 ? 35M : h.Rooms.Average(x => x.AdultPrice)),
                    MainImage = h.MainImage,
                    Discount = h.Discount,
                    Stars = h.Stars,
@@ -197,9 +199,10 @@ namespace HotelManagementSystem.Services
             var hotelsQuery = await this.dbContext.Hotels
                .Select(h => new HotelInHotelsListViewModel
                {
+                   Id = h.Id,
                    Name = h.Name,
                    Descripton = h.Descripton,
-                   Price = (decimal)(h.Stars * 50 + h.Country.Name.Length + h.TownId),
+                   Price = (decimal)(h.Rooms.Count() == 0 ? 35M : h.Rooms.Average(x => x.AdultPrice)),
                    MainImage = h.MainImage,
                    Discount = h.Discount,
                    Stars = h.Stars,
@@ -222,9 +225,10 @@ namespace HotelManagementSystem.Services
             var hotelsQuery = await this.dbContext.Hotels
                 .Select(h => new HotelInHotelsListViewModel
                 {
+                    Id = h.Id,
                     Name = h.Name,
                     Descripton = h.Descripton,
-                    Price = (decimal)(h.Stars * 50 + h.Country.Name.Length + h.TownId),
+                    Price = (decimal)(h.Rooms.Count() == 0 ? 35M : h.Rooms.Average(x => x.AdultPrice)),
                     MainImage = h.MainImage,
                     Discount = h.Discount,
                     Stars = h.Stars,
