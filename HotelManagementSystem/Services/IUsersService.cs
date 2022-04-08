@@ -1,4 +1,5 @@
-﻿using HotelManagementSystem.Models.Users;
+﻿using HotelManagementSystem.Data;
+using HotelManagementSystem.Models.Users;
 
 namespace HotelManagementSystem.Services
 {
@@ -14,6 +15,20 @@ namespace HotelManagementSystem.Services
 
         Task DeleteAsync(string id);
 
-        IEnumerable<AllUsersViewModel> GetAll();
+        Task<IEnumerable<AllUsersViewModel>> GetAll(string criteria, int page, int itemsperpage);
+
+        Task<UpdateUserInputModel> GetByIdForUpdate(string id);
+
+        IQueryable<ApplicationUser> GetUsersByUsername();
+
+        IQueryable<ApplicationUser> GetUsersByFirstname();
+
+        IQueryable<ApplicationUser> GetUsersByMiddlename();
+
+        IQueryable<ApplicationUser> GetUsersByLastname();
+
+        IQueryable<ApplicationUser> GetUsersByEmail();
+
+        int GetUsersCount();
     }
 }

@@ -53,6 +53,12 @@ namespace HotelManagementSystem.Controllers
         [Authorize]
         public async Task<IActionResult> Create(int roomId)
         {
+            var user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             CreateReservationInputModel input = new CreateReservationInputModel
             {
                 ClientItems = await this.clientsService.GetAllAsSelectListItemsAsync(),
@@ -67,6 +73,12 @@ namespace HotelManagementSystem.Controllers
         [Authorize]
         public async Task<IActionResult> Create(int roomId, CreateReservationInputModel input)
         {
+            var user2 = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user2.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 input.ClientItems = await this.clientsService.GetAllAsSelectListItemsAsync();
@@ -96,6 +108,12 @@ namespace HotelManagementSystem.Controllers
 
         public async Task<IActionResult> Edit(int id)
         {
+            var user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             EditReservationInputModel input = await this.reservationsService.GetByIdForUpdateAsync(id);
             return this.View(input);
         }
@@ -103,6 +121,12 @@ namespace HotelManagementSystem.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, EditReservationInputModel input)
         {
+            var user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(input);
@@ -123,6 +147,12 @@ namespace HotelManagementSystem.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
+            var user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             await this.reservationsService.DeleteAsync(id);
             this.TempData["Message"] = "Reservation successfully deleted!";
 
@@ -131,6 +161,12 @@ namespace HotelManagementSystem.Controllers
 
         public async Task<IActionResult> DeleteAllExpired()
         {
+            var user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             await this.reservationsService.DeleteAllExpiredAsync();
             this.TempData["Message"] = "Rooms successfully emptied!";
 

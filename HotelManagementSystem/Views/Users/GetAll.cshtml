@@ -1,0 +1,141 @@
+﻿@using HotelManagementSystem.Models.Users
+@model AllUsersListViewModel
+
+@{
+    ViewData["Title"] = "GetAll";
+
+    var criteria = new Dictionary<string, string>()
+    {
+        { "Username", "Username ascending" },
+        { "Firstname", "First Name ascending" },
+        { "Middlename", "Middle Name ascending" },
+        { "Lastname", "Last Name ascending" },
+        { "Email", "Email ascending" }
+    };
+}
+
+<h1>All users</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div id="sort-holder" class="form-group w-40 d-flex justify-content-between">
+    
+    <form id="order-form" asp-action="GetAll" method="get">
+        <label for="sort" class="text-primary font-weight-bold w-60 h4 mt-1 text-right">Order By: </label>
+        <select id="sort" class="form-control text-primary pl-2 ml-3 w-70" name="criteria">
+            @if (this.ViewData["criteria"] == null)
+            {
+                <option selected>None</option>
+            }
+            else
+            {
+                <option>None</option>
+            }
+
+            @foreach (var elem in criteria)
+            {
+                if (elem.Key == (string)this.ViewData["criteria"])
+                {
+                    <option value="@elem.Key" selected>@elem.Value</option>
+                }
+                else
+                {
+                    <option value="@elem.Key">@elem.Value</option>
+                }
+            }
+        </select>
+    </form>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Username
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Middle Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MiddleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a href="/Users/Update/@item.Id">Update</a>
+                    <a href="/Users/Delete/@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<nav aria-label="...">
+    <ul class="pagination justify-content-center">
+        <li class="page-item @if (!Model.HasPreviousPage) { <text>disabled</text> }">
+            <a class="page-link" asp-controller="Users" asp-action="GetAll" asp-route-id="@Model.PreviousPageNumber">Previous</a>
+        </li>
+        @for (int i = Model.PageNumber - 4; i < Model.PageNumber; i++)
+        {
+            if (i > 0)
+            {
+                <li class="page-item"><a class="page-link" asp-controller="Users" asp-action="GetAll" asp-route-page="@i">@i</a></li>
+            }
+        }
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">
+                @Model.PageNumber
+                <span class="sr-only">(current)</span>
+            </span>
+        </li>
+        @for (int i = Model.PageNumber + 1; i <= Model.PageNumber + 4; i++)
+        {
+            if (i <= Model.PagesCount)
+            {
+                <li class="page-item"><a class="page-link" asp-controller="Users" asp-action="GetAll" asp-route-page="@i">@i</a></li>
+            }
+        }
+        <li class="page-item @if (!Model.HasNextPage) { <text>disabled</text> }">
+            <a class="page-link" asp-action="GetAll" asp-controller="Users" asp-route-page="@Model.NextPageNumber">Next</a>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    let sortElement = document.getElementById('sort');
+
+    sortElement.addEventListener('change', function () {
+        let formElement = document.getElementById('order-form');
+        formElement.submit();
+    });
+</script>
+
+
