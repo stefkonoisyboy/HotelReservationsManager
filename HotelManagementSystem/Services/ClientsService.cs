@@ -22,9 +22,9 @@ namespace HotelManagementSystem.Services
             {
                 throw new ArgumentException("No client with this id!");
             }
-            return this.dbContext.Clients?.Select(c => new ClientViewModel()
+            return this.dbContext.Clients?.Where(c => c.Id == id).Select(c => new ClientViewModel()
             {
-                Id = id,
+                Id = c.Id,
                 FirstName = c.FirstName,
                 LastName = c.LastName,
                 PhoneNumber = c.PhoneNumber,
@@ -32,14 +32,20 @@ namespace HotelManagementSystem.Services
                 IsAdult = c.IsAdult,
                 Reservations = c.Reservations.ToList().Select(r => new ReservationViewModel()
                 {
-                    Id =  r.Id,
+                    Id = r.Id,
                     RoomName = r.Reservation.ReservedRoom.Name,
                     GeneralAmount = r.Reservation.GeneralAmount,
                     ClientsCount = r.Reservation.Clients.Count(),
                     HotelName = r.Reservation.ReservedRoom.Hotel.Name,
                     PhotoRemoteUrl = r.Reservation.ReservedRoom.Hotel.MainImage,
+                    Clients = r.Reservation.Clients.Select(rc => new AllClientsByReservationViewModel()
+                    {
+                        Id = rc.Id,
+                        FirstName = rc.Client.FirstName,
+                        LastName = rc.Client.LastName,
+                    }).ToList(),
                 }).ToList(),
-            }).FirstOrDefault(c=>c.Id == id);
+            }).FirstOrDefault();
         }
 
         public async Task<int> CreateAsync(CreateClientInputModel inputModel)
