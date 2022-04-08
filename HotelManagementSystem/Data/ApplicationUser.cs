@@ -2,7 +2,7 @@
 
 namespace HotelManagementSystem.Data
 {
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser<string>
     {
         public ApplicationUser()
         {
@@ -14,8 +14,18 @@ namespace HotelManagementSystem.Data
 
         public string FirstName { get; set; }
 
+        public string MiddleName { get; set; }
+        
         public string LastName { get; set; }
 
+        public string EGN { get; set; }
+
+        public DateTime HireDate { get; set; }
+
+        public bool IsActive { get; set; }
+
+        public DateTime? DismissalDate { get; set; }
+        
         public string ProfileImage { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }

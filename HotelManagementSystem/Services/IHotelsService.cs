@@ -3,6 +3,7 @@ using HotelManagementSystem.Models.HotelsList;
 using HotelManagementSystem.Models.IndexHotels;
 using HotelManagementSystem.Models.RecommendedHotels;
 using HotelManagementSystem.Models.SearchHotels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HotelManagementSystem.Services
 {
@@ -27,5 +28,7 @@ namespace HotelManagementSystem.Services
         Task<IEnumerable<HotelInHotelsListViewModel>> GetMostReviewsStarsHotelsList();
 
         Task<IEnumerable<HotelInHotelsListViewModel>> CheapestHotelsList();
+
+        Task<ICollection<SelectListItem>> GetHotelsAsSelectListItem();
     }
 }

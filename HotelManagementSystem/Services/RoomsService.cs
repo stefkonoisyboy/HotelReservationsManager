@@ -1,6 +1,7 @@
 ﻿using HotelManagementSystem.Data;
 using HotelManagementSystem.Data.Enumerations;
 using HotelManagementSystem.Models.Rooms;
+using Microsoft.EntityFrameworkCore;
 
 namespace HotelManagementSystem.Services
 {
@@ -45,6 +46,46 @@ namespace HotelManagementSystem.Services
             await this.dbContext.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<AllRoomsViewModel>> GetAll(int page, int itemsPerPage = 5)
+        {
+            return await this.dbContext
+                .Rooms
+                .Skip((page - 1) * itemsPerPage)
+                .Take(itemsPerPage)
+                .Select(r => new AllRoomsViewModel()
+                {
+                    Name = r.Name,
+                    HotelName = r.Hotel.Name,
+                    RoomType = r.RoomType.ToString(),
+                    IsFree =r.IsFree,
+                    Capacity = r.Capacity,
+                    AdultPrice = r.AdultPrice,
+                    ChildPrice = r.ChildPrice,
+
+                }).ToListAsync();
+        }
+
+        public async Task<IEnumerable<AllRoomsViewModel>> GetAllFiltered(int page, FilterRoomsInputModel inputModel, int itemsPerPage = 5)
+        {
+            return await this.dbContext
+                .Rooms.Where(r => r.Capacity == inputModel.Capacity ||
+                r.RoomType == (RoomType)Enum.Parse(typeof(RoomType), inputModel.RoomType) ||
+                r.IsFree == r.IsFree)
+               .Skip((page - 1) * itemsPerPage)
+               .Take(itemsPerPage)
+               .Select(r=>new AllRoomsViewModel()
+               {
+                   Name = r.Name,
+                   HotelName = r.Hotel.Name,
+                   RoomType = r.RoomType.ToString(),
+                   IsFree = r.IsFree,
+                   Capacity = r.Capacity,
+                   AdultPrice = r.AdultPrice,
+                   ChildPrice = r.ChildPrice,
+               })    
+               .ToListAsync();
+        }
+
         public UpdateRoomInputModel GetByIdForUpdate(int id)
         {
             Room room = this.dbContext.Rooms.FirstOrDefault(r => r.Id == id);
@@ -69,6 +110,18 @@ namespace HotelManagementSystem.Services
             return this.dbContext.Rooms
                 .FirstOrDefault(r => r.Id == id)
                 .Name;
+        }
+
+        public int GetRoomsCount()
+        {
+            return this.dbContext.Rooms.Count();
+        }
+
+        public int GetFilteredRoomsCount(FilterRoomsInputModel inputModel)
+        {
+            return this.dbContext.Rooms.Where(r => r.Capacity == inputModel.Capacity ||
+                r.RoomType == (RoomType)Enum.Parse(typeof(RoomType), inputModel.RoomType) ||
+                r.IsFree == r.IsFree).Count();
         }
 
         public async Task UpdateAsync(UpdateRoomInputModel inputModel)

@@ -7,6 +7,7 @@ using HotelManagementSystem.Models.RecommendedHotels;
 using HotelManagementSystem.Models.Reviews;
 using HotelManagementSystem.Models.Rooms;
 using HotelManagementSystem.Models.SearchHotels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace HotelManagementSystem.Services
@@ -306,6 +307,18 @@ namespace HotelManagementSystem.Services
             return this.dbContext.Hotels
                 .FirstOrDefault(h => h.Rooms.Any(r => r.Id == roomId))
                 .Name;
+        }
+
+        public async Task<ICollection<SelectListItem>> GetHotelsAsSelectListItem()
+        {
+            return await this.dbContext
+                .Hotels
+                .Select(h => new SelectListItem()
+                {
+                    Text = h.Name,
+                    Value = h.Id.ToString(),
+                })
+                .ToListAsync();
         }
     }
 }
