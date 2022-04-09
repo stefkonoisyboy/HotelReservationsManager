@@ -38,6 +38,8 @@ namespace HotelManagementSystem.Services
                     ClientsCount = r.Reservation.Clients.Count(),
                     HotelName = r.Reservation.ReservedRoom.Hotel.Name,
                     PhotoRemoteUrl = r.Reservation.ReservedRoom.Hotel.MainImage,
+                    IsBreakfastIncluded = r.Reservation.IsBreakfastIncluded == true ? "Yes" : "No",
+                    IsAllInclusive = r.Reservation.IsAllInclusive== true ? "Yes" : "No",
                     Clients = r.Reservation.Clients.Select(rc => new AllClientsByReservationViewModel()
                     {
                         Id = rc.Id,

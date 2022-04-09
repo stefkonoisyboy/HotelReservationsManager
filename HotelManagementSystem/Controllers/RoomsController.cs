@@ -84,7 +84,6 @@ namespace HotelManagementSystem.Controllers
             return this.RedirectToAction("Details", "Hotels");
         }
 
-        [Authorize(Roles = GlobalConstants.AdministratorRole)]
         public async Task<IActionResult> All(int page = 1)
         {
             const int itemsPerPage = 5;
@@ -117,7 +116,6 @@ namespace HotelManagementSystem.Controllers
             return this.View(viewModel);
         }
 
-        [Authorize(Roles = GlobalConstants.AdministratorRole)]
         public IActionResult ById(int id)
         {
             try

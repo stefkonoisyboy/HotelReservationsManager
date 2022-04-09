@@ -2,6 +2,7 @@
 using HotelManagementSystem.Models.Clients;
 using HotelManagementSystem.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HotelManagementSystem.Controllers
@@ -9,22 +10,36 @@ namespace HotelManagementSystem.Controllers
     public class ClientsController : Controller
     {
         private readonly IClientsService clientsService;
+        private readonly UserManager<ApplicationUser> userManager;
 
-        public ClientsController(IClientsService clientsService)
+        public ClientsController(IClientsService clientsService, UserManager<ApplicationUser> userManager)
         {
             this.clientsService = clientsService;
+            this.userManager = userManager;
         }
 
-        //[Authorize(Roles = "ApplicationUser")]
-        public IActionResult Create()
+        [Authorize(Roles = GlobalConstants.EmployeeRole)]
+        public async Task<IActionResult> Create()
         {
+            var user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             return this.View();
         }
 
         [HttpPost]
-        //[Authorize(Roles = "ApplicationUser")]
+        [Authorize(Roles = GlobalConstants.EmployeeRole)]
         public async Task<IActionResult> Create(CreateClientInputModel inputModel)
         {
+            var user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 return this.View();
@@ -36,7 +51,6 @@ namespace HotelManagementSystem.Controllers
             return this.RedirectToAction("All", "Clients");
         }
 
-        //[Authorize(Roles = "ApplicationUser")]
         public IActionResult ById(int id)
         {
             ClientViewModel? viewModel = this.clientsService.GetById(id);
@@ -44,8 +58,15 @@ namespace HotelManagementSystem.Controllers
             return this.View(viewModel);
         }
 
+        [Authorize(Roles = GlobalConstants.EmployeeRole)]
         public async Task<IActionResult> Delete(int id)
         {
+            var user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             try
             {
                 await this.clientsService.DeleteAsync(id);
@@ -59,8 +80,15 @@ namespace HotelManagementSystem.Controllers
             return this.RedirectToAction("All","Clients");
         }
 
-        public IActionResult UpdateClient(int id)
+        [Authorize(Roles = GlobalConstants.EmployeeRole)]
+        public async Task<IActionResult> UpdateClient(int id)
         {
+            var user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             UpdateClientInputModel inputModel = new UpdateClientInputModel();
             try
             {
@@ -85,10 +113,16 @@ namespace HotelManagementSystem.Controllers
             return this.View(inputModel);
         }
 
-        //[Authorize(Roles="ApplicationUser")]
+        [Authorize(Roles = GlobalConstants.EmployeeRole)]
         [HttpPost]
         public async Task<IActionResult> UpdateClient(UpdateClientInputModel inputModel)
         {
+            var user = await this.userManager.GetUserAsync(HttpContext.User);
+            if (user.DismissalDate != null)
+            {
+                return LocalRedirect("/Account/AccessDenied");
+            }
+
             if (!this.ModelState.IsValid)
             {
                 return this.View(inputModel);
@@ -99,6 +133,7 @@ namespace HotelManagementSystem.Controllers
             return this.RedirectToAction("All", "Clients");
         }
 
+        
         public async Task<IActionResult> All(int page = 1)
         {
             const int itemsPerPage = 5;
